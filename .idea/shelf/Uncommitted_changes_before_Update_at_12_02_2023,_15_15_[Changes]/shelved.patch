@@ -1,0 +1,84 @@
+Index: src/main/resources/css/style.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>.bottom_bar_color {\n    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #0B1E3E, #4E154C);\n}\n\n.body-background {\n    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #4E154C, #085A89);\n}\n\n.transparent {\n    -fx-background-color: rgba(0, 0, 0, 0);\n}\n\n.search-background {\n    -fx-background-color: #787A8F;\n    -fx-background-radius: 50;\n}\n\n.Menu-bar-background {\n    -fx-background-color: #FF5959;\n    -fx-background-radius: 0 30 30 0;\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/css/style.css b/src/main/resources/css/style.css
+--- a/src/main/resources/css/style.css	(revision 50153f8e6178acef38a4ed6ab8edb8a4ac0f3e3d)
++++ b/src/main/resources/css/style.css	(date 1676189695205)
+@@ -3,7 +3,7 @@
+ }
+ 
+ .body-background {
+-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #4E154C, #085A89);
++    -fx-background-color: white;
+ }
+ 
+ .transparent {
+@@ -11,11 +11,11 @@
+ }
+ 
+ .search-background {
+-    -fx-background-color: #787A8F;
++    -fx-background-color: #dee2e6;
+     -fx-background-radius: 50;
+ }
+ 
+ .Menu-bar-background {
+-    -fx-background-color: #FF5959;
++    -fx-background-color: #868e96;
+     -fx-background-radius: 0 30 30 0;
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"6a5163a8-c47b-40ce-86de-968bc74dba79\" name=\"Changes\" comment=\"bang\">\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/css/style.css\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/img/play-button.png\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/img/play-button.png\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/hello-view.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/hello-view.fxml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"FxmlFile\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"MavenImportPreferences\">\n    <option name=\"importingSettings\">\n      <MavenImportingSettings>\n        <option name=\"workspaceImportEnabled\" value=\"true\" />\n      </MavenImportingSettings>\n    </option>\n  </component>\n  <component name=\"ProblemsViewState\">\n    <option name=\"selectedTabId\" value=\"ProjectErrors\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2LcREYkfh16pYjdzu4AlRCacL4x\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/Users/bangpham/Documents/Yasuo hasagi/MediaProject_OOD&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  }\n}</component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"6a5163a8-c47b-40ce-86de-968bc74dba79\" name=\"Changes\" comment=\"\" />\n      <created>1676168278944</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1676168278944</updated>\n      <workItem from=\"1676168279953\" duration=\"4442000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"second commit\">\n      <created>1676170105282</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1676170105282</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"second commit\">\n      <created>1676172743391</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1676172743391</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"bang\">\n      <created>1676177625422</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1676177625422</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"4\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"FILTERS\">\n                <map>\n                  <entry key=\"branch\">\n                    <value>\n                      <list>\n                        <option value=\"origin/master\" />\n                      </list>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"RECENT_FILTERS\">\n      <map>\n        <entry key=\"User\">\n          <value>\n            <list>\n              <RecentGroup>\n                <option name=\"FILTER_VALUES\">\n                  <option value=\"szhin\" />\n                </option>\n              </RecentGroup>\n            </list>\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"second commit\" />\n    <MESSAGE value=\"bang\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"bang\" />\n  </component>\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\n    <expand />\n    <select />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 50153f8e6178acef38a4ed6ab8edb8a4ac0f3e3d)
++++ b/.idea/workspace.xml	(date 1676189459471)
+@@ -4,11 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="bang">
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
++    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="bang-ui">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/play-button.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/play-button.png" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/hello-view.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -93,7 +91,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1676177625422</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="bang-ui">
++      <created>1676182888876</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1676182888876</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -140,7 +145,8 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="second commit" />
+     <MESSAGE value="bang" />
+-    <option name="LAST_COMMIT_MESSAGE" value="bang" />
++    <MESSAGE value="bang-ui" />
++    <option name="LAST_COMMIT_MESSAGE" value="bang-ui" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />

@@ -1,9 +1,11 @@
 .bottom_bar_color {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #0B1E3E, #4E154C);
+    -fx-background-color: white;
 }
 
-.body-background {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #4E154C, #085A89);
+.all_body {
+    -fx-background-color: #f0f7fc;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+
 }
 
 .transparent {
@@ -11,12 +13,11 @@
 }
 
 .search-background {
-    -fx-background-color: #787A8F;
+    -fx-background-color: white;
     -fx-background-radius: 50;
 }
 
-.Menu-bar-background {
-    -fx-background-color: #FF5959;
-    -fx-background-radius: 0 30 30 0;
-
+.left-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 0 10 10 0;
 }
