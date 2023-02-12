@@ -1,0 +1,8 @@
+This is an documents about this project, including complex algorithms and others
+!!! IMPORTANT: to expressing algorithms of code:
+      - code line: ex: 100-120
+      - express what methods do: ex: file input
+      - express the algorithms: ex: use File class to create file, and while (file.hasNextLine()) use BufferedReader to read line;
+      
+      
+      
