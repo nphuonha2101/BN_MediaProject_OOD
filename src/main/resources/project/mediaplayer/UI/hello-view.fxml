@@ -4,154 +4,69 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="1024.0" styleClass="all_body" stylesheets="@../../../css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane prefHeight="756.0" prefWidth="243.0" styleClass="left-pane" stylesheets="@../../../css/style.css">
-         <children>
-            <ImageView fitHeight="44.0" fitWidth="56.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../img/spotify.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="70.0" layoutY="17.0" prefHeight="44.0" prefWidth="135.0" text="NhaBang Music ">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="44.0" fitWidth="38.0" layoutX="17.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../img/home.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="17.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../img/music-list.png" />
-               </image>
-            </ImageView>
-            <Text layoutX="70.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-            </Text>
-            <Text layoutX="70.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Library">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="17.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../img/add.png" />
-               </image>
-            </ImageView>
-            <Text layoutX="70.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Playlist">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-            </Text>
-            <Pane layoutY="655.0" prefHeight="101.0" prefWidth="1024.0" styleClass="left-pane" stylesheets="@../../../css/style.css">
+      <HBox prefHeight="62.0" prefWidth="200.0" styleClass="bottom_bar_color" stylesheets="@../../../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <BorderPane prefHeight="694.0" prefWidth="200.0" styleClass="body-background" stylesheets="@../../../css/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Pane prefHeight="113.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="70.0" fitWidth="76.0" layoutX="21.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../img/headphones.png" />
+                        <Image url="@../../../img/spotify.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="44.0" fitWidth="38.0" layoutX="559.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../img/play.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="617.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../img/next.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="506.0" layoutY="20.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../img/next.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="463.0" layoutY="23.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../img/random-button.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="672.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" y="2.0">
-                     <image>
-                        <Image url="@../../../img/replay.png" />
-                     </image>
-                  </ImageView>
-                  <Text layoutX="452.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="_____________________________" wrappingWidth="289.3916015625">
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="505.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="103.0" layoutY="54.0" text="Music" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="17.0" />
+                        <Font size="19.0" />
                      </font>
-                  </Text>
-                  <Text layoutX="423.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1:55" y="-4.0">
+                  </Label>
+                  <Label layoutX="103.0" layoutY="30.0" text="NhaBang " textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="11.0" />
+                        <Font size="19.0" />
                      </font>
-                  </Text>
-                  <Text layoutX="720.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4:13" y="-4.0">
-                     <font>
-                        <Font name="System Bold" size="11.0" />
-                     </font>
-                  </Text>
-                  <ImageView fitHeight="22.0" fitWidth="20.0" layoutX="887.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" y="2.0">
-                     <image>
-                        <Image url="@../../../img/volume.png" />
-                     </image>
-                  </ImageView>
-                  <Text layoutX="914.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="_________" wrappingWidth="83.20703125" y="-4.0">
-                     <font>
-                        <Font name="System Bold" size="17.0" />
-                     </font>
-                  </Text>
+                  </Label>
+                  <HBox layoutX="386.0" layoutY="34.0" prefHeight="46.0" prefWidth="253.0" stylesheets="@../../../css/style.css">
+                     <children>
+                        <ImageView fitHeight="28.0" fitWidth="26.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../img/search.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" top="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <TextField alignment="CENTER" prefHeight="41.0" prefWidth="206.0" promptText="Search for Songs, Artists, ...." styleClass="transparent" stylesheets="@../../../css/style.css">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <styleClass>
+                        <String fx:value="transparent" />
+                        <String fx:value="search-background" />
+                     </styleClass>
+                  </HBox>
                </children>
-            </Pane>
-            <ImageView fitHeight="214.0" fitWidth="151.0" layoutX="85.0" layoutY="528.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../img/jisoo.jpeg" />
-               </image>
-               <effect>
-                  <DropShadow radius="15.895" width="44.58" />
-               </effect>
-            </ImageView>
-         </children>
-         <effect>
-            <DropShadow height="9.025" radius="6.268750000000001" spread="0.05" width="18.05" />
-         </effect>
-      </Pane>
-      <HBox alignment="CENTER" layoutX="279.0" layoutY="14.0" prefHeight="44.0" prefWidth="243.0" stylesheets="@../../../css/style.css">
-         <children>
-            <ImageView fitHeight="24.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../img/search.png" />
-               </image>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" top="10.0" />
-               </HBox.margin>
-            </ImageView>
-            <TextField alignment="CENTER" prefHeight="29.0" prefWidth="197.0" promptText="Search for Songs, Artists, ...." styleClass="transparent" stylesheets="@../../../css/style.css">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </TextField>
-         </children>
-         <styleClass>
-            <String fx:value="transparent" />
-            <String fx:value="search-background" />
-         </styleClass>
-         <effect>
-            <DropShadow />
-         </effect>
-      </HBox>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></Pane>
+         </top>
+         <left>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox layoutY="191.0" prefHeight="200.0" prefWidth="100.0" styleClass="Menu-bar-background" stylesheets="@../../../css/style.css" />
+               </children></Pane>
+         </left></BorderPane>
    </children>
 </AnchorPane>

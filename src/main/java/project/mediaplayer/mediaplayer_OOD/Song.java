@@ -7,10 +7,10 @@ public class Song {
     private String singer;
     private String genre;
     private boolean isFavorite;
-    private int songDuration;
+    private Time songDuration;
     private String songPath;
 
-    public Song(String songName, String singer, String genre, boolean isFavorite, int songDuration, String songPath) {
+    public Song(String songName, String singer, String genre, boolean isFavorite, Time songDuration, String songPath) {
         this.songName = songName;
         this.singer = singer;
         this.genre = genre;
@@ -38,8 +38,8 @@ public class Song {
         return isFavorite;
     }
 
-    public int getSongDuration() {
-        return songDuration;
+    public Time getSongDuration() {
+        return this.songDuration;
     }
 
     public String getSongPath() {
@@ -67,7 +67,7 @@ public class Song {
         isFavorite = favorite;
     }
 
-    public void setSongDuration(int songDuration) {
+    public void setSongDuration(Time songDuration) {
         this.songDuration = songDuration;
     }
 
