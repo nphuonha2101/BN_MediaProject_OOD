@@ -15,4 +15,9 @@ public class MediaPlayerController {
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
+
+    @FXML
+    protected void setButton() {
+    }
+
 }
