@@ -38,12 +38,6 @@ public abstract class Playlists {
 //        return result;
 //    }
     public static int number(int totalNumber) {
-//        Random rd = new Random();
-//        int number = rd.nextInt(0, 10);
-//        if (!result.contains(number)) {
-//            result.add(number);
-//        }
-//        return result;
         Random rd = new Random();
         int number = rd.nextInt(0, totalNumber);
         return number;
@@ -79,7 +73,6 @@ public abstract class Playlists {
 
     public static void main(String[] args) {
         ArrayList<Integer> arrayList = new ArrayList<>();
-//        System.out.println(arrayList);
         System.out.println(shuffleNumber(arrayList, 10, 10));
     }
 
