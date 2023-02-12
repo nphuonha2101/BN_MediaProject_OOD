@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="bang">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/home.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/home.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/music-list.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/music-list.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/pause-button.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/pause-button.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/play-button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/random-button.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/random-button.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/replay-button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/search.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/search.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/spotify.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/spotify.png" afterDir="false" />
-    </list>
+    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="bang-ui2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +18,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -99,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676177625422</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="bang-ui2">
+      <created>1676196189677</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1676196189677</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,7 +143,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="second commit" />
     <MESSAGE value="bang" />
-    <option name="LAST_COMMIT_MESSAGE" value="bang" />
+    <MESSAGE value="bang-ui2" />
+    <option name="LAST_COMMIT_MESSAGE" value="bang-ui2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
