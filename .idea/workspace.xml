@@ -5,14 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="second commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/hello-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/src/main/java/com/example/project/HelloApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/src/main/java/com/example/project/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/src/main/resources/com/example/project/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -38,6 +51,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/bangpham/Documents/Yasuo hasagi/MediaProject_OOD",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
