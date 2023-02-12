@@ -1,9 +1,9 @@
-package project.mediaplayer.mediaproject_ood;
+package project.mediaplayer.UI;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class MediaPlayerController {
     @FXML
     private Label welcomeText;
 
