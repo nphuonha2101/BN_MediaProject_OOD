@@ -19,12 +19,6 @@ public abstract class Playlists {
         this.dateCreation = dateCreation;
         this.playlistDuration = playlistDuration;
     }
-//    public void repeat(boolean loop) {
-//        for (int i = 0; i < this.songs.size() - 1; i++) {
-//            if (i == this.songs.size() - 1) {
-//        }
-//
-//    }
     // generate shuffle number without repeat => WORKED
     public ArrayList<Integer> shuffleNumber() {
         ArrayList<Integer> result = new ArrayList<>();
@@ -34,7 +28,6 @@ public abstract class Playlists {
             int number = rd.nextInt(0, 10);
             if (!result.contains(number)) {
                 result.add(number);
-//                System.out.print(number);
                 if (result.size() >= 10) break;
             }
         }
