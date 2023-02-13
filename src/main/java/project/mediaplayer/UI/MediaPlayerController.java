@@ -18,6 +18,7 @@ public class MediaPlayerController {
 
     @FXML
     protected void setButton() {
+
     }
 
 }

@@ -19,61 +19,32 @@ public abstract class Playlists {
         this.dateCreation = dateCreation;
         this.playlistDuration = playlistDuration;
     }
-
-
-    // generate shuffle number without repeat
-//    public static ArrayList<Integer> shuffleNumber() {
-//        ArrayList<Integer> result = new ArrayList<Integer>();
-//        Random rd = new Random();
-//        while (result.size() <= 10) {
-//            int number = rd.nextInt(0, 10);
-//            if (!result.contains(number)) {
-//                result.add(number);
-//                System.out.print(number);
-//            }
-//            else {
-////                System.out.println(result);
-//            }
+//    public void repeat(boolean loop) {
+//        for (int i = 0; i < this.songs.size() - 1; i++) {
+//            if (i == this.songs.size() - 1) {
 //        }
-//        return result;
+//
 //    }
-    public static int number(int totalNumber) {
+    // generate shuffle number without repeat => WORKED
+    public ArrayList<Integer> shuffleNumber() {
+        ArrayList<Integer> result = new ArrayList<>();
+
         Random rd = new Random();
-        int number = rd.nextInt(0, totalNumber);
-        return number;
-    }
-    public static ArrayList<Integer> shuffleNumber(ArrayList<Integer> result, int count, int totalNumber) {
-        if (count == 0) {
-            return result;
-        } else {
-            int number = number(totalNumber);
+        while (true) {
+            int number = rd.nextInt(0, 10);
             if (!result.contains(number)) {
                 result.add(number);
-                return  shuffleNumber(result, count - 1, totalNumber);
-            } else {
-                return shuffleNumber(result, count, totalNumber);
+//                System.out.print(number);
+                if (result.size() >= 10) break;
             }
         }
+        return result;
     }
-//    public static ArrayList<Integer> shuffleNumber() {
-//        ArrayList<Integer> result = new ArrayList<Integer>();
-//        Random rd = new Random();
-//        while (result.size() <= 10) {
-//            int number = rd.nextInt(0, 10);
-//            if (!result.contains(number)) {
-//                result.add(number);
-//                System.out.print(number);
-//            }
-//            else {
-////                System.out.println(result);
-//            }
-//        }
-//        return result;
-//    }
+
+
 
     public static void main(String[] args) {
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        System.out.println(shuffleNumber(arrayList, 10, 10));
+
     }
 
 }
