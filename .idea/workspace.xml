@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="bang-ui3">
+    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="bang-randomList2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/mediaplayer_OOD/Playlists.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/mediaplayer_OOD/Playlists.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +106,21 @@
       <option name="project" value="LOCAL" />
       <updated>1676200004708</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="bang-randomList">
+      <created>1676222175983</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1676222175983</updated>
+    </task>
+    <task id="LOCAL-00007" summary="bang-randomList2">
+      <created>1676222214276</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1676222214276</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,18 +169,9 @@
     <MESSAGE value="bang" />
     <MESSAGE value="bang-ui2" />
     <MESSAGE value="bang-ui3" />
-    <option name="LAST_COMMIT_MESSAGE" value="bang-ui3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/project/mediaplayer/mediaplayer_OOD/Playlists.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="bang-randomList" />
+    <MESSAGE value="bang-randomList2" />
+    <option name="LAST_COMMIT_MESSAGE" value="bang-randomList2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
