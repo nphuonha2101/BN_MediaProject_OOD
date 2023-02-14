@@ -9,8 +9,9 @@
     -fx-text-fill: #028f76;
 }
 
-.button:pressed{
+.button:focused{
     -fx-text-fill: #028f76;
     -fx-background-radius: 10;
+    -fx-background-color: #feeaad;
 
 }

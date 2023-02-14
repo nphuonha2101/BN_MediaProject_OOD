@@ -88,6 +88,9 @@
                </padding>
             </Button>
          </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
       </VBox>
       <HBox alignment="CENTER" layoutY="404.0" prefHeight="100.0" prefWidth="699.0" style="-fx-background-color: #f3f3f3;" stylesheets="@../../../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
