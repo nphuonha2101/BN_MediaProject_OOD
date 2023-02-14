@@ -36,6 +36,15 @@ public abstract class Playlists {
 
 
 
+//    public Song findSong(String songName) {
+//        Song result;
+//        for (Song song: songs
+//             ) {
+//            if (song.getSongName().equalsIgnoreCase(songName))
+//                result = song;
+//        }
+//        return result;
+//    }
     public static void main(String[] args) {
 
     }

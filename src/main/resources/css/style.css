@@ -1,23 +1,16 @@
-.bottom_bar_color {
-    -fx-background-color: white;
+.button {
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+    -fx-font-size: 13;
+    -fx-text-fill: #5c5c5c;
 }
 
-.all_body {
-    -fx-background-color: #f0f7fc;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
-
+.button:hover {
+    -fx-text-fill: #028f76;
 }
 
-.transparent {
-    -fx-background-color: rgba(0, 0, 0, 0);
-}
+.button:pressed{
+    -fx-text-fill: #028f76;
+    -fx-background-radius: 10;
 
-.search-background {
-    -fx-background-color: white;
-    -fx-background-radius: 50;
-}
-
-.left-pane {
-    -fx-background-color: white;
-    -fx-background-radius: 0 10 10 0;
 }
