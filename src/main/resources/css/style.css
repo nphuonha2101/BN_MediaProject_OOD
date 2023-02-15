@@ -15,3 +15,14 @@
     -fx-background-color: #feeaad;
 
 }
+
+#buttonOpenFolder {
+    -fx-text-fill: #5c5c5c;
+    -fx-background-color: transparent;
+}
+
+#buttonOpenFolder:pressed{
+    -fx-text-fill: #028f76;
+    -fx-background-radius: 10;
+    -fx-background-color: #feeaad;
+}

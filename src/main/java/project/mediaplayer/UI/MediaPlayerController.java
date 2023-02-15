@@ -2,17 +2,13 @@ package project.mediaplayer.UI;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
-import java.lang.Object;
-import javafx.scene.media.Media;
+import project.mediaplayer.model.CurrentPlaylist;
+import project.mediaplayer.model.Files;
+import project.mediaplayer.model.Playlists;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 public class MediaPlayerController {
 
@@ -44,5 +40,31 @@ public class MediaPlayerController {
 //        return result;
 //    }
 
+    @FXML
+    protected void chooseFile() {
+        Files files = new Files();
+//        ArrayList<File> files = new ArrayList<>();
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setTitle("Open Music");
+//        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Audio Files *.wav", "*.wav"));
+        File directory = directoryChooser.showDialog(null);
+        if (directory != null) {
+            for (File file : directory.listFiles()) {
+                files.addFile(file);
+            }
+        }
+
+        for (File file: files.getFiles()
+             ) {
+            System.out.println(file.getPath());
+        }
+//
+    }
+
+//    @FXML
+//    protected void playMusic() {
+//        Playlists playlists = new CurrentPlaylist();
+//
+//    }
 
 }

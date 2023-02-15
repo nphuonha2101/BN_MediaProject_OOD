@@ -1,4 +1,4 @@
-package project.mediaplayer.mediaplayer_OOD;
+package project.mediaplayer.model;
 
 public class Time {
 
