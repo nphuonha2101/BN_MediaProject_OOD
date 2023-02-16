@@ -1,12 +1,16 @@
 package project.mediaplayer.UI;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.DirectoryChooser;
-import project.mediaplayer.model.CurrentPlaylist;
-import project.mediaplayer.model.FavoritePlaylist;
-import project.mediaplayer.model.Files;
+import javafx.util.Callback;
+import project.mediaplayer.model.*;
 
 import java.io.File;
 
@@ -22,18 +26,20 @@ public class MediaPlayerController {
     private Button libraryButton;
 
     @FXML
-    private ImageView nextButton;
+    private ListView<Song> listView;
 
     @FXML
-    private ImageView playButton;
-
-    @FXML
-    private ImageView previousButton;
+    private Button openFolder;
 
     @FXML
     private Button settingButton;
 
+    @FXML
+    private Label headerLabel;
 
+    private MainPlaylist mainPlaylist = new MainPlaylist(Playlists.MAIN_PLAYLIST);
+    private FavoritePlaylist favoritePlaylist = new FavoritePlaylist(Playlists.FAVORITE_PLAYLIST);
+    private ObservableList<Song> songItems = FXCollections.observableArrayList();
 
 //    private String splitFileName(String path) {
 //        String result = "";
@@ -45,8 +51,6 @@ public class MediaPlayerController {
     @FXML
     protected void chooseFile() {
         Files files = new Files();
-        CurrentPlaylist currentPlaylist = new CurrentPlaylist(false);
-        FavoritePlaylist favoritePlaylist = new FavoritePlaylist(true);
 //        ArrayList<File> files = new ArrayList<>();
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Open Music Folder");
@@ -58,25 +62,65 @@ public class MediaPlayerController {
             }
         }
 
-        for (File file: files.getFiles()
-             ) {
-            System.out.println(file.getPath());
-        }
+//        for (File file : files.getFiles()
+//        ) {
+//            System.out.println(file.getPath());
+//        }
 
-        currentPlaylist.addSongs(files);
+        mainPlaylist.addSongs(files);
 
-        favoritePlaylist.addSongToFavorite(currentPlaylist);
+        favoritePlaylist.addSongToFavorite(mainPlaylist);
 
-        System.out.println(currentPlaylist);
-        System.out.println(favoritePlaylist);
-//
+//        System.out.println(mainPlaylist);
+//        System.out.println(favoritePlaylist);
+        addToListView();
+
+
     }
 
     @FXML
     protected void playMusic() {
 
+    }
 
+    @FXML
+    protected void mainPlaylistLView() {
 
+    }
+
+    private void addToListView() {
+        // set imported Song to list view
+
+        listView.setCellFactory(new Callback<ListView<Song>, ListCell<Song>>() {
+            @Override
+            public ListCell<Song> call(ListView<Song> songListView) {
+                return new ListCell<Song>() {
+                    private Label songName = new Label();
+                    private Button favoriteBtn = new Button("Favorite");
+                    private Label songPath = new Label();
+                    private BorderPane bdPane = new BorderPane(songName, null, favoriteBtn, null, songPath);
+
+                    @Override
+                    protected void updateItem(Song song, boolean empty) {
+                        if (song == null || empty) {
+                            setText(null);
+                            setGraphic(null);
+                        } else {
+                            setText(song.getSongName());
+                            setGraphic(bdPane);
+                        }
+                    }
+                };
+            }
+        });
+        //        for (Song song : mainPlaylist.getSongs()
+        //        ) {
+        //            songItems.add(song.getSongName());
+        //        }
+        songItems.addAll(mainPlaylist.getSongs());
+        System.out.println(mainPlaylist);
+        System.out.println(songItems);
+        listView.setItems(songItems);
     }
 
 }

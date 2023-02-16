@@ -26,3 +26,21 @@
     -fx-background-radius: 10;
     -fx-background-color: #feeaad;
 }
+
+.list-view {
+    -fx-background-color: transparent;
+    -fx-background-radius: 5px;
+}
+
+.list-cell {
+    -fx-background-radius: 5px;
+    -fx-padding: 2px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+}
+.list-cell:odd {
+    -fx-background-color: #b2e098;
+}
+.list-cell:even {
+    -fx-background-color: #a5e8e1;
+}
