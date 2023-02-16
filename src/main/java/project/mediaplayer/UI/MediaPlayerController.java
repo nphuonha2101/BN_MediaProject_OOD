@@ -5,17 +5,18 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.DirectoryChooser;
-import javafx.util.Callback;
+import javafx.stage.Stage;
 import project.mediaplayer.model.*;
 
 import java.io.File;
+import java.util.StringTokenizer;
 
 public class MediaPlayerController {
 
+    @FXML
+    private Button aboutButton;
     @FXML
     private Button favoriteButton;
 
@@ -26,7 +27,7 @@ public class MediaPlayerController {
     private Button libraryButton;
 
     @FXML
-    private ListView<Song> listView;
+    private ListView<String> listView;
 
     @FXML
     private Button openFolder;
@@ -37,20 +38,21 @@ public class MediaPlayerController {
     @FXML
     private Label headerLabel;
 
+    @FXML
+    private Button favoriteSongButton;
+
+    @FXML
+    private Label songNameLabel;
+
     private MainPlaylist mainPlaylist = new MainPlaylist(Playlists.MAIN_PLAYLIST);
     private FavoritePlaylist favoritePlaylist = new FavoritePlaylist(Playlists.FAVORITE_PLAYLIST);
-    private ObservableList<Song> songItems = FXCollections.observableArrayList();
-
-//    private String splitFileName(String path) {
-//        String result = "";
-//        int a = path.lastIndexOf("/");
-//        result = path.substring(a + 1);
-//        return result;
-//    }
+    private CurrentPlaylist currentPlaylist = new CurrentPlaylist(Playlists.CURRENT_PLAYLIST);
+    private ObservableList<String> songItems = FXCollections.observableArrayList();
 
     @FXML
     protected void chooseFile() {
         Files files = new Files();
+        files.clearAll();
 //        ArrayList<File> files = new ArrayList<>();
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Open Music Folder");
@@ -62,17 +64,8 @@ public class MediaPlayerController {
             }
         }
 
-//        for (File file : files.getFiles()
-//        ) {
-//            System.out.println(file.getPath());
-//        }
-
         mainPlaylist.addSongs(files);
-
         favoritePlaylist.addSongToFavorite(mainPlaylist);
-
-//        System.out.println(mainPlaylist);
-//        System.out.println(favoritePlaylist);
         addToListView();
 
 
@@ -85,42 +78,64 @@ public class MediaPlayerController {
 
     @FXML
     protected void mainPlaylistLView() {
+        currentPlaylist.addSongFromOtherPlaylist(mainPlaylist);
+        headerLabel.setText("Home");
+        addToListView();
+    }
 
+    @FXML
+    protected void favoritePlaylistLView() {
+        currentPlaylist.addSongFromOtherPlaylist(favoritePlaylist);
+        headerLabel.setText("Favorite");
+        addToListView();
     }
 
     private void addToListView() {
         // set imported Song to list view
+        listView.getItems().clear();
 
-        listView.setCellFactory(new Callback<ListView<Song>, ListCell<Song>>() {
-            @Override
-            public ListCell<Song> call(ListView<Song> songListView) {
-                return new ListCell<Song>() {
-                    private Label songName = new Label();
-                    private Button favoriteBtn = new Button("Favorite");
-                    private Label songPath = new Label();
-                    private BorderPane bdPane = new BorderPane(songName, null, favoriteBtn, null, songPath);
+        for (Song song : mainPlaylist.getSongs()
+        ) {
+            songItems.add(song.getSongName() + "\n" + song.getSongPath());
+        }
 
-                    @Override
-                    protected void updateItem(Song song, boolean empty) {
-                        if (song == null || empty) {
-                            setText(null);
-                            setGraphic(null);
-                        } else {
-                            setText(song.getSongName());
-                            setGraphic(bdPane);
-                        }
-                    }
-                };
-            }
-        });
-        //        for (Song song : mainPlaylist.getSongs()
-        //        ) {
-        //            songItems.add(song.getSongName());
-        //        }
-        songItems.addAll(mainPlaylist.getSongs());
         System.out.println(mainPlaylist);
         System.out.println(songItems);
         listView.setItems(songItems);
     }
+
+    @FXML
+    private void selectedListItem() {
+        String item = listView.getSelectionModel().getSelectedItem();
+        songNameLabel.setText(splitSongNameLView(item));
+//        songNameLabel.setText(slitPathLView(item));
+    }
+
+    // open About Stage
+    @FXML
+    private void openAbout() throws Exception {
+        Stage stage = new Stage();
+        AboutApplication application = new AboutApplication();
+        application.start(stage);
+    }
+
+    // slit song name from list view item
+    private String splitSongNameLView(String str) {
+        String result= "";
+        StringTokenizer tokenizer = new StringTokenizer(str, "\n");
+        result = tokenizer.nextToken();
+        return result;
+    }
+
+    // split song's path from list view item
+    private String slitPathLView(String str) {
+        String result = "";
+        StringTokenizer tokenizer = new StringTokenizer(str, "\n");
+        tokenizer.nextToken();
+        result = tokenizer.nextToken();
+        return result;
+    }
+
+
 
 }

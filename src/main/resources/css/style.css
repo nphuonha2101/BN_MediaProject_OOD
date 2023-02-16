@@ -16,12 +16,12 @@
 
 }
 
-#buttonOpenFolder {
+#buttonOpenFolder, #aboutButton {
     -fx-text-fill: #5c5c5c;
     -fx-background-color: transparent;
 }
 
-#buttonOpenFolder:pressed{
+#buttonOpenFolder:pressed, #aboutButton:pressed{
     -fx-text-fill: #028f76;
     -fx-background-radius: 10;
     -fx-background-color: #feeaad;
@@ -35,12 +35,31 @@
 .list-cell {
     -fx-background-radius: 5px;
     -fx-padding: 2px;
-    -fx-border-insets: 5px;
-    -fx-background-insets: 5px;
+    -fx-background-insets: 2px;
+
 }
 .list-cell:odd {
     -fx-background-color: #b2e098;
 }
 .list-cell:even {
     -fx-background-color: #a5e8e1;
+}
+#contentVBox {
+    -fx-background-color: #f3f3f3;
+}
+
+#okButton {
+    -fx-border-color: #5c5c5c;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-color: transparent;
+}
+
+#okButton:pressed {
+    -fx-background-color: #72e4e7;
+    -fx-text-fill: #5c5c5c;
+}
+
+#okButton:hover {
+    -fx-border-color: #72e4e7;
 }

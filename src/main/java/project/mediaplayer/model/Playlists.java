@@ -62,17 +62,10 @@ public abstract class Playlists {
 //        }
 //    }
 
-    public void addToListView() {
-        ObservableList<String> listViewSongs = FXCollections.observableArrayList();
-        ListView listView = new ListView((Element) listViewSongs);
-        for (Song song : this.songs
-        ) {
-
-
-        }
-    }
-
-
+   public void addSongFromOtherPlaylist(Playlists other) {
+        this.songs.clear();
+        this.songs.addAll(other.getSongs());
+   }
 
     // GETTER METHODS
     public String getPlaylistName() {

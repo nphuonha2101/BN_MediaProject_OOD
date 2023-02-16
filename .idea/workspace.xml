@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Nguyen Phuong Nha - add Music to Playlists">
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MainPlaylist.java" afterDir="false" />
+    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Nguyen Phuong Nha - Customize UI">
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/AboutApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/AboutController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/icons8-info-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/about.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/CurrentPlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/CurrentPlaylist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FavoritePlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FavoritePlaylist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MainPlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MainPlaylist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Playlists.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Playlists.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/hello-view.fxml" afterDir="false" />
@@ -37,14 +40,8 @@
   <component name="LineStatusTrackerManager">
     <file path="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Playlists.java">
       <ranges>
-        <range start1="6" end1="7" start2="6" end2="6" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
-        <range start1="8" end1="9" start2="7" end2="7" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
-        <range start1="13" end1="14" start2="11" end2="12" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
-        <range start1="18" end1="19" start2="16" end2="17" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
-        <range start1="20" end1="22" start2="18" end2="23" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
-        <range start1="42" end1="44" start2="43" end2="43" changelist="62022e38-41b2-449d-b110-a8cef305df5f" />
-        <range start1="80" end1="82" start2="79" end2="81" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
-        <range start1="94" end1="96" start2="93" end2="95" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
+        <range start1="43" end1="45" start2="43" end2="43" changelist="62022e38-41b2-449d-b110-a8cef305df5f" />
+        <range start1="64" end1="75" start2="62" end2="66" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
       </ranges>
     </file>
   </component>
@@ -59,7 +56,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2LcREYkfh16pYjdzu4AlRCacL4x" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -88,6 +85,19 @@
   }
 }</component>
   <component name="RunManager" selected="Application.MediaPlayerApplication">
+    <configuration name="AboutApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="project.mediaplayer.UI.AboutApplication" />
+      <module name="MediaProject_OOD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.mediaplayer.UI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Files" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="project.mediaplayer.model.Files" />
       <module name="MediaProject_OOD" />
@@ -143,6 +153,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MediaPlayerApplication" />
+        <item itemvalue="Application.AboutApplication" />
         <item itemvalue="Application.Player" />
         <item itemvalue="Application.Playlists" />
         <item itemvalue="Application.Files" />
@@ -162,7 +173,8 @@
       <workItem from="1676473186260" duration="7558000" />
       <workItem from="1676483214440" duration="120000" />
       <workItem from="1676513956843" duration="3275000" />
-      <workItem from="1676556079019" duration="11113000" />
+      <workItem from="1676556079019" duration="12769000" />
+      <workItem from="1676645973835" duration="10098000" />
     </task>
     <task id="LOCAL-00001" summary="second commit">
       <created>1676170105282</created>
@@ -227,7 +239,28 @@
       <option name="project" value="LOCAL" />
       <updated>1676560775775</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Nguyen Phuong Nha - ListView">
+      <created>1676568102218</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1676568102218</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Nguyen Phuong Nha - Customize UI">
+      <created>1676569662746</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1676569662746</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Nguyen Phuong Nha - Customize UI">
+      <created>1676657188773</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1676657188773</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,7 +313,9 @@
     <MESSAGE value="Nguyen Phuong Nha - new UI - 2" />
     <MESSAGE value="Bang, Nha - improve model functions" />
     <MESSAGE value="Nguyen Phuong Nha - add Music to Playlists" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nguyen Phuong Nha - add Music to Playlists" />
+    <MESSAGE value="Nguyen Phuong Nha - ListView" />
+    <MESSAGE value="Nguyen Phuong Nha - Customize UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nguyen Phuong Nha - Customize UI" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

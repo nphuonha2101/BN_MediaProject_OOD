@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.mediaplayer.UI.AboutController">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f3f3f3;" stylesheets="@../../../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                     <image>
+                        <Image url="@../../../img/icons8-info-96.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="65.0" prefWidth="460.0" text="About" textFill="#5c5c5c">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <TextArea editable="false" prefHeight="163.0" prefWidth="560.0" style="-fx-background-radius: 5; -fx-border-color: transparent;" stylesheets="@../../../css/style.css" text="B&amp;N Media Player v0.1 Release 2023&#10;&#10;This program was written by Pham Cao Bang and Nguyen Phuong Nha for Object Orientation Design subject. Technicals have been used for this project included: &#10;- JavaFX (Scene Builder) for building UI&#10;- FXML for JavaFX to Hieraching the components of the UI and handle event of its&#10;- Clip for handling music (.wav files only)&#10;&#10;" wrapText="true" VBox.vgrow="ALWAYS">
+               <effect>
+                  <DropShadow height="106.0" radius="31.86" spread="0.38" width="23.44">
+                     <color>
+                        <Color red="0.5394737124443054" green="0.46954190731048584" blue="0.46954190731048584" opacity="0.1899999976158142" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </TextArea>
+            <HBox prefHeight="150.0" prefWidth="560.0">
+               <children>
+                  <GridPane alignment="BOTTOM_RIGHT" prefHeight="149.0" prefWidth="571.0" HBox.hgrow="ALWAYS">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.0" minWidth="10.0" prefWidth="192.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="380.0" minWidth="10.0" prefWidth="368.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="193.0" text="Our's GitHub project repository:" />
+                        <Label prefHeight="17.0" prefWidth="193.0" text="Pham Cao Bang's GitHub:" GridPane.rowIndex="1" />
+                        <Label prefHeight="17.0" prefWidth="198.0" text="Nguyen Phuong Nha's GitHub:" GridPane.rowIndex="2" />
+                        <Hyperlink prefHeight="23.0" prefWidth="375.0" text="https://github.com/nphuonha2101/MediaProject_OOD" GridPane.columnIndex="1" />
+                        <Hyperlink prefHeight="23.0" prefWidth="373.0" text="https://github.com/szhin" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Hyperlink prefHeight="23.0" prefWidth="377.0" text="https://github.com/nphuonha2101" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+               </children>
+            </HBox>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="36.0" prefWidth="560.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button id="okButton" fx:id="okCloseButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#closeStage" prefHeight="36.0" prefWidth="68.0" stylesheets="@../../../css/style.css" text="OK" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
