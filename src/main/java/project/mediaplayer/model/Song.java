@@ -77,4 +77,13 @@ public class Song {
 
     //////////////////////////////////////////
 
+
+    @Override
+    public String toString() {
+        return "Song{" +
+                "songName='" + songName + '\'' +
+                ", isFavorite=" + isFavorite +
+                ", songPath='" + songPath + '\'' +
+                '}';
+    }
 }

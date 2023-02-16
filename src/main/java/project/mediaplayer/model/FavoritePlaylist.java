@@ -10,8 +10,18 @@ public class FavoritePlaylist extends Playlists {
 //    private Time playlistDuration;
 
 
-    public FavoritePlaylist(String playlistName, boolean isFavorite, ArrayList<Song> songs) {
-        super(playlistName, isFavorite, songs);
+    public FavoritePlaylist( boolean isFavorite) {
+        super( isFavorite);
     }
+
+    public void addSongToFavorite(CurrentPlaylist playlists) {
+        for (Song song: playlists.getSongs()
+             ) {
+            if (!super.getSongs().contains(song) && song.isFavorite())  {
+                super.getSongs().add(song);
+            }
+        }
+    }
+
 
 }

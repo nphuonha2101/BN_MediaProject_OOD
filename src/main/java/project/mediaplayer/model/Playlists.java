@@ -10,18 +10,17 @@ import java.io.File;
 import java.util.*;
 
 public abstract class Playlists {
-    private String playlistName;
-    private boolean isFavoritePlaylist;
-    private ArrayList<Song> songs;
+    protected String playlistName;
+    protected boolean isFavoritePlaylist;
+    protected ArrayList<Song> songs = new ArrayList<>();
 //    private String dateCreation;
 //    private Time playlistDuration;
 
     public static final String FAVORITE_PLAYLIST = "FAVORITE_PLAYLIST";
 
-    public Playlists(String playlistName, boolean isFavoritePlaylist, ArrayList<Song> songs) {
-        this.playlistName = playlistName;
+    public Playlists(boolean isFavoritePlaylist) {
         this.isFavoritePlaylist = isFavoritePlaylist;
-        this.songs = songs;
+
 //        this.dateCreation = dateCreation;
 //        this.playlistDuration = playlistDuration;
     }
@@ -54,16 +53,7 @@ public abstract class Playlists {
 //    }
 //}
 
-//     add Songs to Playlist from file
-    public void addSong(ArrayList<File> files) {
-        for (File file : files) {
-            if (file != null) {
-//                String basePath = new File("").getAbsolutePath();
-                String nameSong = Files.splitFileName(file.getPath());
-                this.songs.add(new Song(nameSong, false, file.getPath()));
-            }
-        }
-    }
+
 
 //    public void removeSong(ArrayList<File> files) {
 //        for (File file : files) {
@@ -74,17 +64,53 @@ public abstract class Playlists {
     public void addToListView() {
         ObservableList<String> listViewSongs = FXCollections.observableArrayList();
         ListView listView = new ListView((Element) listViewSongs);
-        for (Song song: this.songs
-             ) {
+        for (Song song : this.songs
+        ) {
 
 
         }
+    }
 
 
+
+    // GETTER METHODS
+    public String getPlaylistName() {
+        return playlistName;
+    }
+
+    public boolean isFavoritePlaylist() {
+        return isFavoritePlaylist;
+    }
+
+    public ArrayList<Song> getSongs() {
+        return songs;
+    }
+
+
+    // SETTER METHODS
+    public void setPlaylistName(String playlistName) {
+        this.playlistName = playlistName;
+    }
+
+    public void setFavoritePlaylist(boolean favoritePlaylist) {
+        isFavoritePlaylist = favoritePlaylist;
+    }
+
+    public void setSongs(ArrayList<Song> songs) {
+        this.songs = songs;
+    }
+
+    @Override
+    public String toString() {
+        String result = "";
+        for (Song song: this.getSongs()
+        ) {
+            result += song.toString() + "\n";
+        }
+        return result;
     }
 
     public static void main(String[] args) {
 
     }
-
 }

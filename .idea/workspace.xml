@@ -6,12 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Bang, Nha - improve model functions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/CurrentPlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/CurrentPlaylist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FavoritePlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FavoritePlaylist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Playlists.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Playlists.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Song.java" afterDir="false" />
     </list>
     <list id="62022e38-41b2-449d-b110-a8cef305df5f" name="Changes by tolashin" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Playlists.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Playlists.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,12 +35,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java">
+    <file path="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Playlists.java">
       <ranges>
-        <range start1="3" end1="3" start2="3" end2="5" changelist="62022e38-41b2-449d-b110-a8cef305df5f" />
-        <range start1="34" end1="34" start2="36" end2="38" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
-        <range start1="47" end1="48" start2="51" end2="52" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
-        <range start1="63" end1="68" start2="67" end2="73" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
+        <range start1="12" end1="15" start2="12" end2="15" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
+        <range start1="20" end1="22" start2="20" end2="21" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
+        <range start1="23" end1="24" start2="22" end2="23" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
+        <range start1="43" end1="45" start2="42" end2="42" changelist="62022e38-41b2-449d-b110-a8cef305df5f" />
+        <range start1="56" end1="66" start2="53" end2="54" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
+        <range start1="76" end1="78" start2="64" end2="66" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
+        <range start1="81" end1="83" start2="69" end2="69" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
+        <range start1="84" end1="84" start2="70" end2="109" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
+        <range start1="88" end1="89" start2="113" end2="113" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
+        <range start1="90" end1="91" start2="114" end2="114" changelist="6a5163a8-c47b-40ce-86de-968bc74dba79" />
       </ranges>
     </file>
   </component>
@@ -107,6 +116,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Player" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="project.mediaplayer.model.Player" />
+      <module name="MediaProject_OOD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.mediaplayer.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Playlists" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="project.mediaplayer.model.Playlists" />
       <module name="MediaProject_OOD" />
@@ -123,6 +145,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MediaPlayerApplication" />
+        <item itemvalue="Application.Player" />
         <item itemvalue="Application.Playlists" />
         <item itemvalue="Application.Files" />
       </list>
@@ -141,6 +164,7 @@
       <workItem from="1676473186260" duration="7558000" />
       <workItem from="1676483214440" duration="120000" />
       <workItem from="1676513956843" duration="3275000" />
+      <workItem from="1676556079019" duration="4389000" />
     </task>
     <task id="LOCAL-00001" summary="second commit">
       <created>1676170105282</created>

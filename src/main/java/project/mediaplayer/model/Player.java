@@ -16,6 +16,7 @@ public class Player {
         this.playState = playState;
     }
 
+
     public Clip play() {
         try {
             File musicPath = new File(path);
@@ -71,10 +72,14 @@ public class Player {
 
     /////////////////////////////
 
-
     // SETTER METHODS
     public void setPlayState(int playState) {
         this.playState = playState;
+    }
+
+    public static void main(String[] args) {
+        Player player = new Player("D:/Project Music/All We Know - The Chainsmokers, Phoebe Ryan - Bài hát, lyrics.wav", 1);
+        player.play();
     }
 
 }

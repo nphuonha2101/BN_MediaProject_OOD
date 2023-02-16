@@ -22,9 +22,10 @@ public class Files {
     this.files.remove(file);
   }
 
+
   public static String splitFileName(String path) {
     String result = "";
-    int a = path.lastIndexOf("/");
+    int a = path.lastIndexOf("\\");
     result = path.substring(a + 1);
     return result;
   }

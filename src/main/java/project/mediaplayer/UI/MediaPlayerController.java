@@ -5,8 +5,8 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.stage.DirectoryChooser;
 import project.mediaplayer.model.CurrentPlaylist;
+import project.mediaplayer.model.FavoritePlaylist;
 import project.mediaplayer.model.Files;
-import project.mediaplayer.model.Playlists;
 
 import java.io.File;
 
@@ -45,6 +45,8 @@ public class MediaPlayerController {
     @FXML
     protected void chooseFile() {
         Files files = new Files();
+        CurrentPlaylist currentPlaylist = new CurrentPlaylist(false);
+        FavoritePlaylist favoritePlaylist = new FavoritePlaylist(true);
 //        ArrayList<File> files = new ArrayList<>();
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Open Music Folder");
@@ -60,6 +62,13 @@ public class MediaPlayerController {
              ) {
             System.out.println(file.getPath());
         }
+
+        currentPlaylist.addSongs(files);
+
+        favoritePlaylist.addSongToFavorite(currentPlaylist);
+
+        System.out.println(currentPlaylist);
+        System.out.println(favoritePlaylist);
 //
     }
 
