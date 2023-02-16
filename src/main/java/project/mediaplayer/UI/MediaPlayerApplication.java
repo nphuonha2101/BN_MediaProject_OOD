@@ -82,6 +82,7 @@ public class MediaPlayerApplication extends Application {
 //        basePath = basePath.replace("\\", "/") + "/src/main/resources/img/logo_title.png";
 
 //        stage.getIcons().add(new Image(basePath));
+        stage.setTitle("B&N Music Player");
         stage.setScene(scene);
         stage.show();
     }

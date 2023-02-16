@@ -33,6 +33,8 @@ public class MediaPlayerController {
     @FXML
     private Button settingButton;
 
+
+
 //    private String splitFileName(String path) {
 //        String result = "";
 //        int a = path.lastIndexOf("/");
@@ -45,7 +47,7 @@ public class MediaPlayerController {
         Files files = new Files();
 //        ArrayList<File> files = new ArrayList<>();
         DirectoryChooser directoryChooser = new DirectoryChooser();
-        directoryChooser.setTitle("Open Music");
+        directoryChooser.setTitle("Open Music Folder");
 //        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Audio Files *.wav", "*.wav"));
         File directory = directoryChooser.showDialog(null);
         if (directory != null) {
@@ -61,10 +63,11 @@ public class MediaPlayerController {
 //
     }
 
-//    @FXML
-//    protected void playMusic() {
-//        Playlists playlists = new CurrentPlaylist();
-//
-//    }
+    @FXML
+    protected void playMusic() {
+
+
+
+    }
 
 }
