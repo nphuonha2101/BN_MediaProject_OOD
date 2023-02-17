@@ -89,72 +89,8 @@ public class MediaPlayerApplication extends Application {
         stage.setScene(scene);
         stage.show();
     }
-//    private Clip clip;
-//    @Override
-//
-//    public void start(Stage primaryStage) throws Exception {
-//        List<String> musicFiles = new ArrayList<>();
-//        musicFiles.add("test.wav");
-//        musicFiles.add("Đường một chiều.wav");
-//        ListView<String> listView = new ListView<>();
-//        for (String musicFile : musicFiles) {
-//            listView.getItems().add(musicFile);
-//        }
-//
-//        listView.setOnMouseClicked(event -> {
-//            if (clip != null) {
-//                clip.stop();
-//            }
-//            String musicFile = musicFiles.get(listView.getSelectionModel().getSelectedIndex());
-//            try {
-//                File file = new File(musicFile);
-//                clip = AudioSystem.getClip();
-//                clip.open(AudioSystem.getAudioInputStream(file));
-//                clip.start();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        });
-//
-//        Button pauseButton = new Button("Pause");
-//        pauseButton.setOnAction(event -> {
-//            if (clip != null) {
-//                clip.stop();
-//            }
-//        });
-//
-//        Button resumeButton = new Button("Resume");
-//        resumeButton.setOnAction(event -> {
-//            if (clip != null) {
-//                clip.start();
-//            }
-//        });
-//
-//        VBox root = new VBox();
-//        root.getChildren().addAll(listView, pauseButton, resumeButton);
-//
-//        Scene scene = new Scene(root, 300, 300);
-//        primaryStage.setScene(scene);
-//        primaryStage.show();
-//    }
 
     public static void main(String[] args) {
-//        List<String> musicToPlay = new ArrayList<String>();
-////        musicToPlay.add("Chuyen Rang - Thinh Suy.wav");
-//        musicToPlay.add("Đường một chiều.wav");
-//        musicToPlay.add("test.wav");
-//
-//        try {
-//            for (int i = 0; i < musicToPlay.size(); i++) {
-//                System.out.println("Playing: " + musicToPlay.get(i));
-//                Clip currentClip = PlayMusic(musicToPlay.get(i));
-//                while (currentClip.getMicrosecondLength() != currentClip.getMicrosecondPosition()) {
-//
-//                }
-//            }
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
 
         launch();
     }

@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -161,10 +162,19 @@
                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                     <ListView id="listView" fx:id="listView" prefHeight="384.0" prefWidth="504.0" stylesheets="@../../../css/style.css">
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding></ListView>
+                  <ScrollPane prefHeight="699.0" prefWidth="483.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="481.0">
+                           <children>
+                              <ListView id="listView" fx:id="listView" layoutX="7.0" prefHeight="321.0" prefWidth="474.0" stylesheets="@../../../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </ListView>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
                </children>
                <effect>
                   <DropShadow blurType="GAUSSIAN" height="101.12" radius="64.3475" spread="0.08" width="158.27">

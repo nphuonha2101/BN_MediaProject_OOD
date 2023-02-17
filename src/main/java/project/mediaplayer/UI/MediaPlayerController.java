@@ -3,23 +3,16 @@ package project.mediaplayer.UI;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.Stage;
 import javafx.util.Callback;
 import project.mediaplayer.model.*;
 
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MediaPlayerController {
 
@@ -129,8 +122,5 @@ public class MediaPlayerController {
         System.out.println(songItems);
         listView.setItems(songItems);
     }
-
-
-
 
 }
