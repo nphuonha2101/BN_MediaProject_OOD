@@ -34,9 +34,9 @@
 
 .list-cell {
     -fx-background-radius: 5px;
-    -fx-background-insets: 2px;
-    -fx-padding: 3px;
-
+    -fx-padding: 2px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
 
 }
 .list-cell:odd {
@@ -47,11 +47,4 @@
 }
 #contentVBox {
     -fx-background-color: #f3f3f3;
-}
-.list-cell:pressed {
--fx-background-color : #d14334;
-}
-
-.border {
--fx-border-color: transparent;
 }

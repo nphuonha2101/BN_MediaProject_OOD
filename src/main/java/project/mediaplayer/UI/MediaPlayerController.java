@@ -10,7 +10,14 @@ import javafx.stage.DirectoryChooser;
 import javafx.util.Callback;
 import project.mediaplayer.model.*;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import java.io.File;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class MediaPlayerController {
 
@@ -77,10 +84,7 @@ public class MediaPlayerController {
 
     }
 
-    @FXML
-    protected void playMusic() {
 
-    }
 
     @FXML
     protected void mainPlaylistLView() {
