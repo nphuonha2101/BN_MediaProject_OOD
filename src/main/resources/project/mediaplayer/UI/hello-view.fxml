@@ -164,7 +164,7 @@
                   </Label>
                   <ScrollPane prefHeight="699.0" prefWidth="483.0">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="481.0">
+                      <AnchorPane disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                            <children>
                               <ListView id="listView" fx:id="listView" layoutX="7.0" prefHeight="321.0" prefWidth="474.0" stylesheets="@../../../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <padding>
