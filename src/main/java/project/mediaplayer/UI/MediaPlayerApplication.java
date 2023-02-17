@@ -98,7 +98,7 @@ public class MediaPlayerApplication extends Application {
     public static void main(String[] args) {
         launch();
 
-        System.out.println("h2h2");
+
     }
 
 }
