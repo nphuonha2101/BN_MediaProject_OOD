@@ -5,8 +5,11 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
-import javafx.scene.media.*;
+//import javafx.scene.media.*;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import javax.sound.sampled.AudioInputStream;
@@ -86,6 +89,54 @@ public class MediaPlayerApplication extends Application {
         stage.setScene(scene);
         stage.show();
     }
+//    private Clip clip;
+//    @Override
+//
+//    public void start(Stage primaryStage) throws Exception {
+//        List<String> musicFiles = new ArrayList<>();
+//        musicFiles.add("test.wav");
+//        musicFiles.add("Đường một chiều.wav");
+//        ListView<String> listView = new ListView<>();
+//        for (String musicFile : musicFiles) {
+//            listView.getItems().add(musicFile);
+//        }
+//
+//        listView.setOnMouseClicked(event -> {
+//            if (clip != null) {
+//                clip.stop();
+//            }
+//            String musicFile = musicFiles.get(listView.getSelectionModel().getSelectedIndex());
+//            try {
+//                File file = new File(musicFile);
+//                clip = AudioSystem.getClip();
+//                clip.open(AudioSystem.getAudioInputStream(file));
+//                clip.start();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        });
+//
+//        Button pauseButton = new Button("Pause");
+//        pauseButton.setOnAction(event -> {
+//            if (clip != null) {
+//                clip.stop();
+//            }
+//        });
+//
+//        Button resumeButton = new Button("Resume");
+//        resumeButton.setOnAction(event -> {
+//            if (clip != null) {
+//                clip.start();
+//            }
+//        });
+//
+//        VBox root = new VBox();
+//        root.getChildren().addAll(listView, pauseButton, resumeButton);
+//
+//        Scene scene = new Scene(root, 300, 300);
+//        primaryStage.setScene(scene);
+//        primaryStage.show();
+//    }
 
     public static void main(String[] args) {
 //        List<String> musicToPlay = new ArrayList<String>();
