@@ -72,6 +72,13 @@ public abstract class Playlists {
         }
     }
 
+    public void clearPlaylist() {
+        this.songs.clear();
+    }
+
+    public void addFromOtherPlaylist(Playlists other) {
+        this.songs.addAll(other.songs);
+    }
 
 
     // GETTER METHODS
