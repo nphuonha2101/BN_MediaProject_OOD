@@ -3,6 +3,7 @@ package project.mediaplayer.UI;
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -18,8 +19,10 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 
 //        AudioClip audioClip = new AudioClip("D:/Music/AiChoAi.mp3");
@@ -91,9 +94,11 @@ public class MediaPlayerApplication extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
         launch();
+
+
     }
 
 }
