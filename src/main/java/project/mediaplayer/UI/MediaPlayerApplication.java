@@ -3,10 +3,15 @@ package project.mediaplayer.UI;
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
-import javafx.scene.media.*;
+//import javafx.scene.media.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import javax.sound.sampled.AudioInputStream;
@@ -14,8 +19,10 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 
 //        AudioClip audioClip = new AudioClip("D:/Music/AiChoAi.mp3");
@@ -87,25 +94,11 @@ public class MediaPlayerApplication extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
-//        List<String> musicToPlay = new ArrayList<String>();
-////        musicToPlay.add("Chuyen Rang - Thinh Suy.wav");
-//        musicToPlay.add("Đường một chiều.wav");
-//        musicToPlay.add("test.wav");
-//
-//        try {
-//            for (int i = 0; i < musicToPlay.size(); i++) {
-//                System.out.println("Playing: " + musicToPlay.get(i));
-//                Clip currentClip = PlayMusic(musicToPlay.get(i));
-//                while (currentClip.getMicrosecondLength() != currentClip.getMicrosecondPosition()) {
-//
-//                }
-//            }
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
 
+    public static void main(String[] args) {
         launch();
+
+
     }
 
 }

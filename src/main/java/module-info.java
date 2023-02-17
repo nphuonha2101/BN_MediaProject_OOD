@@ -1,7 +1,7 @@
 module project.mediaplayer.mediaproject_ood {
     requires javafx.controls;
     requires javafx.fxml;
-    requires javafx.media;
+//    requires javafx.media;
     requires java.desktop;
 
 
