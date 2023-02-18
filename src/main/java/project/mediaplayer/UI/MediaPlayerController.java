@@ -95,7 +95,7 @@ public class MediaPlayerController {
 
         for (Song song : mainPlaylist.getSongs()
         ) {
-            songItems.add(song.getSongPath());
+            songItems.add(song.getSongName() + "\n" + song.getSongPath());
         }
 
         System.out.println(mainPlaylist);
