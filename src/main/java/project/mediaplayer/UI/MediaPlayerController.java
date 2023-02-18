@@ -10,7 +10,12 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import project.mediaplayer.model.*;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class MediaPlayerController {
@@ -67,14 +72,8 @@ public class MediaPlayerController {
         mainPlaylist.addSongs(files);
         favoritePlaylist.addSongToFavorite(mainPlaylist);
         addToListView();
-
-
     }
 
-    @FXML
-    protected void playMusic() {
-
-    }
 
     @FXML
     protected void mainPlaylistLView() {
@@ -96,7 +95,7 @@ public class MediaPlayerController {
 
         for (Song song : mainPlaylist.getSongs()
         ) {
-            songItems.add(song.getSongName() + "\n" + song.getSongPath());
+            songItems.add(song.getSongPath());
         }
 
         System.out.println(mainPlaylist);
@@ -134,6 +133,43 @@ public class MediaPlayerController {
         tokenizer.nextToken();
         result = tokenizer.nextToken();
         return result;
+    }
+
+    public static Clip PlayMusic(String location) {
+        try {
+            File musicPath = new File(location);
+            if (musicPath.exists()) {
+                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInput);
+                clip.start();
+                return clip;
+            } else {
+                System.out.println("Can't find file");
+            }
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+    @FXML
+    protected void playMusic() {
+        for (Song song : currentPlaylist.getSongs()
+        ) {
+            songItems.add(song.getSongName() + "\n" + song.getSongPath());
+        }
+        try {
+            for (int i = 0; i < songItems.size(); i++) {
+                System.out.println("Playing " + songItems.get(i));
+                Clip currentClip = PlayMusic(songItems.get(i));
+                while (currentClip.getMicrosecondLength() != currentClip.getMicrosecondPosition()) {
+
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
 
