@@ -112,8 +112,8 @@ public class MediaPlayerController {
     private void selectedListItem() {
         String item = listView.getSelectionModel().getSelectedItem();
         songNameLabel.setText(splitSongNameLView(item));
-        songPlayer = new SongPlayer(slitPathLView(item), 1);
-        songPlayer.play();
+//        songPlayer = new SongPlayer(slitPathLView(item), 1);
+//        songPlayer.play();
 //        songNameLabel.setText(slitPathLView(item));
     }
 
