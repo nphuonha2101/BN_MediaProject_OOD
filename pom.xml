@@ -9,21 +9,26 @@
     <version>1.0-SNAPSHOT</version>
     <name>MediaProject_OOD</name>
 
+
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.9.1</junit.version>
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.googlecode.soundlibs/jlayer -->
         <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>19</version>
+            <groupId>com.googlecode.soundlibs</groupId>
+            <artifactId>jlayer</artifactId>
+            <version>1.0.1.4</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-media -->
         <dependency>
             <groupId>org.openjfx</groupId>
-            <artifactId>javafx-fxml</artifactId>
-            <version>19</version>
+            <artifactId>javafx-media</artifactId>
+            <version>18.0.1</version>
         </dependency>
 
         <dependency>

@@ -1,28 +1,19 @@
 package project.mediaplayer.UI;
 
 import javafx.application.Application;
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
 //import javafx.scene.media.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
 
 
 //        AudioClip audioClip = new AudioClip("D:/Music/AiChoAi.mp3");
@@ -81,6 +72,7 @@ import java.util.ResourceBundle;
 //
 public class MediaPlayerApplication extends Application {
 
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MediaPlayerApplication.class.getResource("hello-view.fxml"));
@@ -94,8 +86,32 @@ public class MediaPlayerApplication extends Application {
         stage.show();
     }
 
+    public void playMedia() {
+        Media media = new Media("file:///D:/Music/AiChoAi.mp3");
+        MediaPlayer player = new MediaPlayer(media);
+        player.play();
+        player.setVolume(1.0);
+        System.out.println(player.getVolume());
+    }
 
     public static void main(String[] args) {
+//        MediaPlayerApplication mediaPlayerApplication = new MediaPlayerApplication();
+//
+//        mediaPlayerApplication.playMedia();
+//        File file = new File("D:/Music/24H - LyLy, Magazine - Bài hát, lyrics.mp3");
+//        try {
+//            FileInputStream fileInputStream = new FileInputStream(file);
+//            BufferedInputStream bis = new BufferedInputStream(fileInputStream);
+//            try {
+//                Player player = new Player(bis);
+//                player.play();
+//                System.out.println(player.isComplete());
+//            } catch (JavaLayerException e) {
+//                throw new RuntimeException(e);
+//            }
+//        } catch (IOException e){
+//            e.printStackTrace();
+//        }
         launch();
 
 

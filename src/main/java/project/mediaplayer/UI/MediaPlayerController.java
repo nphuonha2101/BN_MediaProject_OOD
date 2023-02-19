@@ -47,12 +47,17 @@ public class MediaPlayerController {
     private Button favoriteSongButton;
 
     @FXML
+    private Button playButton;
+
+    @FXML
     private Label songNameLabel;
 
     private MainPlaylist mainPlaylist = new MainPlaylist(Playlists.MAIN_PLAYLIST);
     private FavoritePlaylist favoritePlaylist = new FavoritePlaylist(Playlists.FAVORITE_PLAYLIST);
     private CurrentPlaylist currentPlaylist = new CurrentPlaylist(Playlists.CURRENT_PLAYLIST);
     private ObservableList<String> songItems = FXCollections.observableArrayList();
+    private SongPlayer songPlayer;
+    private int playState;
 
     @FXML
     protected void chooseFile() {
@@ -107,6 +112,8 @@ public class MediaPlayerController {
     private void selectedListItem() {
         String item = listView.getSelectionModel().getSelectedItem();
         songNameLabel.setText(splitSongNameLView(item));
+        songPlayer = new SongPlayer(slitPathLView(item), 1);
+        songPlayer.play();
 //        songNameLabel.setText(slitPathLView(item));
     }
 
@@ -135,41 +142,48 @@ public class MediaPlayerController {
         return result;
     }
 
-    public static Clip PlayMusic(String location) {
-        try {
-            File musicPath = new File(location);
-            if (musicPath.exists()) {
-                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInput);
-                clip.start();
-                return clip;
-            } else {
-                System.out.println("Can't find file");
-            }
-        }
-        catch (Exception e) {
-            System.out.println(e);
-        }
-        return null;
-    }
+//    public static Clip PlayMusic(String location) {
+//        try {
+//            File musicPath = new File(location);
+//            if (musicPath.exists()) {
+//                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+//                Clip clip = AudioSystem.getClip();
+//                clip.open(audioInput);
+//                clip.start();
+//                return clip;
+//            } else {
+//                System.out.println("Can't find file");
+//            }
+//        }
+//        catch (Exception e) {
+//            System.out.println(e);
+//        }
+//        return null;
+//    }
     @FXML
-    protected void playMusic() {
-        for (Song song : currentPlaylist.getSongs()
-        ) {
-            songItems.add(song.getSongName() + "\n" + song.getSongPath());
-        }
-        try {
-            for (int i = 0; i < songItems.size(); i++) {
-                System.out.println("Playing " + songItems.get(i));
-                Clip currentClip = PlayMusic(songItems.get(i));
-                while (currentClip.getMicrosecondLength() != currentClip.getMicrosecondPosition()) {
-
-                }
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    protected void playStop() {
+//        for (Song song : currentPlaylist.getSongs()
+//        ) {
+//            songItems.add(song.getSongName() + "\n" + song.getSongPath());
+//        }
+//        try {
+//            for (int i = 0; i < songItems.size(); i++) {
+//                System.out.println("Playing " + songItems.get(i));
+//                Clip currentClip = PlayMusic(songItems.get(i));
+//                while (currentClip.getMicrosecondLength() != currentClip.getMicrosecondPosition()) {
+//
+//                }
+//            }
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//        if (playButton.isFocused() == true) {
+//            playState = 1;
+//            currentPlaylist.playInCurrentPlaylist(playState);
+//        } else  if (playButton.isFocused() == false){
+//            playState = 2;
+//        }
+        currentPlaylist.playInCurrentPlaylist(1);
     }
 
 

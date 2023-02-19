@@ -19,7 +19,7 @@ public class MainPlaylist extends Playlists {
     public void addSongs(Files files) {
 
         for (File file : files.getFiles()) {
-            if (file != null && file.getAbsolutePath().endsWith(".wav")) {
+            if (file != null && file.getAbsolutePath().endsWith(".mp3")) {
                 String nameSong = Files.splitFileName(file.getPath());
                 super.getSongs().add(new Song(nameSong, true, file.getPath()));
             }
