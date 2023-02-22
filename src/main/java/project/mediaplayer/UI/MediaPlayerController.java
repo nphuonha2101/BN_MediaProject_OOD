@@ -2,20 +2,14 @@ package project.mediaplayer.UI;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import project.mediaplayer.model.*;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
 public class MediaPlayerController {
@@ -56,26 +50,32 @@ public class MediaPlayerController {
     private FavoritePlaylist favoritePlaylist = new FavoritePlaylist(Playlists.FAVORITE_PLAYLIST);
     private CurrentPlaylist currentPlaylist = new CurrentPlaylist(Playlists.CURRENT_PLAYLIST);
     private ObservableList<String> songItems = FXCollections.observableArrayList();
-    private SongPlayer songPlayer;
+    private SongPlayer songPlayer = new SongPlayer();
     private int playState;
+    private Task<Void> task;
+  private String currentSong = "";
+  private String selectedSong = "";
 
     @FXML
     protected void chooseFile() {
         Files files = new Files();
-        files.clearAll();
-//        ArrayList<File> files = new ArrayList<>();
-        DirectoryChooser directoryChooser = new DirectoryChooser();
-        directoryChooser.setTitle("Open Music Folder");
-//        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Audio Files *.wav", "*.wav"));
-        File directory = directoryChooser.showDialog(null);
-        if (directory != null) {
-            for (File file : directory.listFiles()) {
-                files.addFile(file);
-            }
-        }
+        files.chooseFile();
+//        files.clearAll();
+////        ArrayList<File> files = new ArrayList<>();
+//        DirectoryChooser directoryChooser = new DirectoryChooser();
+//        directoryChooser.setTitle("Open Music Folder");
+////        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Audio Files *.wav", "*.wav"));
+//        File directory = directoryChooser.showDialog(null);
+//        if (directory != null) {
+//            for (File file : directory.listFiles()) {
+//                files.addFile(file);
+//            }
+//        }
 
         mainPlaylist.addSongs(files);
+        currentPlaylist.addSongFromOtherPlaylist(mainPlaylist);
         favoritePlaylist.addSongToFavorite(mainPlaylist);
+//        System.out.println(currentPlaylist);
         addToListView();
     }
 
@@ -110,11 +110,33 @@ public class MediaPlayerController {
 
     @FXML
     private void selectedListItem() {
-        String item = listView.getSelectionModel().getSelectedItem();
-        songNameLabel.setText(splitSongNameLView(item));
-//        songPlayer = new SongPlayer(slitPathLView(item), 1);
-//        songPlayer.play();
-//        songNameLabel.setText(slitPathLView(item));
+
+
+                String item = listView.getSelectionModel().getSelectedItem();
+                int index = listView.getSelectionModel().getSelectedIndex();
+        System.out.println(index);
+                songPlayer.setPlayingIndex(index);
+                songNameLabel.setText(splitSongNameLView(item));
+                selectedSong = splitPathLView(item);
+
+//                songPlayer.musicPlayer();
+//
+//        songPlayer.play(selectedSong, 1);
+//        task = new Task<Void>() {
+        songPlayer.play( 1, selectedSong);
+//            @Override
+//            protected Void call() throws Exception {
+////                songPlayer.stop(currentSong);
+//                songPlayer.play(splitPathLView(selectedSong), songPlayer.PLAY);
+//                return null;
+//            }
+//        };
+////        songNameLabel.setText(slitPathLView(item));
+//                currentSong = splitSongNameLView(item);
+//    new Thread(task).start();
+//        if (Thread.activeCount() > 1) {
+//            new Thread(task).interrupt();
+//        }
     }
 
     // open About Stage
@@ -127,14 +149,14 @@ public class MediaPlayerController {
 
     // slit song name from list view item
     private String splitSongNameLView(String str) {
-        String result= "";
+        String result = "";
         StringTokenizer tokenizer = new StringTokenizer(str, "\n");
         result = tokenizer.nextToken();
         return result;
     }
 
     // split song's path from list view item
-    private String slitPathLView(String str) {
+    private String splitPathLView(String str) {
         String result = "";
         StringTokenizer tokenizer = new StringTokenizer(str, "\n");
         tokenizer.nextToken();
@@ -142,7 +164,7 @@ public class MediaPlayerController {
         return result;
     }
 
-//    public static Clip PlayMusic(String location) {
+    //    public static Clip PlayMusic(String location) {
 //        try {
 //            File musicPath = new File(location);
 //            if (musicPath.exists()) {
@@ -183,9 +205,8 @@ public class MediaPlayerController {
 //        } else  if (playButton.isFocused() == false){
 //            playState = 2;
 //        }
-        currentPlaylist.playInCurrentPlaylist(1);
+//        currentPlaylist.playInCurrentPlaylist(1);
     }
-
 
 
 }

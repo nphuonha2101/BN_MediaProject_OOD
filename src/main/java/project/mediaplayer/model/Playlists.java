@@ -27,18 +27,23 @@ public abstract class Playlists {
     }
 
     // generate shuffle number without repeat => WORKED
-    public ArrayList<Integer> shuffleNumber() {
-        ArrayList<Integer> result = new ArrayList<>();
+//    public ArrayList<Integer> shuffleNumber() {
+//        ArrayList<Integer> result = new ArrayList<>();
+//
+//        Random rd = new Random();
+//        while (true) {
+//            int number = rd.nextInt(0, 10);
+//            if (!result.contains(number)) {
+//                result.add(number);
+//                if (result.size() >= 10) break;
+//            }
+//        }
+//        return result;
+//    }
 
-        Random rd = new Random();
-        while (true) {
-            int number = rd.nextInt(0, 10);
-            if (!result.contains(number)) {
-                result.add(number);
-                if (result.size() >= 10) break;
-            }
-        }
-        return result;
+    // shuffle playlist method for shuffle function
+    public void shufflePlaylist() {
+        Collections.shuffle(this.songs);
     }
 
 //    public Song findSong(String songName) {
