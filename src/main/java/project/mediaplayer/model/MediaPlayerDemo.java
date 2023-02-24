@@ -11,9 +11,15 @@ public class MediaPlayerDemo {
     private MediaPlayer mediaPlayer;
     private ArrayList<String> musicList = new ArrayList<>();
     private int currentMusicIndex = 0;
-
+    private boolean isPlay = true;
     private CurrentPlaylist currentPlaylist = new CurrentPlaylist(Playlists.CURRENT_PLAYLIST);
 
+    public boolean getIsPlay() {
+        return this.isPlay;
+    }
+    public void setIsPlay(boolean isPlay) {
+        this.isPlay = isPlay;
+    }
     public void playListMusic(String folderPath) {
         // add music files from the specified folder to the musicList
         File musicFolder = new File(folderPath);
@@ -31,8 +37,21 @@ public class MediaPlayerDemo {
         mediaPlayer.setOnEndOfMedia(this::playNextMusic);
 
         // play the first music file
-        mediaPlayer.play();
+        if (isPlay) {
+            mediaPlayer.play();
+        } else {
+            mediaPlayer.pause();
+        }
+
     }
+
+//    public void play() {
+//        playListMusic();
+//        mediaPlayer.play();
+//    }
+//    public void pauseMusic() {
+//        mediaPlayer.pause();
+//    }
 
     private void playNextMusic() {
         currentMusicIndex++;

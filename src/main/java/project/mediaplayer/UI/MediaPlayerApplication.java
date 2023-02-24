@@ -1,7 +1,6 @@
 package project.mediaplayer.UI;
 
 import javafx.application.Application;
-//import javafx.fxml.FXMLLoader;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 //import javafx.scene.media.*;
@@ -85,7 +84,7 @@ public class MediaPlayerApplication extends Application {
         String basePath = new File("").getAbsolutePath();
 //        basePath = basePath.replace("\\", "/") + "/src/main/resources/img/logo_title.png";
 
-        playlist.playListMusic("src/main/resources/music");
+//        playlist.playListMusic("src/main/resources/music");
 
 //        stage.getIcons().add(new Image(basePath));
         stage.setTitle("B&N Music Player");

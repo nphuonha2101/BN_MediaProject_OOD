@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import project.mediaplayer.model.*;
@@ -53,6 +54,7 @@ public class MediaPlayerController {
     @FXML
     private Label songNameLabel;
 
+
     private MediaPlayerDemo playlist = new MediaPlayerDemo();
     private MainPlaylist mainPlaylist = new MainPlaylist(Playlists.MAIN_PLAYLIST);
     private FavoritePlaylist favoritePlaylist = new FavoritePlaylist(Playlists.FAVORITE_PLAYLIST);
@@ -64,7 +66,7 @@ public class MediaPlayerController {
     @FXML
     protected void chooseFile() {
         Files files = new Files();
-        files.clearAll();
+//        files.clearAll();
 //        ArrayList<File> files = new ArrayList<>();
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Open Music Folder");
@@ -72,7 +74,7 @@ public class MediaPlayerController {
         File directory = directoryChooser.showDialog(null);
         if (directory != null) {
             for (File file : directory.listFiles()) {
-                files.addFile(file);
+//                files.addFile(file);
             }
         }
 
@@ -162,11 +164,22 @@ public class MediaPlayerController {
 //        }
 //        return null;
 //    }
+//    @FXML
+//    protected void playStop() {
+//        currentPlaylist.playInCurrentPlaylist(1);
+//    }
     @FXML
-    protected void playStop() {
+    protected void playList(MouseEvent mouseEvent) {
+//        MouseEvent mouseEvent = new MouseEvent();
+        playlist.playListMusic("src/main/resources/music");
+        if (mouseEvent.getClickCount() % 2 == 1) {
+            playlist.setIsPlay(true);
+        } else {
+            playlist.setIsPlay(false);
+        }
 
-        currentPlaylist.playInCurrentPlaylist(1);
     }
+
 
 
 
