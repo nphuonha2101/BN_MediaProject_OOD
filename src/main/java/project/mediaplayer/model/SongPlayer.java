@@ -20,6 +20,7 @@ public class SongPlayer {
 
 
     public static void main(String[] args) {
+        File file = new File("/Users/bangpham/Documents/Yasuo hasagi/BN_MediaProject_OOD/src/main/resources/music/Đường một chiều.mp3");
 
     }
 

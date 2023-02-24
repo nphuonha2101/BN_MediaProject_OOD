@@ -10,6 +10,7 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import project.mediaplayer.model.*;
 
+
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -52,6 +53,7 @@ public class MediaPlayerController {
     @FXML
     private Label songNameLabel;
 
+    private MediaPlayerDemo playlist = new MediaPlayerDemo();
     private MainPlaylist mainPlaylist = new MainPlaylist(Playlists.MAIN_PLAYLIST);
     private FavoritePlaylist favoritePlaylist = new FavoritePlaylist(Playlists.FAVORITE_PLAYLIST);
     private CurrentPlaylist currentPlaylist = new CurrentPlaylist(Playlists.CURRENT_PLAYLIST);
@@ -100,7 +102,7 @@ public class MediaPlayerController {
 
         for (Song song : mainPlaylist.getSongs()
         ) {
-            songItems.add(song.getSongName() + "\n" + song.getSongPath());
+            songItems.add(song.getSongName());
         }
 
         System.out.println(mainPlaylist);
@@ -162,27 +164,7 @@ public class MediaPlayerController {
 //    }
     @FXML
     protected void playStop() {
-//        for (Song song : currentPlaylist.getSongs()
-//        ) {
-//            songItems.add(song.getSongName() + "\n" + song.getSongPath());
-//        }
-//        try {
-//            for (int i = 0; i < songItems.size(); i++) {
-//                System.out.println("Playing " + songItems.get(i));
-//                Clip currentClip = PlayMusic(songItems.get(i));
-//                while (currentClip.getMicrosecondLength() != currentClip.getMicrosecondPosition()) {
-//
-//                }
-//            }
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
-//        if (playButton.isFocused() == true) {
-//            playState = 1;
-//            currentPlaylist.playInCurrentPlaylist(playState);
-//        } else  if (playButton.isFocused() == false){
-//            playState = 2;
-//        }
+
         currentPlaylist.playInCurrentPlaylist(1);
     }
 
