@@ -6,16 +6,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import project.mediaplayer.model.*;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
 public class MediaPlayerController {
@@ -56,23 +49,13 @@ public class MediaPlayerController {
     private FavoritePlaylist favoritePlaylist = new FavoritePlaylist(Playlists.FAVORITE_PLAYLIST);
     private CurrentPlaylist currentPlaylist = new CurrentPlaylist(Playlists.CURRENT_PLAYLIST);
     private ObservableList<String> songItems = FXCollections.observableArrayList();
-    private SongPlayer songPlayer;
+    private SongPlayer songPlayer ;
     private int playState;
 
     @FXML
     protected void chooseFile() {
         Files files = new Files();
-        files.clearAll();
-//        ArrayList<File> files = new ArrayList<>();
-        DirectoryChooser directoryChooser = new DirectoryChooser();
-        directoryChooser.setTitle("Open Music Folder");
-//        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Audio Files *.wav", "*.wav"));
-        File directory = directoryChooser.showDialog(null);
-        if (directory != null) {
-            for (File file : directory.listFiles()) {
-                files.addFile(file);
-            }
-        }
+        files.fileChooser();
 
         mainPlaylist.addSongs(files);
         favoritePlaylist.addSongToFavorite(mainPlaylist);
@@ -112,9 +95,11 @@ public class MediaPlayerController {
     private void selectedListItem() {
         String item = listView.getSelectionModel().getSelectedItem();
         songNameLabel.setText(splitSongNameLView(item));
+        songPlayer = new SongPlayer(splitPathLView(item), 1);
 //        songPlayer = new SongPlayer(slitPathLView(item), 1);
 //        songPlayer.play();
 //        songNameLabel.setText(slitPathLView(item));
+        songPlayer.play();
     }
 
     // open About Stage
@@ -134,7 +119,7 @@ public class MediaPlayerController {
     }
 
     // split song's path from list view item
-    private String slitPathLView(String str) {
+    private String splitPathLView(String str) {
         String result = "";
         StringTokenizer tokenizer = new StringTokenizer(str, "\n");
         tokenizer.nextToken();

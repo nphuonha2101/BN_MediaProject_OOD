@@ -38,18 +38,18 @@ public class SongPlayer {
         this.playState = playState;
     }
 
-
-
-    public void playMusic(String path) {
-        File file = new File(path);
-        try {
-            FileInputStream fileInputStream = new FileInputStream(file);
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
-
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//
+//
+//    public void playMusic(String path) {
+//        File file = new File(path);
+//        try {
+//            FileInputStream fileInputStream = new FileInputStream(file);
+//            BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
+//
+//        } catch (FileNotFoundException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     // GETTER METHODS
 
