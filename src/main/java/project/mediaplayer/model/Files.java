@@ -1,36 +1,62 @@
 package project.mediaplayer.model;
 
+import javafx.stage.DirectoryChooser;
+
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Files {
-    ArrayList<File> files = new ArrayList<>();
+    private ArrayList<File> files = new ArrayList<>();
 
 //    public Files(ArrayList<File> files){
 //        this.files = files;
 //    }
 
-    public ArrayList<File> getFiles() {
-        return this.files;
-    }
-
-    public void addFile(File file) {
-        this.files.add(file);
-    }
-
-    public void removeFile(File file) {
-        this.files.remove(file);
-    }
-
-    public void clearAll() {
-        this.files.clear();
-    }
-
-
+    /*
+    get File name (Song name) from file path,
+    use String.lastIndexOf() method to find the lash backslash character to get substring from its position + 1 (file name)
+    ex: user/music/demo.mp3 => the last backslash index is 10, so we use substring method to substring from index 11 => demo.mp3
+    in Java, use \\ to perform \ symbol
+     */
     public static String splitFileName(String path) {
         String result = "";
         int a = path.lastIndexOf("\\");
         result = path.substring(a + 1);
         return result;
+    }
+
+    // get files list
+    public ArrayList<File> getListFiles() {
+        return this.files;
+    }
+
+    // add file to files list
+    public void addFile(File file) {
+        this.files.add(file);
+    }
+
+    // remove file from files list
+    public void removeFile(File file) {
+        this.files.remove(file);
+    }
+
+    // clear all files list
+    public void clearAll() {
+        this.files.clear();
+    }
+
+
+    // choose directory and get files from its directory
+    public void fileChooser() {
+        this.files.clear();
+//        ArrayList<File> files = new ArrayList<>();
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setTitle("Open Music Folder");
+//        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Audio Files *.wav", "*.wav"));
+        File directory = directoryChooser.showDialog(null);
+        if (directory != null) {
+            Collections.addAll(files, directory.listFiles());
+        }
     }
 }

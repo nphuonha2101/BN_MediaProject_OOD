@@ -5,16 +5,29 @@
     -fx-text-fill: #5c5c5c;
 }
 
-.button:hover {
+.button:hover, #aboutButton:hover, #buttonOpenFolder:hover {
     -fx-text-fill: #028f76;
+    -fx-background-color: #e0e0e0;
 }
 
 .button:focused{
     -fx-text-fill: #028f76;
     -fx-background-radius: 10;
     -fx-background-color: #feeaad;
-
 }
+
+/*.toggle-button {*/
+
+/*    -fx-background-color: transparent;*/
+/*    -fx-background-radius: 10;*/
+/*}*/
+/*.toggle-button:hover {*/
+/*    -fx-background-color: #e0e0e0;*/
+/*}*/
+/*.toggle-button:selected {*/
+/*    -fx-border-color: #028f76;*/
+/*    -fx-border-radius: 10;*/
+/*}*/
 
 #buttonOpenFolder, #aboutButton {
     -fx-text-fill: #5c5c5c;
@@ -31,12 +44,20 @@
     -fx-background-color: transparent;
     -fx-background-radius: 5px;
 }
+.list-view:cell-selection {
+
+}
 
 .list-cell {
+    -fx-cell-size: 60;
     -fx-background-radius: 5px;
     -fx-padding: 2px;
     -fx-background-insets: 2px;
+    -fx-padding: 10;
 
+}
+.list-cell:selected {
+    -fx-text-fill: #028f76;
 }
 .list-cell:odd {
     -fx-background-color: #b2e098;
@@ -44,6 +65,7 @@
 .list-cell:even {
     -fx-background-color: #a5e8e1;
 }
+
 #contentVBox {
     -fx-background-color: #f3f3f3;
 }

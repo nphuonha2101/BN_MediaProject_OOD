@@ -1,7 +1,7 @@
 package project.mediaplayer.model;
 
 import javafx.application.Application;
-import javafx.embed.swing.JFXPanel;
+
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;

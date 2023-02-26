@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ToggleButton;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import project.mediaplayer.model.*;
@@ -44,10 +45,13 @@ public class MediaPlayerController {
     private Label headerLabel;
 
     @FXML
-    private Button favoriteSongButton;
-
+    private ToggleButton favoriteSongButton;
     @FXML
-    private Button playButton;
+    private  ToggleButton previousButton;
+    @FXML
+    private ToggleButton playButton;
+    @FXML
+    private ToggleButton nextButton;
 
     @FXML
     private Label songNameLabel;
@@ -160,8 +164,8 @@ public class MediaPlayerController {
 //        }
 //        return null;
 //    }
-    @FXML
-    protected void playStop() {
+//    @FXML
+//    protected void playStop() {
 //        for (Song song : currentPlaylist.getSongs()
 //        ) {
 //            songItems.add(song.getSongName() + "\n" + song.getSongPath());
@@ -183,8 +187,8 @@ public class MediaPlayerController {
 //        } else  if (playButton.isFocused() == false){
 //            playState = 2;
 //        }
-        currentPlaylist.playInCurrentPlaylist(1);
-    }
+//        currentPlaylist.playInCurrentPlaylist(1);
+//    }
 
 
 

@@ -16,6 +16,7 @@ public class FavoritePlaylist extends Playlists {
 
 
 
+    //
     public void addSongToFavorite(MainPlaylist playlists) {
         for (Song song: playlists.getSongs()
              ) {
