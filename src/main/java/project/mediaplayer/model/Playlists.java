@@ -1,18 +1,12 @@
 package project.mediaplayer.model;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
-import javax.swing.text.Element;
-import javax.swing.text.html.ListView;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public abstract class Playlists {
     protected String playlistName;
     protected int playlistType;
     protected ArrayList<Song> songs = new ArrayList<>();
-//    private String dateCreation;
-//    private Time playlistDuration;
 
     public static final int MAIN_PLAYLIST = 1;
 
