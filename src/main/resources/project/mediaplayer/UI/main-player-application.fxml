@@ -12,7 +12,7 @@
    <children>
       <BorderPane prefHeight="504.0" prefWidth="699.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <VBox minHeight="250.0" prefHeight="504.0" prefWidth="176.0" style="-fx-background-color: #f3f3f3;" stylesheets="@../../../css/style.css" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" minHeight="250.0" prefHeight="504.0" prefWidth="176.0" style="-fx-background-color: #f3f3f3;" stylesheets="@../../../css/style.css" BorderPane.alignment="CENTER">
                <children>
                   <Pane prefHeight="104.0" prefWidth="166.0">
                      <children>
@@ -40,21 +40,9 @@
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
-                  </Button>
-                  <Button fx:id="libraryButton" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="40.0" prefWidth="166.0" stylesheets="@../../../css/style.css" text="Your Library">
-                     <graphic>
-                        <ImageView fitHeight="21.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../img/icons8-playlist-96.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <padding>
-                        <Insets left="40.0" />
-                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </VBox.margin>
                   </Button>
                   <Button fx:id="favoriteButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#favoritePlaylistLView" prefHeight="40.0" prefWidth="166.0" stylesheets="@../../../css/style.css" text="Favorite">
                      <graphic>
@@ -70,6 +58,9 @@
                      <padding>
                         <Insets left="40.0" />
                      </padding>
+                     <VBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </VBox.margin>
                   </Button>
                   <Button id="buttonOpenFolder" fx:id="openFolder" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#chooseFile" prefHeight="40.0" prefWidth="166.0" stylesheets="@../../../css/style.css" text="Open Folder">
                      <graphic>
@@ -85,6 +76,9 @@
                      <padding>
                         <Insets left="40.0" />
                      </padding>
+                     <VBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </VBox.margin>
                   </Button>
                   <Pane prefHeight="72.0" prefWidth="166.0" VBox.vgrow="ALWAYS" />
                   <Button id="aboutButton" fx:id="aboutButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#openAbout" prefHeight="40.0" prefWidth="166.0" stylesheets="@../../../css/style.css" text="About">
@@ -101,11 +95,17 @@
                      <padding>
                         <Insets left="40.0" />
                      </padding>
+                     <VBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </VBox.margin>
                   </Button>
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
+               <opaqueInsets>
+                  <Insets left="5.0" />
+               </opaqueInsets>
             </VBox>
          </left>
          <center>
@@ -167,6 +167,9 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <HBox.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </HBox.margin>
                         </ToggleButton>
                         <ToggleButton fx:id="playButton" accessibleRole="TOGGLE_BUTTON" mnemonicParsing="false" stylesheets="@../../../css/style.css" HBox.hgrow="ALWAYS">
                            <graphic>
@@ -176,6 +179,9 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <HBox.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </HBox.margin>
                         </ToggleButton>
                         <ToggleButton fx:id="nextButton" accessibleRole="TOGGLE_BUTTON" mnemonicParsing="false" stylesheets="@../../../css/style.css">
                            <graphic>
@@ -185,6 +191,9 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <HBox.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </HBox.margin>
                         </ToggleButton>
                      </children>
                   </HBox>

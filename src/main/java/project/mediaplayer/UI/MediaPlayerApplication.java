@@ -79,7 +79,7 @@ public class MediaPlayerApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MediaPlayerApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MediaPlayerApplication.class.getResource("main-player-application.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1024, 756);
         String basePath = new File("").getAbsolutePath();
 //        basePath = basePath.replace("\\", "/") + "/src/main/resources/img/logo_title.png";

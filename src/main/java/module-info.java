@@ -4,7 +4,6 @@ module project.mediaplayer.mediaproject_ood {
     requires javafx.media;
     requires java.desktop;
     requires javafx.graphics;
-
     requires jlayer;
 
 

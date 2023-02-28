@@ -8,17 +8,20 @@
 .button:hover, #aboutButton:hover, #buttonOpenFolder:hover {
     -fx-text-fill: #028f76;
     -fx-background-color: #e0e0e0;
+    -fx-background-radius: 5;
 }
 
-.button:focused{
+.button:focused {
     -fx-text-fill: #028f76;
-    -fx-background-radius: 10;
+    -fx-background-radius: 5;
     -fx-background-color: #feeaad;
+    -fx-border-color: transparent;
+
 }
 
 /*.toggle-button {*/
 
-/*    -fx-background-color: transparent;*/
+/*    -fx-background-color: #e0e0e0;*/
 /*    -fx-background-radius: 10;*/
 /*}*/
 /*.toggle-button:hover {*/
@@ -34,9 +37,9 @@
     -fx-background-color: transparent;
 }
 
-#buttonOpenFolder:pressed, #aboutButton:pressed{
+#buttonOpenFolder:pressed, #aboutButton:pressed {
     -fx-text-fill: #028f76;
-    -fx-background-radius: 10;
+    -fx-background-radius: 5;
     -fx-background-color: #feeaad;
 }
 
@@ -69,6 +72,7 @@
 #contentVBox {
     -fx-background-color: #f3f3f3;
 }
+
 
 #okButton {
     -fx-border-color: #5c5c5c;
