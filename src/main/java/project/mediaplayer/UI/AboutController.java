@@ -43,7 +43,7 @@ public class AboutController {
 
         // get text of hyper link (url)
         String url = hyperlink.getText();
-        System.out.println(url);
+//        System.out.println(url);
 
         Desktop.getDesktop().browse(new URI(url));
 
