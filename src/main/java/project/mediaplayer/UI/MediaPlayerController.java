@@ -3,20 +3,10 @@ package project.mediaplayer.UI;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ToggleButton;
-import javafx.stage.DirectoryChooser;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import project.mediaplayer.model.*;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
 public class MediaPlayerController {
@@ -28,9 +18,6 @@ public class MediaPlayerController {
 
     @FXML
     private Button homeButton;
-
-    @FXML
-    private Button libraryButton;
 
     @FXML
     private ListView<String> listView;
@@ -46,8 +33,7 @@ public class MediaPlayerController {
 
     @FXML
     private ToggleButton favoriteSongButton;
-    @FXML
-    private  ToggleButton previousButton;
+    private final MainPlaylist mainPlaylist = new MainPlaylist(Playlists.MAIN_PLAYLIST);
     @FXML
     private ToggleButton playButton;
     @FXML
@@ -55,32 +41,39 @@ public class MediaPlayerController {
 
     @FXML
     private Label songNameLabel;
-
-    private MainPlaylist mainPlaylist = new MainPlaylist(Playlists.MAIN_PLAYLIST);
-    private FavoritePlaylist favoritePlaylist = new FavoritePlaylist(Playlists.FAVORITE_PLAYLIST);
-    private CurrentPlaylist currentPlaylist = new CurrentPlaylist(Playlists.CURRENT_PLAYLIST);
-    private ObservableList<String> songItems = FXCollections.observableArrayList();
+    private final FavoritePlaylist favoritePlaylist = new FavoritePlaylist(Playlists.FAVORITE_PLAYLIST);
+    private final CurrentPlaylist currentPlaylist = new CurrentPlaylist(Playlists.CURRENT_PLAYLIST);
+    private final ObservableList<String> songItems = FXCollections.observableArrayList();
+    @FXML
+    private ToggleButton previousButton;
     private SongPlayer songPlayer;
     private int playState;
 
     @FXML
     protected void chooseFile() {
         Files files = new Files();
-        files.clearAll();
-//        ArrayList<File> files = new ArrayList<>();
-        DirectoryChooser directoryChooser = new DirectoryChooser();
-        directoryChooser.setTitle("Open Music Folder");
-//        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Audio Files *.wav", "*.wav"));
-        File directory = directoryChooser.showDialog(null);
-        if (directory != null) {
-            for (File file : directory.listFiles()) {
-                files.addFile(file);
-            }
+//        files.clearAll();
+////        ArrayList<File> files = new ArrayList<>();
+//        DirectoryChooser directoryChooser = new DirectoryChooser();
+//        directoryChooser.setTitle("Open Music Folder");
+////        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Audio Files *.wav", "*.wav"));
+//        File directory = directoryChooser.showDialog(null);
+//        if (directory != null) {
+//            for (File file : directory.listFiles()) {
+//                files.addFile(file);
+//            }
+//        }
+        files.chooseFileDir();
+        if (files.getListFiles().size() == 0) {
+            String title = "No song added";
+            String message = "Seem you were choosed a directory with have no music file or empty directory." +
+                    " Please chooses an appropriate directory!";
+            showWarningDialog(title, message);
+        } else {
+            mainPlaylist.addSongs(files);
+            favoritePlaylist.addSongToFavorite(mainPlaylist);
+            addToListView();
         }
-
-        mainPlaylist.addSongs(files);
-        favoritePlaylist.addSongToFavorite(mainPlaylist);
-        addToListView();
     }
 
 
@@ -190,6 +183,14 @@ public class MediaPlayerController {
 //        currentPlaylist.playInCurrentPlaylist(1);
 //    }
 
+    // this method is to show a dialog with title and message
+    private void showWarningDialog(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText("Warning");
+        alert.setContentText(message);
+        alert.show();
+    }
 
 
 }

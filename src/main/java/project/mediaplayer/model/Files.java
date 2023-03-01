@@ -4,10 +4,9 @@ import javafx.stage.DirectoryChooser;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Files {
-    private ArrayList<File> files = new ArrayList<>();
+    private final ArrayList<File> files = new ArrayList<>();
 
 //    public Files(ArrayList<File> files){
 //        this.files = files;
@@ -48,15 +47,20 @@ public class Files {
 
 
     // choose directory and get files from its directory
-    public void fileChooser() {
+    public void chooseFileDir() {
+        // clear old files list if it already exist
         this.files.clear();
-//        ArrayList<File> files = new ArrayList<>();
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Open Music Folder");
-//        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Audio Files *.wav", "*.wav"));
         File directory = directoryChooser.showDialog(null);
         if (directory != null) {
-            Collections.addAll(files, directory.listFiles());
+            for (File file : directory.listFiles()
+            ) {
+                // only add .mp3, .aac, .wav file
+                if (file.getPath().endsWith(".mp3") || file.getPath().endsWith(".aac")
+                        || file.getPath().endsWith(".wav"))
+                    files.add(file);
+            }
         }
     }
 }

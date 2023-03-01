@@ -2,6 +2,13 @@ package project.mediaplayer.model;
 
 import java.io.File;
 
+/* The purposes of Main Playlist:
+ *   - Main Playlist is storage songs from list files of Files class
+ *   - While switching to Favorite on UI, Current Playlist will be clear all and
+ *   add all songs from Favorite Playlist
+ *   - So that we need a playlist to reserve a stock songs without re-add it from files list
+ * */
+
 public class MainPlaylist extends Playlists {
 
 
@@ -25,8 +32,6 @@ public class MainPlaylist extends Playlists {
             }
         }
     }
-
-
 
 
 }
