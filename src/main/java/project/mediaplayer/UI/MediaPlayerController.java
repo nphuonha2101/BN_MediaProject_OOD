@@ -1,15 +1,28 @@
+
 package project.mediaplayer.UI;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import project.mediaplayer.model.*;
 
+import java.io.File;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 import java.util.StringTokenizer;
 
-public class MediaPlayerController {
+public class MediaPlayerController implements Initializable {
 
     @FXML
     private Button aboutButton;
@@ -20,7 +33,10 @@ public class MediaPlayerController {
     private Button homeButton;
 
     @FXML
-    private ListView<String> listView;
+    private Button libraryButton;
+
+//    @FXML
+//    private ListView<String> listView;
 
     @FXML
     private Button openFolder;
@@ -33,49 +49,135 @@ public class MediaPlayerController {
 
     @FXML
     private ToggleButton favoriteSongButton;
+//    @FXML
+//    private  ToggleButton previousButton;
+//    @FXML
+//    private ToggleButton playButton;
+//    @FXML
+//    private ToggleButton nextButton;
+
+//    @FXML
+//    private Label songNameLabel;
+
     private final MainPlaylist mainPlaylist = new MainPlaylist(Playlists.MAIN_PLAYLIST);
+    private final FavoritePlaylist favoritePlaylist = new FavoritePlaylist(Playlists.FAVORITE_PLAYLIST);
+    private final CurrentPlaylist currentPlaylist = new CurrentPlaylist(Playlists.CURRENT_PLAYLIST);
+    private final ObservableList<String> songItems = FXCollections.observableArrayList();
+    private SongPlayer songPlayer;
+    private int playState;
+
+    // Test ----------------------------------------------------------------
+    @FXML
+    private Pane pane;
+    @FXML
+    private Label songNameLabel;
+    @FXML
+    private ListView<String> listView;
+    @FXML
+    private ToggleButton previousButton;
     @FXML
     private ToggleButton playButton;
     @FXML
     private ToggleButton nextButton;
+    //    @FXML
+//    private ToggleButton resetButton;
+    private File directory;
+    private File[] files;
+    private ArrayList<File> songs;
+    private int songNumber;
+    private Media media;
+    private MediaPlayer mediaPlayer;
 
-    @FXML
-    private Label songNameLabel;
-    private final FavoritePlaylist favoritePlaylist = new FavoritePlaylist(Playlists.FAVORITE_PLAYLIST);
-    private final CurrentPlaylist currentPlaylist = new CurrentPlaylist(Playlists.CURRENT_PLAYLIST);
-    private final ObservableList<String> songItems = FXCollections.observableArrayList();
-    @FXML
-    private ToggleButton previousButton;
-    private SongPlayer songPlayer;
-    private int playState;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        System.out.println(currentPlaylist.getPlaylistName());
 
-    @FXML
-    protected void chooseFile() {
-        Files files = new Files();
-//        files.clearAll();
-////        ArrayList<File> files = new ArrayList<>();
-//        DirectoryChooser directoryChooser = new DirectoryChooser();
-//        directoryChooser.setTitle("Open Music Folder");
-////        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Audio Files *.wav", "*.wav"));
-//        File directory = directoryChooser.showDialog(null);
-//        if (directory != null) {
-//            for (File file : directory.listFiles()) {
-//                files.addFile(file);
-//            }
-//        }
-        files.chooseFileDir();
-        if (files.getListFiles().size() == 0) {
-            String title = "No song added";
-            String message = "Seem you were choosed a directory with have no music file or empty directory." +
-                    " Please chooses an appropriate directory!";
-            showWarningDialog(title, message);
-        } else {
-            mainPlaylist.addSongs(files);
-            favoritePlaylist.addSongToFavorite(mainPlaylist);
-            addToListView();
+        songs = new ArrayList<File>();
+        directory = new File("src/main/resources/music");
+        files = directory.listFiles();
+
+        if (files != null) {
+            for (File file : files) {
+                songs.add(file);
+                System.out.println(file);
+            }
+        }
+
+        media = new Media(songs.get(songNumber).toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+
+        songNameLabel.setText(songs.get(songNumber).getName());
+    }
+
+
+    public void playMedia() {
+        if (playButton.isSelected()) {
+            System.out.println("Checkbox is selected");
+            mediaPlayer.play();
+        } else if (!playButton.isSelected()) {
+            System.out.println("Checkbox is not selected");
+            mediaPlayer.pause();
         }
     }
 
+//    public void resetMedia() {
+//        mediaPlayer.seek(Duration.seconds(0));
+//    }
+
+    public void previousMedia() {
+        if (songNumber > 0) {
+            songNumber--;
+            mediaPlayer.stop();
+            media = new Media(songs.get(songNumber).toURI().toString());
+            mediaPlayer = new MediaPlayer(media);
+            songNameLabel.setText(songs.get(songNumber).getName());
+            playMedia();
+        } else {
+            songNumber = songs.size() - 1;
+            mediaPlayer.stop();
+            media = new Media(songs.get(songNumber).toURI().toString());
+            mediaPlayer = new MediaPlayer(media);
+            songNameLabel.setText(songs.get(songNumber).getName());
+            playMedia();
+        }
+    }
+
+    public void nextMedia() {
+        if (songNumber < songs.size() - 1) {
+            songNumber++;
+            mediaPlayer.stop();
+            media = new Media(songs.get(songNumber).toURI().toString());
+            mediaPlayer = new MediaPlayer(media);
+            songNameLabel.setText(songs.get(songNumber).getName());
+            playMedia();
+        } else {
+            songNumber = 0;
+            mediaPlayer.stop();
+            media = new Media(songs.get(songNumber).toURI().toString());
+            mediaPlayer = new MediaPlayer(media);
+            songNameLabel.setText(songs.get(songNumber).getName());
+            playMedia();
+        }
+    }
+
+    // End Test ------------------------------------------------------------
+    @FXML
+    protected void chooseFile() {
+        Files files = new Files();
+        files.clearAll();
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setTitle("Open Music Folder");
+        File directory = directoryChooser.showDialog(null);
+        if (directory != null) {
+            for (File file : directory.listFiles()) {
+                files.addFile(file);
+            }
+        }
+
+        mainPlaylist.addSongs(files);
+        favoritePlaylist.addSongToFavorite(mainPlaylist);
+        addToListView();
+    }
 
     @FXML
     protected void mainPlaylistLView() {
@@ -100,8 +202,8 @@ public class MediaPlayerController {
             songItems.add(song.getSongName() + "\n" + song.getSongPath());
         }
 
-        System.out.println(mainPlaylist);
-        System.out.println(songItems);
+//        System.out.println(mainPlaylist);
+//        System.out.println(songItems);
         listView.setItems(songItems);
     }
 
@@ -139,58 +241,7 @@ public class MediaPlayerController {
         return result;
     }
 
-//    public static Clip PlayMusic(String location) {
-//        try {
-//            File musicPath = new File(location);
-//            if (musicPath.exists()) {
-//                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
-//                Clip clip = AudioSystem.getClip();
-//                clip.open(audioInput);
-//                clip.start();
-//                return clip;
-//            } else {
-//                System.out.println("Can't find file");
-//            }
-//        }
-//        catch (Exception e) {
-//            System.out.println(e);
-//        }
-//        return null;
-//    }
-//    @FXML
-//    protected void playStop() {
-//        for (Song song : currentPlaylist.getSongs()
-//        ) {
-//            songItems.add(song.getSongName() + "\n" + song.getSongPath());
-//        }
-//        try {
-//            for (int i = 0; i < songItems.size(); i++) {
-//                System.out.println("Playing " + songItems.get(i));
-//                Clip currentClip = PlayMusic(songItems.get(i));
-//                while (currentClip.getMicrosecondLength() != currentClip.getMicrosecondPosition()) {
-//
-//                }
-//            }
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
-//        if (playButton.isFocused() == true) {
-//            playState = 1;
-//            currentPlaylist.playInCurrentPlaylist(playState);
-//        } else  if (playButton.isFocused() == false){
-//            playState = 2;
-//        }
-//        currentPlaylist.playInCurrentPlaylist(1);
-//    }
 
-    // this method is to show a dialog with title and message
-    private void showWarningDialog(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle(title);
-        alert.setHeaderText("Warning");
-        alert.setContentText(message);
-        alert.show();
-    }
 
 
 }
