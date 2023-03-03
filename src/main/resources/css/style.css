@@ -1,23 +1,23 @@
 
-.button {
+
+
+.button, #buttonOpenFolder, #aboutButton, #okButton {
     -fx-background-color: transparent;
     -fx-font-weight: bold;
     -fx-font-size: 13;
-    -fx-text-fill: #5c5c5c;
+    -fx-text-fill: #a8b2af;
 }
 
-.button:hover, #aboutButton:hover, #buttonOpenFolder:hover {
-    -fx-text-fill: #2fa84f;
-    -fx-background-color: #dcf7e3;
-    -fx-background-radius: 50;
+.button:hover, #aboutButton:hover, #buttonOpenFolder:hover, #okButton {
+    -fx-text-fill: #5aa1c2;
+    -fx-background-color: #343a40;
+    -fx-background-radius: 5;
 }
 
-.button:focused {
+.button:focused, #buttonOpenFolder:pressed, #aboutButton:pressed, #okButton:pressed {
     -fx-text-fill: #fff;
-    -fx-background-radius: 50;
-    -fx-background-color: #2fa84f;
-    -fx-border-color: transparent;
-
+    -fx-background-radius: 5;
+    -fx-background-color: #365880;
 }
 
 /*.toggle-button {*/
@@ -33,17 +33,17 @@
 /*    -fx-border-radius: 10;*/
 /*}*/
 
-#buttonOpenFolder, #aboutButton {
+/*#buttonOpenFolder, #aboutButton {
     -fx-text-fill: #5c5c5c;
     -fx-background-color: transparent;
-}
+}*/
 
-#buttonOpenFolder:pressed, #aboutButton:pressed {
+/*#buttonOpenFolder:pressed, #aboutButton:pressed {
     -fx-text-fill: #fff;
     -fx-background-radius: 50;
     -fx-background-color: #2fa84f;
     -fx-border-color: transparent;
-}
+}*/
 
 .list-view {
     -fx-background-color: transparent;
@@ -59,23 +59,23 @@
     -fx-padding: 2px;
     -fx-background-insets: 2px;
     -fx-padding: 10;
+    -fx-text-fill: #fefefe;
+    -fx-font-weight: bold;
+
 
 }
-.list-cell:selected {
-    -fx-text-fill: #028f76;
+.list-cell:focused {
+    -fx-text-fill: #4dabf7;
+
 }
 .list-cell:odd {
-    -fx-background-color: #b2e098;
+    -fx-background-color: #1e2228;
 }
 .list-cell:even {
-    -fx-background-color: #a5e8e1;
+    -fx-background-color: #2d333b;
 }
 
-#contentVBox {
-    -fx-background-color: #f3f3f3;
-}
 
-#okButton {
-    -fx-border-color: #9bd5ab;
-    -fx-border-radius: 50;
-}
+
+
+

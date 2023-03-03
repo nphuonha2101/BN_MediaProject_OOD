@@ -5,10 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -81,7 +78,7 @@ public class MediaPlayerController {
     private File directory;
     private File[] files;
     private final ArrayList<File> songFiles = new ArrayList<>();
-    private int songNumber = 0;
+    private int songNumber;
     private Media media;
     private MediaPlayer mediaPlayer;
 
@@ -147,14 +144,19 @@ public class MediaPlayerController {
 
 
     public void playMedia() {
-        if (playButton.isSelected()) {
-            System.out.println("Checkbox is selected");
-            System.out.println(currentPlaylist.getSongs().size());
-            mediaPlayer.play();
-        } else if (!playButton.isSelected()) {
-            System.out.println("Checkbox is not selected");
+//        if (playButton.isSelected()) {
+//            System.out.println("Checkbox is selected");
+//            System.out.println(currentPlaylist.getSongs().size());
+//            mediaPlayer.play();
+//        } else if (!playButton.isSelected()) {
+//            System.out.println("Checkbox is not selected");
+//            mediaPlayer.pause();
+//        }
+
+        if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
             mediaPlayer.pause();
-        }
+        } else
+            mediaPlayer.play();
     }
 
 //    public void resetMedia() {
@@ -212,6 +214,14 @@ public class MediaPlayerController {
             songFiles.add(songFile);
 
         }
+
+        if (currentPlaylist.getSongs().isEmpty()) {
+            String title = "No song added";
+            String message = "Seem a directory you chose didn't have any music file (*.mp3, *.aac, *.wav). \n" +
+                    "Please import it again!";
+            showInfoDialog(title, message);
+        }
+
         initialPlayer();
         addToListView();
     }
@@ -248,6 +258,12 @@ public class MediaPlayerController {
     private void selectedListItem() {
         String item = listView.getSelectionModel().getSelectedItem();
         songNameLabel.setText(splitSongNameLView(item));
+        mediaPlayer.stop();
+        songNumber = listView.getSelectionModel().getSelectedIndex();
+        media = new Media(songFiles.get(songNumber).toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+        System.out.println(songNumber);
+        mediaPlayer.play();
 //        songPlayer = new SongPlayer(slitPathLView(item), 1);
 //        songPlayer.play();
 //        songNameLabel.setText(slitPathLView(item));
@@ -337,6 +353,21 @@ public class MediaPlayerController {
         media = new Media(songFiles.get(songNumber).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
+    }
+
+
+    // show info dialog with title and message
+    private void showInfoDialog(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+        // set title for dialog title bar
+        alert.setTitle(title);
+        // set text for dialog header
+        alert.setHeaderText("INFORMATION");
+        // set text for dialog content
+        alert.setContentText(message);
+        alert.show();
+
     }
 }
 
