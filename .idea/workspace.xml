@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Nguyen Phuong Nha:&#10;- changes buttons style on UI (style.css file)&#10;- creates dialog if music list's length = 0 (FXML method fileChooser in MediaPlayerController class)&#10;- explains about responsibilities of three types of playlist">
+    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Test Play, pause, previous, next music">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/music/b.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/music/test.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/music/Đường một chiều.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/main-player-application.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/main-player-application.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -318,7 +315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677427440495</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Test Play, pause, previous, next music">
+      <created>1677690978045</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1677690978045</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +383,8 @@
     <MESSAGE value="Nguyen Phuong Nha - Important changes - Support MP3 Format" />
     <MESSAGE value="Nguyen Phuong Nha - add comment to explain some methods and re-styling some javaFX components" />
     <MESSAGE value="Nguyen Phuong Nha:&#10;- changes buttons style on UI (style.css file)&#10;- creates dialog if music list's length = 0 (FXML method fileChooser in MediaPlayerController class)&#10;- explains about responsibilities of three types of playlist" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nguyen Phuong Nha:&#10;- changes buttons style on UI (style.css file)&#10;- creates dialog if music list's length = 0 (FXML method fileChooser in MediaPlayerController class)&#10;- explains about responsibilities of three types of playlist" />
+    <MESSAGE value="Test Play, pause, previous, next music" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test Play, pause, previous, next music" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
