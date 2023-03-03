@@ -10,11 +10,14 @@ import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import project.mediaplayer.model.*;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MediaPlayerController {
 
@@ -60,7 +63,6 @@ public class MediaPlayerController {
     private SongPlayer songPlayer;
     private int playState;
 
-    // Test ----------------------------------------------------------------
     @FXML
     private Pane pane;
     @FXML
@@ -68,13 +70,19 @@ public class MediaPlayerController {
     @FXML
     private ListView<String> listView;
     @FXML
+    private ProgressBar songProgressBar;
+
+    @FXML
     private ToggleButton previousButton;
     @FXML
     private ToggleButton playButton;
     @FXML
     private ToggleButton nextButton;
-    //    @FXML
-//    private ToggleButton resetButton;
+    @FXML
+    private ToggleButton resetButton;
+    private Timer timer;
+    private TimerTask task;
+    private boolean running;
     private File directory;
     private File[] files;
     private final ArrayList<File> songFiles = new ArrayList<>();
@@ -144,29 +152,28 @@ public class MediaPlayerController {
 
 
     public void playMedia() {
-//        if (playButton.isSelected()) {
-//            System.out.println("Checkbox is selected");
-//            System.out.println(currentPlaylist.getSongs().size());
-//            mediaPlayer.play();
-//        } else if (!playButton.isSelected()) {
-//            System.out.println("Checkbox is not selected");
-//            mediaPlayer.pause();
-//        }
-
         if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+            cancelTimer();
+
             mediaPlayer.pause();
         } else
-            mediaPlayer.play();
+            beginTimer();
+        mediaPlayer.play();
     }
 
-//    public void resetMedia() {
-//        mediaPlayer.seek(Duration.seconds(0));
-//    }
+    public void resetMedia() {
+        songProgressBar.setProgress(0);
+        mediaPlayer.seek(Duration.seconds(0));
+    }
 
     public void previousMedia() {
         if (songNumber > 0) {
             songNumber--;
             mediaPlayer.stop();
+            if (running) {
+
+                cancelTimer();
+            }
             media = new Media(songFiles.get(songNumber).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
             songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
@@ -174,6 +181,10 @@ public class MediaPlayerController {
         } else {
             songNumber = songFiles.size() - 1;
             mediaPlayer.stop();
+            if (running) {
+
+                cancelTimer();
+            }
             media = new Media(songFiles.get(songNumber).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
             songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
@@ -185,6 +196,9 @@ public class MediaPlayerController {
         if (songNumber < songFiles.size() - 1) {
             songNumber++;
             mediaPlayer.stop();
+            if (running) {
+                cancelTimer();
+            }
             media = new Media(songFiles.get(songNumber).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
             songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
@@ -199,7 +213,36 @@ public class MediaPlayerController {
         }
     }
 
-    // End Test ------------------------------------------------------------
+    // End Play ------------------------------------------------------------
+    public void beginTimer() {
+
+        timer = new Timer();
+
+        task = new TimerTask() {
+
+            public void run() {
+
+                running = true;
+                double current = mediaPlayer.getCurrentTime().toSeconds();
+                double end = media.getDuration().toSeconds();
+                songProgressBar.setProgress(current / end);
+
+                if (current / end == 1) {
+
+                    cancelTimer();
+                }
+            }
+        };
+
+        timer.scheduleAtFixedRate(task, 0, 1000);
+    }
+
+    public void cancelTimer() {
+
+        running = false;
+        timer.cancel();
+    }
+
     @FXML
     protected void chooseFile() {
         Files files = new Files();
@@ -353,6 +396,7 @@ public class MediaPlayerController {
         media = new Media(songFiles.get(songNumber).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
+        songProgressBar.setStyle("-fx-accent: #2446e0;");
     }
 
 
