@@ -3,8 +3,8 @@ package project.mediaplayer.UI;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -12,17 +12,14 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import project.mediaplayer.model.*;
 
 import java.io.File;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 import java.util.StringTokenizer;
 
-public class MediaPlayerController implements Initializable {
+public class MediaPlayerController {
 
     @FXML
     private Button aboutButton;
@@ -83,36 +80,76 @@ public class MediaPlayerController implements Initializable {
 //    private ToggleButton resetButton;
     private File directory;
     private File[] files;
-    private ArrayList<File> songs;
-    private int songNumber;
+    private final ArrayList<File> songFiles = new ArrayList<>();
+    private int songNumber = 0;
     private Media media;
     private MediaPlayer mediaPlayer;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        System.out.println(currentPlaylist.getPlaylistName());
+    private final Task<Void> chooseFileTask = new Task<Void>() {
+        @Override
+        protected Void call() throws Exception {
 
-        songs = new ArrayList<File>();
-        directory = new File("src/main/resources/music");
-        files = directory.listFiles();
-
-        if (files != null) {
-            for (File file : files) {
-                songs.add(file);
-                System.out.println(file);
-            }
+            return null;
         }
+    };
 
-        media = new Media(songs.get(songNumber).toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
+//    Task<Void> initializeMediaTask = new Task<Void>() {
+//        @Override
+//        protected Void call() throws Exception {
+//            if (currentPlaylist.getSongs().size() > 0) {
+//                System.out.println(currentPlaylist.getPlaylistName());
+//////
+//////            songs = new ArrayList<File>();
+//////            directory = new File("src/main/resources/music");
+//////            files = directory.listFiles();
+//////
+//////            if (files != null) {
+//////                for (File file : files) {
+//////                    songs.add(file);
+//////                    System.out.println(file);
+//////                }
+//////            }
+////
+////
+//                media = new Media(songs.get(songNumber).getSongPath());
+//                mediaPlayer = new MediaPlayer(media);
+//
+//                songNameLabel.setText(songs.get(songNumber).getSongName());
+//            }
+//            return null;
+//        }
+//    }
+//        ;
 
-        songNameLabel.setText(songs.get(songNumber).getName());
-    }
+
+//        if (currentPlaylist.getSongs().size() > 0) {
+//            notify();
+//            System.out.println(currentPlaylist.getPlaylistName());
+//
+//            songs = new ArrayList<File>();
+//            directory = new File("src/main/resources/music");
+//            files = directory.listFiles();
+//
+//            if (files != null) {
+//                for (File file : files) {
+//                    songs.add(file);
+//                    System.out.println(file);
+//                }
+//            }
+//7
+//            media = new Media(songs.get(songNumber).getSongPath());
+//            mediaPlayer = new MediaPlayer(media);
+//
+//            songNameLabel.setText(songs.get(songNumber).getSongName());
+//        }
+//
+//    }
 
 
     public void playMedia() {
         if (playButton.isSelected()) {
             System.out.println("Checkbox is selected");
+            System.out.println(currentPlaylist.getSongs().size());
             mediaPlayer.play();
         } else if (!playButton.isSelected()) {
             System.out.println("Checkbox is not selected");
@@ -128,34 +165,34 @@ public class MediaPlayerController implements Initializable {
         if (songNumber > 0) {
             songNumber--;
             mediaPlayer.stop();
-            media = new Media(songs.get(songNumber).toURI().toString());
+            media = new Media(songFiles.get(songNumber).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
-            songNameLabel.setText(songs.get(songNumber).getName());
+            songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
             playMedia();
         } else {
-            songNumber = songs.size() - 1;
+            songNumber = songFiles.size() - 1;
             mediaPlayer.stop();
-            media = new Media(songs.get(songNumber).toURI().toString());
+            media = new Media(songFiles.get(songNumber).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
-            songNameLabel.setText(songs.get(songNumber).getName());
+            songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
             playMedia();
         }
     }
 
     public void nextMedia() {
-        if (songNumber < songs.size() - 1) {
+        if (songNumber < songFiles.size() - 1) {
             songNumber++;
             mediaPlayer.stop();
-            media = new Media(songs.get(songNumber).toURI().toString());
+            media = new Media(songFiles.get(songNumber).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
-            songNameLabel.setText(songs.get(songNumber).getName());
+            songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
             playMedia();
         } else {
             songNumber = 0;
             mediaPlayer.stop();
-            media = new Media(songs.get(songNumber).toURI().toString());
+            media = new Media(songFiles.get(songNumber).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
-            songNameLabel.setText(songs.get(songNumber).getName());
+            songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
             playMedia();
         }
     }
@@ -164,18 +201,18 @@ public class MediaPlayerController implements Initializable {
     @FXML
     protected void chooseFile() {
         Files files = new Files();
-        files.clearAll();
-        DirectoryChooser directoryChooser = new DirectoryChooser();
-        directoryChooser.setTitle("Open Music Folder");
-        File directory = directoryChooser.showDialog(null);
-        if (directory != null) {
-            for (File file : directory.listFiles()) {
-                files.addFile(file);
-            }
-        }
-
+        files.chooseFileDir();
         mainPlaylist.addSongs(files);
+        currentPlaylist.addSongFromOtherPlaylist(mainPlaylist);
         favoritePlaylist.addSongToFavorite(mainPlaylist);
+        System.out.println(currentPlaylist.getSongs().size());
+        for (Song song : currentPlaylist.getSongs()
+        ) {
+            File songFile = new File(song.getSongPath());
+            songFiles.add(songFile);
+
+        }
+        initialPlayer();
         addToListView();
     }
 
@@ -193,7 +230,7 @@ public class MediaPlayerController implements Initializable {
         addToListView();
     }
 
-    private void addToListView() {
+    public void addToListView() {
         // set imported Song to list view
         listView.getItems().clear();
 
@@ -226,7 +263,7 @@ public class MediaPlayerController implements Initializable {
 
     // slit song name from list view item
     private String splitSongNameLView(String str) {
-        String result= "";
+        String result = "";
         StringTokenizer tokenizer = new StringTokenizer(str, "\n");
         result = tokenizer.nextToken();
         return result;
@@ -242,6 +279,66 @@ public class MediaPlayerController implements Initializable {
     }
 
 
+//  private MediaPlayer mediaInitialize() {
+//        if (currentPlaylist.getSongs().size() > 0) {
+//            System.out.println(currentPlaylist.getPlaylistName());
+////
+////            songs = new ArrayList<File>();
+////            directory = new File("src/main/resources/music");
+////            files = directory.listFiles();
+////
+////            if (files != null) {
+////                for (File file : files) {
+////                    songs.add(file);
+////                    System.out.println(file);
+////                }
+////            }
+//
+//
+//            media = new Media(songs.get(songNumber).getSongPath());
+//            mediaPlayer = new MediaPlayer(media);
+//
+//            songNameLabel.setText(songs.get(songNumber).getSongName());
+//
+//        }
+//        return mediaPlayer;
+//
+//    }
 
+//    public static void main(String[] args) {
+//
+//    }
 
+//    @Override
+//    public void initialize(URL url, ResourceBundle resourceBundle) {
+//        if (currentPlaylist.getSongs().size() > 0) {
+//            System.out.println(currentPlaylist.getPlaylistName());
+////
+////            songs = new ArrayList<File>();
+////            directory = new File("src/main/resources/music");
+////            files = directory.listFiles();
+////
+////            if (files != null) {
+////                for (File file : files) {
+////                    songs.add(file);
+////                    System.out.println(file);
+////                }
+////            }
+//
+//
+//            media = new Media(songs.get(songNumber).getSongPath());
+//            mediaPlayer = new MediaPlayer(media);
+//
+//            songNameLabel.setText(songs.get(songNumber).getSongName());
+//        }
+//    }
+
+    private void initialPlayer() {
+        media = new Media(songFiles.get(songNumber).toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+        songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
+    }
 }
+
+
+
