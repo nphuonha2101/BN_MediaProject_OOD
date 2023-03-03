@@ -63,7 +63,6 @@ public class Time {
         Time time = new Time(95);
         time.convertToMinuteFormat();
         System.out.println(time.getMinute() + " " + time.getSecond());
-
         time.convertToSecondFormat();
         System.out.println(time.getSecond());
 
