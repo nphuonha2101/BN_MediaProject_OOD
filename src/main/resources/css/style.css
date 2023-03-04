@@ -1,25 +1,30 @@
 
 
 
-.button, #buttonOpenFolder, #aboutButton, #okButton {
+.button, #buttonOpenFolder, #aboutButton, .toggle-button {
     -fx-background-color: transparent;
     -fx-font-weight: bold;
     -fx-font-size: 13;
     -fx-text-fill: #a8b2af;
 }
 
-.button:hover, #aboutButton:hover, #buttonOpenFolder:hover, #okButton {
+.button:hover, #aboutButton:hover, #buttonOpenFolder:hover, #okButton:hover, .toggle-button:hover {
     -fx-text-fill: #5aa1c2;
     -fx-background-color: #343a40;
     -fx-background-radius: 5;
 }
 
-.button:focused, #buttonOpenFolder:pressed, #aboutButton:pressed, #okButton:pressed {
+.button:focused, #buttonOpenFolder:pressed, #aboutButton:pressed, #okButton:pressed, .toggle-button:pressed, #favoriteSongButton:selected {
     -fx-text-fill: #fff;
     -fx-background-radius: 5;
     -fx-background-color: #365880;
 }
 
+#okButton {
+    -fx-background-color: transparent;
+    -fx-border-color: #4dabf7;
+    -fx-border-radius: 5;
+}
 /*.toggle-button {*/
 
 /*    -fx-background-color: #e0e0e0;*/
@@ -61,19 +66,48 @@
     -fx-padding: 10;
     -fx-text-fill: #fefefe;
     -fx-font-weight: bold;
-
-
 }
 .list-cell:focused {
     -fx-text-fill: #4dabf7;
 
 }
+
 .list-cell:odd {
     -fx-background-color: #1e2228;
 }
+
 .list-cell:even {
     -fx-background-color: #2d333b;
 }
+
+.progress-bar, .slider {
+
+    -fx-accent: #4dabf7;
+}
+
+/*#volumeSlider {*/
+/*    -fx-fill: #4dabf7;*/
+/*    -fx-background-color: transparent;*/
+/*}*/
+
+.progress-bar > .track, .slider > .track, .scroll-bar > .track {
+    -fx-text-box-border: #22272e;
+    -fx-control-inner-background: #1e2228;
+    -fx-background-color: #1e2228;
+}
+
+/* Thumb is button to scroll in scroll bar */
+
+.scroll-bar .thumb, .slider .thumb {
+    -fx-background-color: #fefefe;
+    -fx-background-radius: 10;
+}
+
+.scroll-bar .thumb:hover, .slider .thumb:hover {
+    -fx-background-color: #4dabf7;
+}
+
+
 
 
 

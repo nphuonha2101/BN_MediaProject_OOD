@@ -16,15 +16,15 @@ public class MainPlaylist extends Playlists {
         super(playlistType);
     }
 
-    public void addSongsFromFile(Playlists otherPlaylist) {
-        super.getSongs().clear();
-        super.getSongs().addAll(otherPlaylist.getSongs());
-
-    }
+//    public void addSongsFromFile(Playlists otherPlaylist) {
+//        super.getSongs().clear();
+//        super.getSongs().addAll(otherPlaylist.getSongs());
+//
+//    }
 
     //     add Songs to Playlist from files list
     public void addSongs(Files files) {
-
+        this.getSongs().clear();
         for (File file : files.getListFiles()) {
             if (file != null && file.getAbsolutePath().endsWith(".mp3")) {
                 String nameSong = Files.splitFileName(file.getPath());

@@ -5,8 +5,8 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="504.0"
-            prefWidth="699.0" xmlns="http://javafx.com/javafx/19"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="450.0" minWidth="500.0"
+            prefHeight="504.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/19"
             fx:controller="project.mediaplayer.UI.MediaPlayerController">
     <children>
         <BorderPane prefHeight="504.0" prefWidth="699.0" style="-fx-background-color: #1e2228;"
@@ -28,7 +28,7 @@
                             </children>
                         </Pane>
                         <Button fx:id="homeButton" alignment="BASELINE_LEFT" mnemonicParsing="false"
-                                onAction="#mainPlaylistLView" prefHeight="40.0" prefWidth="166.0"
+                                onAction="#switchPlaylist" prefHeight="40.0" prefWidth="166.0"
                                 stylesheets="@../../../css/style.css" text="Home">
                             <graphic>
                                 <ImageView fitHeight="21.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
@@ -41,17 +41,17 @@
                                 <Insets/>
                             </opaqueInsets>
                             <padding>
-                                <Insets left="40.0"/>
+                                <Insets left="20.0" right="20.0"/>
                             </padding>
                             <font>
                                 <Font name="System Bold" size="12.0"/>
                             </font>
                             <VBox.margin>
-                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+                                <Insets bottom="2.0" top="2.0"/>
                             </VBox.margin>
                         </Button>
-                        <Button fx:id="favoriteButton" alignment="BASELINE_LEFT" mnemonicParsing="false"
-                                onAction="#favoritePlaylistLView" prefHeight="40.0" prefWidth="166.0"
+                        <Button fx:id="favoriteListButton" alignment="BASELINE_LEFT" mnemonicParsing="false"
+                                onAction="#switchPlaylist" prefHeight="40.0" prefWidth="166.0"
                                 stylesheets="@../../../css/style.css" text="Favorite">
                             <graphic>
                                 <ImageView fitHeight="21.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
@@ -64,10 +64,30 @@
                                 <Insets/>
                             </opaqueInsets>
                             <padding>
-                                <Insets left="40.0"/>
+                                <Insets left="20.0" right="5.0"/>
                             </padding>
                             <VBox.margin>
-                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+                                <Insets bottom="2.0" top="2.0"/>
+                            </VBox.margin>
+                        </Button>
+                        <Button fx:id="playingQueueButton" alignment="BASELINE_LEFT" mnemonicParsing="false"
+                                onAction="#switchPlaylist" prefHeight="40.0" prefWidth="166.0"
+                                stylesheets="@../../../css/style.css" text="Playing Queue">
+                            <graphic>
+                                <ImageView fitHeight="21.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../img/icons8-playlist-96.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <padding>
+                                <Insets left="20.0" right="5.0"/>
+                            </padding>
+                            <VBox.margin>
+                                <Insets bottom="2.0" top="2.0"/>
                             </VBox.margin>
                         </Button>
                         <Button id="buttonOpenFolder" fx:id="openFolder" alignment="BASELINE_LEFT"
@@ -84,10 +104,10 @@
                                 <Insets/>
                             </opaqueInsets>
                             <padding>
-                                <Insets left="40.0"/>
+                                <Insets left="20.0" right="5.0"/>
                             </padding>
                             <VBox.margin>
-                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+                                <Insets bottom="2.0" top="2.0"/>
                             </VBox.margin>
                         </Button>
                         <Pane prefHeight="72.0" prefWidth="166.0" VBox.vgrow="ALWAYS"/>
@@ -105,15 +125,15 @@
                                 <Insets/>
                             </opaqueInsets>
                             <padding>
-                                <Insets left="40.0"/>
+                                <Insets left="20.0" right="5.0"/>
                             </padding>
                             <VBox.margin>
-                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+                                <Insets bottom="2.0" top="2.0"/>
                             </VBox.margin>
                         </Button>
                     </children>
                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
                     </padding>
                     <opaqueInsets>
                         <Insets left="5.0"/>
@@ -137,8 +157,9 @@
                                 <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
                             </VBox.margin>
                         </Label>
-                        <ListView id="listView" fx:id="listView" onMouseClicked="#selectedListItem" prefHeight="325.0"
-                                  prefWidth="483.0" stylesheets="@../../../css/style.css" VBox.vgrow="ALWAYS">
+                        <ListView id="listView" fx:id="listView" onMouseClicked="#selectedListViewItem"
+                                  prefHeight="325.0" prefWidth="483.0" stylesheets="@../../../css/style.css"
+                                  VBox.vgrow="ALWAYS">
                             <padding>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                             </padding>
@@ -148,7 +169,7 @@
                         </ListView>
                     </children>
                     <BorderPane.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                        <Insets bottom="15.0" left="5.0" right="15.0" top="15.0"/>
                     </BorderPane.margin>
                     <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0"/>
@@ -156,11 +177,14 @@
                 </VBox>
             </center>
             <bottom>
-                <VBox prefHeight="84.0" prefWidth="699.0" BorderPane.alignment="CENTER">
+                <VBox alignment="CENTER" prefHeight="99.0" prefWidth="699.0"
+                      style="-fx-background-color: #22272e; -fx-background-radius: 10;"
+                      stylesheets="@../../../css/style.css" BorderPane.alignment="CENTER">
                     <children>
                         <HBox alignment="CENTER" prefHeight="1.0" prefWidth="699.0" VBox.vgrow="ALWAYS">
                             <children>
-                                <Label prefHeight="14.0" prefWidth="36.0" text="00:00" textFill="WHITE">
+                                <Label fx:id="currentSongDurationLabel" prefHeight="14.0" prefWidth="36.0"
+                                       textFill="WHITE">
                                     <font>
                                         <Font size="11.0"/>
                                     </font>
@@ -168,9 +192,11 @@
                                         <Insets/>
                                     </HBox.margin>
                                 </Label>
-                                <ProgressBar fx:id="songProgressBar" cache="true" prefHeight="10.0" prefWidth="272.0"
-                                             progress="0.0" HBox.hgrow="ALWAYS"/>
-                                <Label prefHeight="14.0" prefWidth="36.0" text="00:00" textFill="WHITE">
+                                <ProgressBar id="songProgressBar" fx:id="songProgressBar" cache="true" prefHeight="16.0"
+                                             prefWidth="525.0" progress="0.0" style="-fx-border-width: 0;"
+                                             stylesheets="@../../../css/style.css" HBox.hgrow="ALWAYS"/>
+                                <Label fx:id="totalSongDurationLabel" prefHeight="14.0" prefWidth="36.0"
+                                       textFill="WHITE">
                                     <font>
                                         <Font size="11.0"/>
                                     </font>
@@ -181,21 +207,56 @@
                             </children>
                         </HBox>
                         <GridPane alignment="CENTER" prefHeight="104.0" prefWidth="699.0"
-                                  style="-fx-background-color: #1e2228;" stylesheets="@../../../css/style.css">
+                                  stylesheets="@../../../css/style.css" VBox.vgrow="ALWAYS">
                             <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="285.0" minWidth="10.0"
+                                                   prefWidth="208.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="316.0" minWidth="10.0"
+                                                   prefWidth="281.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.0" minWidth="10.0"
+                                                   prefWidth="208.0"/>
                             </columnConstraints>
                             <rowConstraints>
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                             </rowConstraints>
                             <children>
-                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.hgrow="ALWAYS"
+                                      GridPane.vgrow="ALWAYS">
                                     <children>
+                                        <Label fx:id="songNameLabel" alignment="CENTER" prefHeight="35.0"
+                                               prefWidth="238.0" text="Song name" textFill="#fefefe">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </padding>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="68.0" prefWidth="266.0" GridPane.columnIndex="1"
+                                      GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                                    <children>
+                                        <ToggleButton fx:id="shuffleButton" accessibleRole="TOGGLE_BUTTON"
+                                                      mnemonicParsing="false" onAction="#shuffleMusic" prefHeight="32.0"
+                                                      prefWidth="36.0" styleClass="mediaControlButtons"
+                                                      stylesheets="@../../../css/style.css">
+                                            <graphic>
+                                                <ImageView id="previousButton" fitHeight="25.0" fitWidth="25.0"
+                                                           pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../../../img/icons8-shuffle-96.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <HBox.margin>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+                                            </HBox.margin>
+                                        </ToggleButton>
                                         <ToggleButton fx:id="previousButton" accessibleRole="TOGGLE_BUTTON"
                                                       mnemonicParsing="false" onAction="#previousMedia"
                                                       prefHeight="32.0" prefWidth="36.0"
+                                                      styleClass="mediaControlButtons"
                                                       stylesheets="@../../../css/style.css">
                                             <graphic>
                                                 <ImageView id="previousButton" fitHeight="25.0" fitWidth="25.0"
@@ -211,6 +272,7 @@
                                         </ToggleButton>
                                         <ToggleButton fx:id="playButton" accessibleRole="TOGGLE_BUTTON"
                                                       mnemonicParsing="false" onAction="#playMedia"
+                                                      styleClass="mediaControlButtons"
                                                       stylesheets="@../../../css/style.css" HBox.hgrow="ALWAYS">
                                             <graphic>
                                                 <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true"
@@ -226,6 +288,7 @@
                                         </ToggleButton>
                                         <ToggleButton fx:id="nextButton" accessibleRole="TOGGLE_BUTTON"
                                                       mnemonicParsing="false" onAction="#nextMedia"
+                                                      styleClass="mediaControlButtons"
                                                       stylesheets="@../../../css/style.css">
                                             <graphic>
                                                 <ImageView id="nextButton" fitHeight="25.0" fitWidth="25.0"
@@ -250,10 +313,14 @@
                                                     </image>
                                                 </ImageView>
                                             </graphic>
+                                            <HBox.margin>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+                                            </HBox.margin>
                                         </ToggleButton>
                                     </children>
                                 </HBox>
-                                <HBox alignment="CENTER" prefHeight="104.0" prefWidth="224.0" GridPane.columnIndex="2">
+                                <HBox alignment="CENTER" prefHeight="104.0" prefWidth="224.0" GridPane.columnIndex="2"
+                                      GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                                     <children>
                                         <ToggleButton fx:id="favoriteSongButton" accessibleRole="TOGGLE_BUTTON"
                                                       mnemonicParsing="false" stylesheets="@../../../css/style.css">
@@ -265,25 +332,34 @@
                                                     </image>
                                                 </ImageView>
                                             </graphic>
+                                            <HBox.margin>
+                                                <Insets right="25.0"/>
+                                            </HBox.margin>
                                         </ToggleButton>
+                                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../img/icons8-speaker-96.png"/>
+                                            </image>
+                                            <HBox.margin>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+                                            </HBox.margin>
+                                        </ImageView>
+                                        <Slider id="volumeSlider" fx:id="volumeSlider" blockIncrement="1.0"
+                                                onMouseClicked="#changeVolume" onMouseDragged="#changeVolume"
+                                                prefHeight="13.0" prefWidth="110.0" showTickMarks="true"
+                                                snapToTicks="true" stylesheets="@../../../css/style.css" value="50.0"/>
                                     </children>
-                                </HBox>
-                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                        <Label fx:id="songNameLabel" alignment="CENTER" prefHeight="35.0"
-                                               prefWidth="238.0" text="Song name" textFill="#fefefe">
-                                            <font>
-                                                <Font size="14.0"/>
-                                            </font>
-                                        </Label>
-                                    </children>
-                                    <padding>
-                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
-                                    </padding>
                                 </HBox>
                             </children>
                         </GridPane>
                     </children>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="10.0"/>
+                    </padding>
+                    <BorderPane.margin>
+                        <Insets bottom="15.0" left="15.0" right="15.0"/>
+                    </BorderPane.margin>
                 </VBox>
             </bottom>
         </BorderPane>

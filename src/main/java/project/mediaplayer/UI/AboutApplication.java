@@ -3,7 +3,6 @@ package project.mediaplayer.UI;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class AboutApplication extends Application {
@@ -11,11 +10,11 @@ public class AboutApplication extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(AboutApplication.class.getResource("about.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 700, 500);
+
         stage.setTitle("About B&N Media Player");
         stage.setScene(scene);
         stage.setResizable(false);
 
-    stage.getIcons().add(new Image("https://drive.google.com/file/d/1U2aCvnbDFSdJX3eng9e2X0kx0pNwsioh/view?usp=sharing"));
         stage.show();
 
     }
