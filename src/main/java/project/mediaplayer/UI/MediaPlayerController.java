@@ -153,12 +153,12 @@ public class MediaPlayerController {
 
     public void playMedia() {
         if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+            mediaPlayer.pause();
             cancelTimer();
 
-            mediaPlayer.pause();
         } else
-            beginTimer();
-        mediaPlayer.play();
+            mediaPlayer.play();
+        beginTimer();
     }
 
     public void resetMedia() {
@@ -171,7 +171,6 @@ public class MediaPlayerController {
             songNumber--;
             mediaPlayer.stop();
             if (running) {
-
                 cancelTimer();
             }
             media = new Media(songFiles.get(songNumber).toURI().toString());
