@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Add Progress Bar">
+    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Add Progress Bar UI Logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/main-player-application.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/main-player-application.fxml" afterDir="false" />
@@ -321,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677817621620</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Add Progress Bar UI Logic">
+      <created>1677848992148</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1677848992148</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,7 +411,8 @@
     <MESSAGE value="Nguyen Phuong Nha - add comment to explain some methods and re-styling some javaFX components" />
     <MESSAGE value="Nguyen Phuong Nha:&#10;- changes buttons style on UI (style.css file)&#10;- creates dialog if music list's length = 0 (FXML method fileChooser in MediaPlayerController class)&#10;- explains about responsibilities of three types of playlist" />
     <MESSAGE value="Nguyen Phuong Nha:&#10;- improving playing songs from folder (create initialPlayer() method to get songs from files -&gt; currentPlaylist -&gt; media)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nguyen Phuong Nha:&#10;- improving playing songs from folder (create initialPlayer() method to get songs from files -&gt; currentPlaylist -&gt; media)" />
+    <MESSAGE value="Add Progress Bar UI Logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Progress Bar UI Logic" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
