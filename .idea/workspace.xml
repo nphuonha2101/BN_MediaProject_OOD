@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Add Progress Bar">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/icons8-shuffle-96.png" afterDir="false" />
+    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Nguyen Phuong Nha: &#10;- add changeVolume method to change volume of media player&#10;- add switchPlaylist method to switch between three playlist: main, favorite, current (playing queue)&#10;- improve dark mode for UI&#10;- change About description from TextArea to TextFlow &#10;- and some small changes">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/favoriteSong.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/musicDirectoryPathData.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/AboutApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/AboutApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/AboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/AboutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MainPlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MainPlaylist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/TimeUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/logo_title.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/about.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/about.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/main-player-application.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/main-player-application.fxml" afterDir="false" />
     </list>
@@ -79,13 +76,31 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.MediaPlayerApplication">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Java Workspace\BN_MediaProject_OOD\src\main\java\project\mediaplayer\model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Files">
     <configuration name="AboutApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="project.mediaplayer.UI.AboutApplication" />
       <module name="MediaProject_OOD" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="project.mediaplayer.UI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Files" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="project.mediaplayer.model.Files" />
+      <module name="MediaProject_OOD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.mediaplayer.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -133,33 +148,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="project.mediaplayer.model.Test" />
-      <module name="MediaProject_OOD" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.mediaplayer.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
+      <item itemvalue="Application.Files" />
       <item itemvalue="Application.MediaPlayerController" />
       <item itemvalue="Application.AboutApplication" />
       <item itemvalue="Application.MediaPlayerApplication" />
       <item itemvalue="Application.SongPlayer" />
-      <item itemvalue="Application.Test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Files" />
         <item itemvalue="Application.MediaPlayerApplication" />
         <item itemvalue="Application.AboutApplication" />
         <item itemvalue="Application.MediaPlayerController" />
         <item itemvalue="Application.SongPlayer" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -200,7 +202,11 @@
       <workItem from="1677913764026" duration="5513000" />
       <workItem from="1677941237271" duration="52000" />
       <workItem from="1677941871729" duration="7572000" />
-      <workItem from="1677951149980" duration="397000" />
+      <workItem from="1677951149980" duration="1048000" />
+      <workItem from="1677990699104" duration="2047000" />
+      <workItem from="1677993394319" duration="2267000" />
+      <workItem from="1677995761274" duration="162000" />
+      <workItem from="1678002162026" duration="3884000" />
     </task>
     <task id="LOCAL-00001" summary="second commit">
       <created>1676170105282</created>
@@ -342,7 +348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677848992148</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Nguyen Phuong Nha: &#10;- add changeVolume method to change volume of media player&#10;- add switchPlaylist method to switch between three playlist: main, favorite, current (playing queue)&#10;- improve dark mode for UI&#10;- change About description from TextArea to TextFlow &#10;- and some small changes">
+      <created>1677951874588</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1677951874588</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -426,7 +439,8 @@
     <MESSAGE value="Nguyen Phuong Nha:&#10;- changes buttons style on UI (style.css file)&#10;- creates dialog if music list's length = 0 (FXML method fileChooser in MediaPlayerController class)&#10;- explains about responsibilities of three types of playlist" />
     <MESSAGE value="Nguyen Phuong Nha:&#10;- improving playing songs from folder (create initialPlayer() method to get songs from files -&gt; currentPlaylist -&gt; media)" />
     <MESSAGE value="Add Progress Bar UI Logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Progress Bar UI Logic" />
+    <MESSAGE value="Nguyen Phuong Nha: &#10;- add changeVolume method to change volume of media player&#10;- add switchPlaylist method to switch between three playlist: main, favorite, current (playing queue)&#10;- improve dark mode for UI&#10;- change About description from TextArea to TextFlow &#10;- and some small changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nguyen Phuong Nha: &#10;- add changeVolume method to change volume of media player&#10;- add switchPlaylist method to switch between three playlist: main, favorite, current (playing queue)&#10;- improve dark mode for UI&#10;- change About description from TextArea to TextFlow &#10;- and some small changes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -442,6 +456,11 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java</url>
+          <line>149</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

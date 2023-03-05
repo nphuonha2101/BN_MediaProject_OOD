@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="450.0" minWidth="500.0"
-            prefHeight="504.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/19"
+            prefHeight="519.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/19"
             fx:controller="project.mediaplayer.UI.MediaPlayerController">
     <children>
         <BorderPane prefHeight="504.0" prefWidth="699.0" style="-fx-background-color: #1e2228;"
@@ -333,22 +333,31 @@
                                                 </ImageView>
                                             </graphic>
                                             <HBox.margin>
-                                                <Insets right="25.0"/>
+                                                <Insets right="20.0"/>
                                             </HBox.margin>
                                         </ToggleButton>
-                                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true"
-                                                   preserveRatio="true">
-                                            <image>
-                                                <Image url="@../../../img/icons8-speaker-96.png"/>
-                                            </image>
-                                            <HBox.margin>
-                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
-                                            </HBox.margin>
-                                        </ImageView>
+                                        <ToggleButton fx:id="volumeButton" accessibleRole="TOGGLE_BUTTON"
+                                                      mnemonicParsing="false" onAction="#volumeChangeWithButton"
+                                                      stylesheets="@../../../css/style.css">
+                                            <graphic>
+                                                <ImageView id="favoriteSongButton" fitHeight="23.0" fitWidth="23.0"
+                                                           pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../../../img/icons8-speaker-96.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </ToggleButton>
+                                        <Label fx:id="volumeLabel" alignment="CENTER" prefHeight="17.0" prefWidth="31.0"
+                                               textAlignment="JUSTIFY" textFill="#fefefe">
+                                            <font>
+                                                <Font name="System Bold" size="12.0"/>
+                                            </font>
+                                        </Label>
                                         <Slider id="volumeSlider" fx:id="volumeSlider" blockIncrement="1.0"
                                                 onMouseClicked="#changeVolume" onMouseDragged="#changeVolume"
-                                                prefHeight="13.0" prefWidth="110.0" showTickMarks="true"
-                                                snapToTicks="true" stylesheets="@../../../css/style.css" value="50.0"/>
+                                                prefHeight="13.0" prefWidth="110.0" showTickLabels="true"
+                                                snapToTicks="true" stylesheets="@../../../css/style.css" value="100.0"/>
                                     </children>
                                 </HBox>
                             </children>

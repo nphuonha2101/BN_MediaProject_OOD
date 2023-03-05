@@ -27,8 +27,7 @@ public class MediaPlayerController {
     private final FavoritePlaylist favoritePlaylist = new FavoritePlaylist(Playlists.FAVORITE_PLAYLIST);
     private final CurrentPlaylist currentPlaylist = new CurrentPlaylist(Playlists.CURRENT_PLAYLIST);
     private final ObservableList<String> songItems = FXCollections.observableArrayList();
-    //    @FXML
-//    private ListView<String> listView;
+
     private final ArrayList<File> songFiles = new ArrayList<>();
     private final Task<Void> chooseFileTask = new Task<Void>() {
         @Override
@@ -71,7 +70,12 @@ public class MediaPlayerController {
     @FXML
     private ToggleButton favoriteSongButton;
     @FXML
+    private ToggleButton volumeButton;
+    @FXML
     private Slider volumeSlider;
+    @FXML
+    private Label volumeLabel;
+
     private Timer timer;
     private TimerTask task;
     private boolean running;
@@ -113,6 +117,7 @@ public class MediaPlayerController {
             media = new Media(songFiles.get(songNumber).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
 //            songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
+            listView.getFocusModel().focus(songNumber);
             playMedia();
         } else {
             songNumber = songFiles.size() - 1;
@@ -124,6 +129,7 @@ public class MediaPlayerController {
             media = new Media(songFiles.get(songNumber).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
 //            songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
+            listView.getFocusModel().focus(songNumber);
             playMedia();
         }
     }
@@ -138,6 +144,9 @@ public class MediaPlayerController {
             media = new Media(songFiles.get(songNumber).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
 //            songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
+//            listView.scrollTo(songNumber);
+            listView.getFocusModel().focus(songNumber);
+
             playMedia();
         } else {
             songNumber = 0;
@@ -145,6 +154,8 @@ public class MediaPlayerController {
             media = new Media(songFiles.get(songNumber).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
 //            songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
+//            listView.scrollTo(songNumber);
+            listView.getFocusModel().focus(songNumber);
             playMedia();
         }
     }
@@ -213,7 +224,12 @@ public class MediaPlayerController {
      */
     @FXML
     protected void changeVolume() {
+        // clear text of label if it exist
+        volumeLabel.setText("");
+        // get value from volume slider and set to media player volume
         mediaPlayer.setVolume(volumeSlider.getValue() * 0.01);
+        // set volume value from slider
+        volumeLabel.setText((int) volumeSlider.getValue() + "");
     }
 
 
@@ -366,6 +382,25 @@ public class MediaPlayerController {
 
         // initial player after switched between playlists
         initialPlayer();
+    }
+
+    /**
+     * If current volume of the media player is larger than 0,
+     * then click on speaker button, the media player's volume is set to 0
+     * else, the media player's volume set to max value 1.
+     * <p>
+     * This method changes the value of the volume slider first, then call
+     * method changeVolume to set the media player's volume with value of volume slider was set before.
+     * The media player's volume range is 0 to 1.0 so the media player's volume value = 0.01 * volumeSlider's value
+     */
+    @FXML
+    protected void volumeChangeWithButton() {
+        if (volumeSlider.getValue() > 0) {
+            volumeSlider.setValue(0);
+        } else {
+            volumeSlider.setValue(100);
+        }
+        changeVolume();
     }
 
 }

@@ -7,9 +7,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
-            style="-fx-background-color: #fff;" stylesheets="@../../../css/style.css"
-            xmlns="http://javafx.com/javafx/19" fx:controller="project.mediaplayer.UI.AboutController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" onKeyPressed="#closeStage" prefHeight="400.0"
+            prefWidth="600.0" style="-fx-background-color: #1e2228; -fx-border-color: #4dabf7;"
+            stylesheets="@../../../css/style.css" xmlns="http://javafx.com/javafx/19"
+            fx:controller="project.mediaplayer.UI.AboutController">
     <children>
         <VBox prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1e2228;"
               stylesheets="@../../../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
@@ -26,43 +27,50 @@
                         <Label prefHeight="65.0" prefWidth="460.0" text="About" textFill="#fefefe">
                             <font>
                                 <Font name="System Bold" size="24.0"/>
-                     </font>
-                     <padding>
-                         <Insets left="20.0"/>
-                     </padding>
-                  </Label>
-               </children>
-            </HBox>
+                            </font>
+                            <padding>
+                                <Insets left="20.0"/>
+                            </padding>
+                        </Label>
+                    </children>
+                </HBox>
                 <TextFlow fx:id="textFlowAbout" lineSpacing="2.0" prefHeight="200.0" prefWidth="200.0"
-                          textAlignment="JUSTIFY"/>
-            <HBox prefHeight="150.0" prefWidth="560.0">
-               <children>
-                  <GridPane alignment="BOTTOM_RIGHT" prefHeight="149.0" prefWidth="571.0" HBox.hgrow="ALWAYS">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.0" minWidth="10.0" prefWidth="192.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="380.0" minWidth="10.0" prefWidth="368.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          style="-fx-background-color: #22272e; -fx-background-radius: 10;" textAlignment="JUSTIFY">
+                    <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+                    </padding>
+                </TextFlow>
+                <HBox prefHeight="150.0" prefWidth="560.0">
+                    <children>
+                        <GridPane alignment="BOTTOM_RIGHT" prefHeight="149.0" prefWidth="571.0" HBox.hgrow="ALWAYS">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.0" minWidth="10.0"
+                                                   prefWidth="192.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="380.0" minWidth="10.0"
+                                                   prefWidth="368.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
-                      <children>
-                          <Label prefHeight="17.0" prefWidth="193.0" text="Our's GitHub project repository:"
-                                 textFill="#fefefe"/>
-                          <Label prefHeight="17.0" prefWidth="193.0" text="Pham Cao Bang's GitHub:" textFill="#fefefe"
-                                 GridPane.rowIndex="1"/>
-                          <Label prefHeight="17.0" prefWidth="198.0" text="Nguyen Phuong Nha's GitHub:"
-                                 textFill="#fefefe" GridPane.rowIndex="2"/>
-                          <Hyperlink fx:id="githubHL" onAction="#goToLink" prefHeight="23.0" prefWidth="375.0"
-                                     text="https://github.com/nphuonha2101/BN_MediaProject_OOD"
-                                     GridPane.columnIndex="1"/>
-                          <Hyperlink fx:id="bangGithubHL" onAction="#goToLink" prefHeight="23.0" prefWidth="373.0"
-                                     text="https://github.com/szhin" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                          <Hyperlink fx:id="nhaGithubHL" onAction="#goToLink" prefHeight="23.0" prefWidth="377.0"
-                                     text="https://github.com/nphuonha2101" GridPane.columnIndex="1"
-                                     GridPane.rowIndex="2"/>
-                      </children>
+                            <children>
+                                <Label prefHeight="17.0" prefWidth="193.0" text="Our GitHub project repository:"
+                                       textFill="#fefefe"/>
+                                <Label prefHeight="17.0" prefWidth="193.0" text="Pham Cao Bang's GitHub:"
+                                       textFill="#fefefe" GridPane.rowIndex="1"/>
+                                <Label prefHeight="17.0" prefWidth="198.0" text="Nguyen Phuong Nha's GitHub:"
+                                       textFill="#fefefe" GridPane.rowIndex="2"/>
+                                <Hyperlink fx:id="githubHL" onAction="#goToLink" prefHeight="23.0" prefWidth="375.0"
+                                           text="https://github.com/nphuonha2101/BN_MediaProject_OOD"
+                                           GridPane.columnIndex="1"/>
+                                <Hyperlink fx:id="bangGithubHL" onAction="#goToLink" prefHeight="23.0" prefWidth="373.0"
+                                           text="https://github.com/szhin" GridPane.columnIndex="1"
+                                           GridPane.rowIndex="1"/>
+                                <Hyperlink fx:id="nhaGithubHL" onAction="#goToLink" prefHeight="23.0" prefWidth="377.0"
+                                           text="https://github.com/nphuonha2101" GridPane.columnIndex="1"
+                                           GridPane.rowIndex="2"/>
+                            </children>
                   </GridPane>
                </children>
             </HBox>
