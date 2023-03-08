@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import project.mediaplayer.model.MediaPlayerDemo;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,7 +12,6 @@ import java.io.IOException;
 
 public class MediaPlayerApplication extends Application {
 
-    private final MediaPlayerDemo playlist = new MediaPlayerDemo();
 
     @Override
     public void start(Stage stage) throws IOException {

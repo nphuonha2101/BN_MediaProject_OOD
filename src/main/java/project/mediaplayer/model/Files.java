@@ -5,6 +5,21 @@ import javafx.stage.DirectoryChooser;
 import java.io.File;
 import java.util.ArrayList;
 
+
+/**
+ * <p> - The {@link Files} class is use for storage files of the directory which was chosen
+ * from class {@link javafx.stage.FileChooser} of {@code JavaFX}.
+ * </p>
+ * <p> - The method {@link #chooseFileDir() chooseFileDir()} is use {@link javafx.stage.FileChooser} to choose a directory which has
+ * music files and only add music files from it (like *.mp3, *.aac, *.wav formats).
+ * </p>
+ * <p> - List of music files is use for adding {@link Song} object to Playlist.
+ * </p>
+ * <p>
+ * - {@link Song} object contains song name (file name from path), isFavorite to define if this song is favorite,
+ * and path of the song.
+ * </p>
+ */
 public class Files {
     private final ArrayList<File> files = new ArrayList<>();
 
@@ -12,13 +27,15 @@ public class Files {
 //        this.files = files;
 //    }
 
-    /*
-    get File name (Song name) from file path,
-    use String.lastIndexOf() method to find the lash backslash character to get substring from its position + 1 (file name)
-    ex: user/music/demo.mp3 => the last backslash index is 10, so we use substring method to substring from index 11 => demo.mp3
-    in Java, use \\ to perform \ symbol
+    /**
+     * - Get File name (Song name) from file path and
+     * use {@code String.lastIndexOf()} method to find the last backslash character to get substring from its position + 1 (file name)
+     * <br>
+     * - Ex: user/music/demo.mp3 => the last backslash index is 10, so we use substring method to substring from index 11 => demo.mp3
+     * <br>
+     * - In Java, use \\ to perform \ symbol
      */
-    public static String splitFileName(String path) {
+    public static String getFileNameFromFilePath(String path) {
         String result = "";
         int a = path.lastIndexOf("\\");
         result = path.substring(a + 1);
@@ -46,9 +63,12 @@ public class Files {
     }
 
 
-    // choose directory and get files from its directory
+    /**
+     * choose directory and get files from its directory
+     */
+
     public void chooseFileDir() {
-        // clear old files list if it already exist
+        // clear old files list if it already existence
         this.files.clear();
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Open Music Folder");

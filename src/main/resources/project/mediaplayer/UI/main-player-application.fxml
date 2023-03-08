@@ -323,7 +323,8 @@
                                       GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                                     <children>
                                         <ToggleButton fx:id="favoriteSongButton" accessibleRole="TOGGLE_BUTTON"
-                                                      mnemonicParsing="false" stylesheets="@../../../css/style.css">
+                                                      mnemonicParsing="false" onAction="#addFavoriteSong"
+                                                      stylesheets="@../../../css/style.css">
                                             <graphic>
                                                 <ImageView id="favoriteSongButton" fitHeight="23.0" fitWidth="23.0"
                                                            pickOnBounds="true" preserveRatio="true">

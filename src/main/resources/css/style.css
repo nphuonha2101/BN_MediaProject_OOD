@@ -107,6 +107,9 @@
     -fx-background-color: #4dabf7;
 }
 
+.hyperlink:visited {
+    -fx-text-fill: #4dabf7;
+}
 
 
 

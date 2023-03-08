@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Nguyen Phuong Nha: &#10;- add changeVolume method to change volume of media player&#10;- add switchPlaylist method to switch between three playlist: main, favorite, current (playing queue)&#10;- improve dark mode for UI&#10;- change About description from TextArea to TextFlow &#10;- and some small changes">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/favoriteSong.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/musicDirectoryPathData.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Nguyen Phuong Nha: &#10;- add method volumeChangeWithButton() on MediaPlayerController&#10;- add volumeLabel to display current volume value&#10;- add focus music item on listView when playing music resemble&#10;- improve about stage UI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/AboutApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/AboutApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FavoritePlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FavoritePlaylist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/about.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/about.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MainPlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MainPlaylist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/main-player-application.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/main-player-application.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,35 +52,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Program Files/javafx-sdk-19.0.2.1/lib&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Program Files/javafx-sdk-19.0.2.1/lib",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.appearance",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Java Workspace\BN_MediaProject_OOD\src\main\java\project\mediaplayer\model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Files">
+  <component name="RunManager" selected="Application.MediaPlayerApplication">
     <configuration name="AboutApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="project.mediaplayer.UI.AboutApplication" />
       <module name="MediaProject_OOD" />
@@ -157,8 +156,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Files" />
         <item itemvalue="Application.MediaPlayerApplication" />
+        <item itemvalue="Application.Files" />
         <item itemvalue="Application.AboutApplication" />
         <item itemvalue="Application.MediaPlayerController" />
         <item itemvalue="Application.SongPlayer" />
@@ -206,7 +205,20 @@
       <workItem from="1677990699104" duration="2047000" />
       <workItem from="1677993394319" duration="2267000" />
       <workItem from="1677995761274" duration="162000" />
-      <workItem from="1678002162026" duration="3884000" />
+      <workItem from="1678002162026" duration="3961000" />
+      <workItem from="1678006157506" duration="124000" />
+      <workItem from="1678026934860" duration="478000" />
+      <workItem from="1678028911696" duration="1292000" />
+      <workItem from="1678091555358" duration="195000" />
+      <workItem from="1678099904492" duration="249000" />
+      <workItem from="1678100834754" duration="71000" />
+      <workItem from="1678115447586" duration="85000" />
+      <workItem from="1678115918277" duration="747000" />
+      <workItem from="1678117152008" duration="5377000" />
+      <workItem from="1678199434095" duration="6876000" />
+      <workItem from="1678209180532" duration="207000" />
+      <workItem from="1678292897293" duration="1091000" />
+      <workItem from="1678297153326" duration="748000" />
     </task>
     <task id="LOCAL-00001" summary="second commit">
       <created>1676170105282</created>
@@ -355,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677951874588</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Nguyen Phuong Nha: &#10;- add method volumeChangeWithButton() on MediaPlayerController&#10;- add volumeLabel to display current volume value&#10;- add focus music item on listView when playing music resemble&#10;- improve about stage UI">
+      <created>1678006119006</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1678006119006</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,7 +459,8 @@
     <MESSAGE value="Nguyen Phuong Nha:&#10;- improving playing songs from folder (create initialPlayer() method to get songs from files -&gt; currentPlaylist -&gt; media)" />
     <MESSAGE value="Add Progress Bar UI Logic" />
     <MESSAGE value="Nguyen Phuong Nha: &#10;- add changeVolume method to change volume of media player&#10;- add switchPlaylist method to switch between three playlist: main, favorite, current (playing queue)&#10;- improve dark mode for UI&#10;- change About description from TextArea to TextFlow &#10;- and some small changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nguyen Phuong Nha: &#10;- add changeVolume method to change volume of media player&#10;- add switchPlaylist method to switch between three playlist: main, favorite, current (playing queue)&#10;- improve dark mode for UI&#10;- change About description from TextArea to TextFlow &#10;- and some small changes" />
+    <MESSAGE value="Nguyen Phuong Nha: &#10;- add method volumeChangeWithButton() on MediaPlayerController&#10;- add volumeLabel to display current volume value&#10;- add focus music item on listView when playing music resemble&#10;- improve about stage UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nguyen Phuong Nha: &#10;- add method volumeChangeWithButton() on MediaPlayerController&#10;- add volumeLabel to display current volume value&#10;- add focus music item on listView when playing music resemble&#10;- improve about stage UI" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -456,11 +476,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java</url>
-          <line>149</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
