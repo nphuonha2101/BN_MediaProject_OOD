@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class FavoritePlaylist extends Playlists {
     private String playlistName;
     private boolean isFavorite;
-    private ArrayList<Song> songs;
+    private final ArrayList<Song> songs = new ArrayList<>();
 
     public FavoritePlaylist(int playlistType) {
         super(playlistType);
@@ -21,11 +21,21 @@ public class FavoritePlaylist extends Playlists {
      * -> Main playlist is uses for storage songs after chooses file from directory */
     public void addSongToFavorite(MainPlaylist playlists) {
         for (Song song : playlists.getSongs()) {
-            if (!super.getSongs().contains(song) && song.isFavorite()) {
+            if (!super.getSongs().contains(song) && song.isFavorite())
                 super.getSongs().add(song);
-            }
         }
     }
 
+    public void addSongToFavoritePlaylist(Song song) {
+        if (this.songs.isEmpty() || !this.songs.contains(song) || !song.isFavorite())
+            this.songs.add(song);
+        song.setFavorite(true);
+    }
+
+    public void removeSongFromFavoritePlaylist(Song song) {
+        if (!this.songs.isEmpty() || this.songs.contains(song) || song.isFavorite())
+            this.songs.remove(song);
+        song.setFavorite(false);
+    }
 
 }

@@ -2,12 +2,20 @@ package project.mediaplayer.model;
 
 import java.io.File;
 
-/* The purposes of Main Playlist:
- *   - Main Playlist is storage songs from list files of Files class
- *   - While switching to Favorite on UI, Current Playlist will be clear all and
- *   add all songs from Favorite Playlist
- *   - So that we need a playlist to reserve a stock songs without re-add it from files list
- * */
+/**
+ * <p>The purposes of {@link MainPlaylist}:
+ * </p>
+ *
+ * <p> - {@link MainPlaylist} is storage songs from list files of {@link Files} class.
+ * </p>
+ *
+ * <p> - While switching to Favorite on UI, {@link CurrentPlaylist} will be clear all and
+ * add all songs from Favorite Playlist.
+ * </p>
+ *
+ * <p> - So that we need a playlist to reserve a stock songs without re-add it from files list
+ * </p>
+ */
 
 public class MainPlaylist extends Playlists {
 
@@ -27,8 +35,8 @@ public class MainPlaylist extends Playlists {
         this.getSongs().clear();
         for (File file : files.getListFiles()) {
             if (file != null && file.getAbsolutePath().endsWith(".mp3")) {
-                String nameSong = Files.splitFileName(file.getPath());
-                super.getSongs().add(new Song(nameSong, true, file.getPath()));
+                String nameSong = Files.getFileNameFromFilePath(file.getPath());
+                this.getSongs().add(new Song(nameSong, false, file.getPath()));
             }
         }
     }

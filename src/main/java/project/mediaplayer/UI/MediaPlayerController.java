@@ -1,8 +1,8 @@
 package project.mediaplayer.UI;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -29,13 +29,7 @@ public class MediaPlayerController {
     private final ObservableList<String> songItems = FXCollections.observableArrayList();
 
     private final ArrayList<File> songFiles = new ArrayList<>();
-    private final Task<Void> chooseFileTask = new Task<Void>() {
-        @Override
-        protected Void call() throws Exception {
 
-            return null;
-        }
-    };
     @FXML
     private Button openFolder;
     @FXML
@@ -79,31 +73,41 @@ public class MediaPlayerController {
     private Timer timer;
     private TimerTask task;
     private boolean running;
-    private File directory;
-    private File[] files;
     private int songNumber;
     private Media media;
     private MediaPlayer mediaPlayer;
 
+
     public void playMedia() {
+
         // open choose directory of music if current playlist have nothing
-        if (currentPlaylist.getSongs().isEmpty())
-            chooseFile();
+        if (currentPlaylist.getSongs().isEmpty()) chooseFile();
+
         songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
+        // focus to current song is playing in list view
+        listView.getFocusModel().focus(songNumber);
+        // scroll to current song is playing in list view
+        listView.scrollTo(songNumber);
+
+        // set volume for media player when choose a new song with value of volumeSlider
+        mediaPlayer.setVolume(volumeSlider.getValue() * 0.01);
+        System.out.println(mediaPlayer.getVolume());
 
         if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
             mediaPlayer.pause();
             cancelTimer();
 
-        } else
-            mediaPlayer.play();
+        } else mediaPlayer.play();
 
+        // begin timer for progress bar
+        // start from 0 to total duration of song then stop
         beginTimer();
 
     }
 
     public void resetMedia() {
         songProgressBar.setProgress(0);
+        songNameLabel.setText(songFiles.get(songNumber).getName());
         mediaPlayer.seek(Duration.seconds(0));
     }
 
@@ -116,8 +120,8 @@ public class MediaPlayerController {
             }
             media = new Media(songFiles.get(songNumber).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
-//            songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
-            listView.getFocusModel().focus(songNumber);
+
+
             playMedia();
         } else {
             songNumber = songFiles.size() - 1;
@@ -128,39 +132,31 @@ public class MediaPlayerController {
             }
             media = new Media(songFiles.get(songNumber).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
-//            songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
+
             listView.getFocusModel().focus(songNumber);
             playMedia();
         }
     }
 
     public void nextMedia() {
-        if (songNumber < songFiles.size() - 1) {
+        if (songNumber < songFiles.size() - 1)
             songNumber++;
-            mediaPlayer.stop();
-            if (running) {
-                cancelTimer();
-            }
-            media = new Media(songFiles.get(songNumber).toURI().toString());
-            mediaPlayer = new MediaPlayer(media);
-//            songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
-//            listView.scrollTo(songNumber);
-            listView.getFocusModel().focus(songNumber);
-
-            playMedia();
-        } else {
+        else
             songNumber = 0;
-            mediaPlayer.stop();
-            media = new Media(songFiles.get(songNumber).toURI().toString());
-            mediaPlayer = new MediaPlayer(media);
-//            songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
-//            listView.scrollTo(songNumber);
-            listView.getFocusModel().focus(songNumber);
-            playMedia();
+
+        mediaPlayer.stop();
+        if (running) {
+            cancelTimer();
         }
+        media = new Media(songFiles.get(songNumber).toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+
+        playMedia();
     }
 
     // End Play ------------------------------------------------------------
+
+
     public void beginTimer() {
 
         timer = new Timer();
@@ -168,16 +164,25 @@ public class MediaPlayerController {
         task = new TimerTask() {
 
             public void run() {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        running = true;
+                        double current = mediaPlayer.getCurrentTime().toSeconds();
+                        double end = media.getDuration().toSeconds();
+                        songProgressBar.setProgress(current / end);
 
-                running = true;
-                double current = mediaPlayer.getCurrentTime().toSeconds();
-                double end = media.getDuration().toSeconds();
-                songProgressBar.setProgress(current / end);
-                if (current / end == 1) {
-                    cancelTimer();
-                }
+                        if (current / end == 1) {
+                            cancelTimer();
+                            resetMedia();
+                            nextMedia();
+                        }
+                    }
+                });
             }
         };
+
+        // each 1000ms (1s), run code in run() method (TimerTask) to calculate value to update progress bar
         timer.scheduleAtFixedRate(task, 0, 1000);
     }
 
@@ -196,8 +201,7 @@ public class MediaPlayerController {
 
         if (files.getListFiles().isEmpty()) {
             String title = "No song added";
-            String message = "Seem a directory you chose didn't have any music file (*.mp3, *.aac, *.wav). \n" +
-                    "Please import it again!";
+            String message = "Seem a directory you chose didn't have any music file (*.mp3, *.aac, *.wav). \n" + "Please import it again!";
             showInfoDialog(title, message);
         }
 
@@ -218,13 +222,14 @@ public class MediaPlayerController {
 //    }
 
     /**
-     * use two events are mouse click and mouse drag to get value of slider (0 -> 100, step: 1)
-     * because value of slider is from 0 -> 100 and value of the media player volume is from 0 -> 1
-     * then must be multiplied volumeSlider value to 0.01 to fit with the media player volume
+     * Use two events are mouse click and mouse drag to get value of slider (0 -> 100, step: 1).
+     * <p>
+     * Because value of slider is from 0 -> 100 and value of the media player volume is from 0 -> 1,
+     * then must be multiplied volumeSlider value to 0.01 to fit with the media player volume.
      */
     @FXML
     protected void changeVolume() {
-        // clear text of label if it exist
+        // clear text of label if it exists
         volumeLabel.setText("");
         // get value from volume slider and set to media player volume
         mediaPlayer.setVolume(volumeSlider.getValue() * 0.01);
@@ -239,8 +244,7 @@ public class MediaPlayerController {
         listView.getItems().clear();
 
         // adding items to list view
-        for (Song song : currentPlaylist.getSongs()
-        ) {
+        for (Song song : currentPlaylist.getSongs()) {
             songItems.add(song.getSongName() + "\n" + song.getSongPath());
         }
 
@@ -251,16 +255,14 @@ public class MediaPlayerController {
 
     @FXML
     private void selectedListViewItem() {
-        String item = listView.getSelectionModel().getSelectedItem();
 
-        songNameLabel.setText(splitSongNameLView(item));
         mediaPlayer.stop();
 
         songNumber = listView.getSelectionModel().getSelectedIndex();
         media = new Media(songFiles.get(songNumber).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         System.out.println(songNumber);
-        mediaPlayer.play();
+        playMedia();
 //        songPlayer = new SongPlayer(slitPathLView(item), 1);
 //        songPlayer.play();
 //        songNameLabel.setText(slitPathLView(item));
@@ -274,16 +276,16 @@ public class MediaPlayerController {
         application.start(stage);
     }
 
-    // slit song name from list view item
-    private String splitSongNameLView(String str) {
+    // get song name from list view item
+    private String getSongNameFromLView(String str) {
         String result = "";
         StringTokenizer tokenizer = new StringTokenizer(str, "\n");
         result = tokenizer.nextToken();
         return result;
     }
 
-    // split song's path from list view item
-    private String slitPathLView(String str) {
+    // get song's path from list view item
+    private String getSongPathFromLView(String str) {
         String result = "";
         StringTokenizer tokenizer = new StringTokenizer(str, "\n");
         tokenizer.nextToken();
@@ -307,8 +309,7 @@ public class MediaPlayerController {
         // clear songFiles if it already has elements
         songFiles.clear();
         // add songs to songFiles from Current Playlist
-        for (Song song : currentPlaylist.getSongs()
-        ) {
+        for (Song song : currentPlaylist.getSongs()) {
             File songFile = new File(song.getSongPath());
             songFiles.add(songFile);
         }
@@ -375,8 +376,7 @@ public class MediaPlayerController {
 
         if (currentPlaylist.getSongs().isEmpty()) {
             String dialogTitle = "No song added";
-            String dialogMessage = "This playlist has no song, please import its from right folder. " +
-                    "The file formats are acceptable are .mp3, .aac, .wav";
+            String dialogMessage = "This playlist has no song, please import its from right folder. " + "The file formats are acceptable are .mp3, .aac, .wav";
             showInfoDialog(dialogTitle, dialogMessage);
         }
 
@@ -391,6 +391,7 @@ public class MediaPlayerController {
      * <p>
      * This method changes the value of the volume slider first, then call
      * method changeVolume to set the media player's volume with value of volume slider was set before.
+     * <p>
      * The media player's volume range is 0 to 1.0 so the media player's volume value = 0.01 * volumeSlider's value
      */
     @FXML
@@ -402,6 +403,26 @@ public class MediaPlayerController {
         }
         changeVolume();
     }
+
+    @FXML
+    protected void addFavoriteSong() {
+        Song currentPlayingSong = currentPlaylist.getSongs().get(songNumber);
+
+        favoriteSongButton.setSelected(currentPlayingSong.isFavorite());
+
+
+        if (favoriteSongButton.isSelected()) {
+            currentPlayingSong.setFavorite(true);
+            favoritePlaylist.getSongs().add(currentPlayingSong);
+
+        } else {
+            currentPlayingSong.setFavorite(false);
+            favoritePlaylist.getSongs().remove(currentPlayingSong);
+        }
+        System.out.println(currentPlayingSong);
+        System.out.println(favoritePlaylist.getSongs().size());
+    }
+
 
 }
 
