@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Nguyen Phuong Nha: &#10;- add method volumeChangeWithButton() on MediaPlayerController&#10;- add volumeLabel to display current volume value&#10;- add focus music item on listView when playing music resemble&#10;- improve about stage UI">
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaTimer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FavoritePlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FavoritePlaylist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MainPlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MainPlaylist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/TimeUtils.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/main-player-application.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/main-player-application.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,35 +54,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Program Files/javafx-sdk-19.0.2.1/lib",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.appearance",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bangpham/Documents/Yasuo hasagi/Media/BN_MediaProject_OOD&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.appearance&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Java Workspace\BN_MediaProject_OOD\src\main\java\project\mediaplayer\model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MediaPlayerApplication">
+  <component name="RunManager">
     <configuration name="AboutApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="project.mediaplayer.UI.AboutApplication" />
       <module name="MediaProject_OOD" />

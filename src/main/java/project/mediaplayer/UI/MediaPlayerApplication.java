@@ -3,7 +3,6 @@ package project.mediaplayer.UI;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -22,12 +21,12 @@ public class MediaPlayerApplication extends Application {
         // get current project path
         File currentProjectDirectory = new File("");
         // get image icon path
-        String applicationIconImagePath = currentProjectDirectory.getAbsolutePath() + "\\src\\main\\resources\\img\\logo.png";
+//        String applicationIconImagePath = currentProjectDirectory.getAbsolutePath() + "\\src\\main\\resources\\img\\logo.png";
         // get image icon for title bar and icon to display on taskbar
-        System.out.println(applicationIconImagePath);
+//        System.out.println(applicationIconImagePath);
 
 //        System.out.println(applicationIconFile);
-        stage.getIcons().add(new Image(applicationIconImagePath));
+//        stage.getIcons().add(new Image(applicationIconImagePath));
         stage.setTitle("B&N Music Player");
         stage.setScene(scene);
         stage.show();
