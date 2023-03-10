@@ -19,7 +19,7 @@
                     <children>
                         <Pane prefHeight="104.0" prefWidth="166.0">
                             <children>
-                                <ImageView fitHeight="100.0" fitWidth="98.0" layoutX="34.0" layoutY="3.0"
+                                <ImageView fitHeight="100.0" fitWidth="98.0" layoutX="24.0" layoutY="2.0"
                                            pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@../../../img/logo.png"/>

@@ -35,7 +35,7 @@ public class MainPlaylist extends Playlists {
         this.getSongs().clear();
         for (File file : files.getListFiles()) {
             if (file != null && file.getAbsolutePath().endsWith(".mp3")) {
-                String nameSong = Files.getFileNameFromFilePath(file.getPath());
+                String nameSong = Files.getFileNameFromFilePath(file);
                 this.getSongs().add(new Song(nameSong, false, file.getPath()));
             }
         }

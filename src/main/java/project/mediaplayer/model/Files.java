@@ -35,11 +35,11 @@ public class Files {
      * <br>
      * - In Java, use \\ to perform \ symbol
      */
-    public static String getFileNameFromFilePath(String path) {
-        String result = "";
-        int a = path.lastIndexOf("\\");
-        result = path.substring(a + 1);
-        return result;
+    public static String getFileNameFromFilePath(File mediaFile) {
+//        String result = "";
+//        int a = path.lastIndexOf("\\");
+//        result = path.substring(a + 1);
+        return mediaFile.getName();
     }
 
     // get files list
