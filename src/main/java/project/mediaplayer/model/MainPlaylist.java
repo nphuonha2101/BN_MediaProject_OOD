@@ -30,11 +30,17 @@ public class MainPlaylist extends Playlists {
 //
 //    }
 
-    //     add Songs to Playlist from files list
+    /**
+     * add Songs to {@link MainPlaylist} from files list
+     */
+
     public void addSongs(Files files) {
+        // clear old list songs if it exists
         this.getSongs().clear();
+
+        // add songs from file list by new Song instance
         for (File file : files.getListFiles()) {
-            if (file != null && file.getAbsolutePath().endsWith(".mp3")) {
+            if (file != null) {
                 String nameSong = Files.getFileNameFromFilePath(file);
                 this.getSongs().add(new Song(nameSong, false, file.getPath()));
             }

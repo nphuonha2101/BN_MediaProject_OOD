@@ -1,6 +1,4 @@
-
-
-
+/* button style when not hover or click */
 .button, #buttonOpenFolder, #aboutButton, .toggle-button {
     -fx-background-color: transparent;
     -fx-font-weight: bold;
@@ -8,96 +6,71 @@
     -fx-text-fill: #a8b2af;
 }
 
+/* button style when hover */
 .button:hover, #aboutButton:hover, #buttonOpenFolder:hover, #okButton:hover, .toggle-button:hover {
     -fx-text-fill: #5aa1c2;
     -fx-background-color: #343a40;
     -fx-background-radius: 5;
 }
 
+/* button style when hover or clicked */
 .button:focused, #buttonOpenFolder:pressed, #aboutButton:pressed, #okButton:pressed, .toggle-button:pressed, #favoriteSongButton:selected {
     -fx-text-fill: #fff;
     -fx-background-radius: 5;
     -fx-background-color: #365880;
 }
 
+/* ok button on About stage style */
 #okButton {
     -fx-background-color: transparent;
     -fx-border-color: #4dabf7;
     -fx-border-radius: 5;
 }
-/*.toggle-button {*/
 
-/*    -fx-background-color: #e0e0e0;*/
-/*    -fx-background-radius: 10;*/
-/*}*/
-/*.toggle-button:hover {*/
-/*    -fx-background-color: #e0e0e0;*/
-/*}*/
-/*.toggle-button:selected {*/
-/*    -fx-border-color: #028f76;*/
-/*    -fx-border-radius: 10;*/
-/*}*/
-
-/*#buttonOpenFolder, #aboutButton {
-    -fx-text-fill: #5c5c5c;
-    -fx-background-color: transparent;
-}*/
-
-/*#buttonOpenFolder:pressed, #aboutButton:pressed {
-    -fx-text-fill: #fff;
-    -fx-background-radius: 50;
-    -fx-background-color: #2fa84f;
-    -fx-border-color: transparent;
-}*/
-
+/* make list view background transparent */
 .list-view {
     -fx-background-color: transparent;
-    -fx-background-radius: 5px;
 }
-.list-view:cell-selection {
 
-}
 
 .list-cell {
     -fx-cell-size: 60;
-    -fx-background-radius: 5px;
-    -fx-padding: 2px;
-    -fx-background-insets: 2px;
+    -fx-background-radius: 5;
+    -fx-background-insets: 2;
     -fx-padding: 10;
     -fx-text-fill: #fefefe;
     -fx-font-weight: bold;
 }
+
+/* list cell focus when click or use listView.getFocusModel() to focus */
 .list-cell:focused {
     -fx-text-fill: #4dabf7;
-
 }
 
+/* color for odd list view item (index: 1, 3, 5, 7,...) */
 .list-cell:odd {
     -fx-background-color: #1e2228;
 }
 
+/* color for even list view item (index: 0, 2, 4, 6,...) */
 .list-cell:even {
     -fx-background-color: #2d333b;
 }
 
+/* accent color for slider and progress bar */
 .progress-bar, .slider {
-
     -fx-accent: #4dabf7;
 }
 
-/*#volumeSlider {*/
-/*    -fx-fill: #4dabf7;*/
-/*    -fx-background-color: transparent;*/
-/*}*/
 
+/* make background of progress bar and slider to near black color */
 .progress-bar > .track, .slider > .track, .scroll-bar > .track {
-    -fx-text-box-border: #22272e;
+    -fx-text-box-border: #1e2228;
     -fx-control-inner-background: #1e2228;
     -fx-background-color: #1e2228;
 }
 
 /* Thumb is button to scroll in scroll bar */
-
 .scroll-bar .thumb, .slider .thumb {
     -fx-background-color: #fefefe;
     -fx-background-radius: 10;
@@ -107,6 +80,7 @@
     -fx-background-color: #4dabf7;
 }
 
+/* color after clicked on hyperlink on About stage */
 .hyperlink:visited {
     -fx-text-fill: #4dabf7;
 }

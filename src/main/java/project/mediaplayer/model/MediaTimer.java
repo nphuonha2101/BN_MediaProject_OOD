@@ -16,9 +16,10 @@ public class MediaTimer {
     private final MediaPlayer mediaPlayer;
     private Label songNameLabel;
 
-    private MediaPlayerManagement mediaPlayerManagement;
+    private final MediaPlayerManagement mediaPlayerManagement;
 
-    public MediaTimer(MediaPlayer mediaPlayer, ProgressBar songProgressBar) {
+    public MediaTimer(MediaPlayerManagement mediaPlayerManagement, MediaPlayer mediaPlayer, ProgressBar songProgressBar) {
+        this.mediaPlayerManagement = mediaPlayerManagement;
         this.mediaPlayer = mediaPlayer;
         this.songProgressBar = songProgressBar;
     }
@@ -48,19 +49,21 @@ public class MediaTimer {
         timer = new Timer();
         task = new TimerTask() {
             public void run() {
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        getIsRunning();
-                        double current = mediaPlayer.getCurrentTime().toSeconds();
-                        double end = mediaPlayer.getTotalDuration().toSeconds();
-                        songProgressBar.setProgress(current / end);
 
-                        if (current / end == 1) {
-                            cancelTimer();
-                            mediaPlayerManagement.resetMedia();
-                            mediaPlayerManagement.nextMedia();
-                        }
+                Platform.runLater(() -> {
+                    getIsRunning();
+                    double current = mediaPlayer.getCurrentTime().toSeconds();
+                    double end = mediaPlayer.getTotalDuration().toSeconds();
+                    songProgressBar.setProgress(current / end);
+
+                    System.out.println(current / end);
+
+                    if (current / end == 1) {
+                        cancelTimer();
+                        // reset progress bar when timer is finishes
+                        songProgressBar.setProgress(0);
+                        // play next media (next song) when the timer is finishes
+                        mediaPlayerManagement.nextMedia();
                     }
                 });
             }
@@ -81,6 +84,17 @@ public class MediaTimer {
     public void cancelTimer() {
         setIsRunning(false);
         timer.cancel();
+    }
+
+    /**
+     * Get timer to define if timer is null in method {@link MediaPlayerManagement#prepareMedia()}.
+     * <p>
+     * If timer is not null (timer of previous media player exist),
+     * then cancels old timer to avoid old timer and new timer runs concurrently.
+     */
+
+    public Timer getTimer() {
+        return this.timer;
     }
 
 

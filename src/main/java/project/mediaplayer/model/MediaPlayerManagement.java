@@ -20,7 +20,9 @@ public class MediaPlayerManagement {
     private Media media;
     private MediaPlayer mediaPlayer;
     private final Label songNameLabel;
+
     private int songNumber = 0;
+
     private MediaTimer mediaTimer;
     private final ProgressBar songProgressBar;
     private final Slider volumeSlider;
@@ -33,8 +35,10 @@ public class MediaPlayerManagement {
         this.currentPlaylist = currentPlaylist;
         this.songsListView = songsListView;
         this.songNameLabel = songNameLabel;
+
         this.songProgressBar = songProgressBar;
         this.volumeSlider = volumeSlider;
+
     }
 
     public int getSongNumber() {
@@ -53,8 +57,38 @@ public class MediaPlayerManagement {
         this.mediaPlayer.setVolume(volume);
     }
 
+
     /**
-     * Initializes the player by adding songs from the current playlist and setting up media and media player
+     * preparing for media player before play
+     */
+    public void prepareMedia() {
+
+        // if old media player is playing then stop to avoid conflict
+        if (mediaPlayer != null)
+            mediaPlayer.stop();
+
+        // if old timer is currently working then stop to avoid conflict
+        // because when playMedia() method start, a new timer will begin
+        if (mediaTimer.getTimer() != null)
+            mediaTimer.cancelTimer();
+
+        // new media and media player for new song
+        media = new Media(songFiles.get(songNumber).toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+
+        // create new timer instance to begin count for progress bar
+        // if not create this instance for each prepare media,
+        // the song progress bar will work once then after it doesn't work
+        mediaTimer = new MediaTimer(this, mediaPlayer, songProgressBar);
+
+
+    }
+
+
+    /**
+     * Initializes the player by adding songs from the current playlist and setting up media and media player.
+     * <p>
+     * The initializing will work after first run program or after shuffle playlist to update {@link MediaPlayerManagement#songFiles}
      */
     public void initialPlayer() {
         // clear songFiles if it already has elements
@@ -69,12 +103,15 @@ public class MediaPlayerManagement {
         // create media player with the media object
         mediaPlayer = new MediaPlayer(media);
         // create media timer with the media player and the song progress bar
-        mediaTimer = new MediaTimer(mediaPlayer, songProgressBar);
+        mediaTimer = new MediaTimer(this, mediaPlayer, songProgressBar);
+
+        currentPlaylist.addToListView(songsListView);
+
     }
 
     /**
      * <p>This method ({@link MediaPlayerManagement#playMedia()} ()}) is describes event click play button will play music current in ListView
-     * <ul> When clicked {@link project.mediaplayer.UI.MediaPlayerController#playButton}
+     * <ul> When clicked playButton:
      *     <li>songNameLabel will show songName from method {@link Song#getSongName()}</li>
      *     <li>songsListView will focus to current song is playing in list view</li>
      *     <li>songsListView will scroll to current song is playing in list view</li>
@@ -88,6 +125,8 @@ public class MediaPlayerManagement {
      * </p>
      */
     public void playMedia() {
+
+
         // open choose directory of music if current playlist have nothing
         songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
         // focus to current song is playing in list view
@@ -99,24 +138,26 @@ public class MediaPlayerManagement {
         mediaPlayer.setVolume(volumeSlider.getValue() * 0.01);
         System.out.println(mediaPlayer.getVolume());
 
-        media = new Media(songFiles.get(songNumber).toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
+//        media = new Media(songFiles.get(songNumber).toURI().toString());
+//        mediaPlayer = new MediaPlayer(media);
 
         if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
             mediaPlayer.pause();
             mediaTimer.cancelTimer();
 
-        } else mediaPlayer.play();
+        } else {
+            mediaPlayer.play();
+            // begin timer for progress bar
+            // start from 0 to total duration of song then stop
+            mediaTimer.beginTimer();
 
-        // begin timer for progress bar
-        // start from 0 to total duration of song then stop
-        mediaTimer.beginTimer();
+        }
 
     }
 
     /**
      * <p>This method ({@link MediaPlayerManagement#resetMedia()} ()}) to replay current music is playing</p>
-     * <ul>When clicked button {@link project.mediaplayer.UI.MediaPlayerController#resetButton}
+     * <ul>When clicked resetButton:
      *     <li>Method {@link javafx.scene.control.ProgressIndicator#setProgress(double)} is called, and set progress to zero</li>
      *     <li>Simultaneously method {@link javafx.scene.control.Labeled#setText(String)} is called, and set text label same songName</li>
      *     <li>And {@link MediaPlayer#seek(Duration)} is called, set duration to zero</li>
@@ -130,7 +171,7 @@ public class MediaPlayerManagement {
 
     /**
      * <p>This method ({@link MediaPlayerManagement#previousMedia()} ()}) to play previous music
-     * <ul>When clicked button {@link project.mediaplayer.UI.MediaPlayerController#previousButton}
+     * <ul>When clicked previousButton:
      *     <li>This method is used to go to the previous media file.</li>
      *     <li>If the current media file is the first one, it will go to the last media file.</li>
      * </ul>
@@ -138,34 +179,26 @@ public class MediaPlayerManagement {
      */
     public void previousMedia() {
         // Check if the current songNumber is greater than zero (not the first media file)
-        if (songNumber > 0) {
+        if (songNumber > 0)
             // Decrease the songNumber to go to the previous media file.
             songNumber--;
-            // Stop the media player.
-            mediaPlayer.stop();
-            // If the timer is running, cancel it.
-            if (mediaTimer.getIsRunning()) {
-                mediaTimer.cancelTimer();
-            }
-            // Play the new media file.
-            playMedia();
-        } else {
+        else
             // If the current media file is the first one, go to the last media file.
             songNumber = songFiles.size() - 1;
-            // Stop the media player.
-            mediaPlayer.stop();
-            // If the timer is running, cancel it.
-            if (mediaTimer.getIsRunning()) {
-                mediaTimer.cancelTimer();
-            }
-            // Play the new media file.
-            playMedia();
-        }
+
+        // If the timer is running, cancel it.
+        if (mediaTimer.getIsRunning())
+            mediaTimer.cancelTimer();
+
+        prepareMedia();
+        // Play the new media file.
+        playMedia();
+
     }
 
     /**
      * <p>This method ({@link MediaPlayerManagement#nextMedia()}) to play next music
-     * <ul>When clicked button {@link project.mediaplayer.UI.MediaPlayerController#nextButton}
+     * <ul>When clicked nextButton:
      *     <li>Increments to the next song in the playlist and plays it.</li>
      *     <li>If at the end of the playlist, returns to the beginning (0).</li>
      * </ul>
@@ -177,9 +210,10 @@ public class MediaPlayerManagement {
         else
             songNumber = 0;
         mediaPlayer.stop();
-        if (mediaTimer.getIsRunning()) {
+        if (mediaTimer.getIsRunning())
             mediaTimer.cancelTimer();
-        }
+
+        prepareMedia();
         playMedia();
     }
 
@@ -188,6 +222,22 @@ public class MediaPlayerManagement {
      * </p>
      */
     public void stopMedia() {
+        if (mediaTimer.getTimer() != null)
+            mediaTimer.cancelTimer();
         mediaPlayer.stop();
     }
+
+    /**
+     * <p>This method shuffleMusic to shuffle list songs of CurrentPlaylist,
+     * then add shuffled list songs to ListView,
+     * and add song files from shuffled list to {@link MediaPlayerManagement#songFiles} with method {@link MediaPlayerManagement#initialPlayer()}</p>
+     */
+    public void shuffleMusic() {
+
+        stopMedia();
+        currentPlaylist.shufflePlaylist();
+        initialPlayer();
+    }
+
+
 }

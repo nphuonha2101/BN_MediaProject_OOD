@@ -1,3 +1,4 @@
+
 package project.mediaplayer.UI;
 
 import javafx.collections.FXCollections;
@@ -7,10 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import project.mediaplayer.model.*;
-
-import java.util.StringTokenizer;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MediaPlayerController {
 
@@ -22,15 +19,12 @@ public class MediaPlayerController {
     private final CurrentPlaylist currentPlaylist = new CurrentPlaylist(Playlists.CURRENT_PLAYLIST);
     private final ObservableList<String> songItems = FXCollections.observableArrayList();
     private MediaPlayerManagement mediaPlayerManagement;
-    @FXML
-    private Button openFolder;
+
+    //----------------------------------------------------------//
     @FXML
     private Button homeButton;
-
-
     @FXML
     private Label headerLabel;
-
     @FXML
     private Label songNameLabel;
     @FXML
@@ -40,143 +34,15 @@ public class MediaPlayerController {
     @FXML
     private Button favoriteListButton;
     @FXML
-    private ToggleButton previousButton;
-    @FXML
-    private ToggleButton playButton;
-    @FXML
-    private ToggleButton nextButton;
-    @FXML
-    private ToggleButton resetButton;
-    @FXML
     private Button playingQueueButton;
     @FXML
-    private Button aboutButton;
-    @FXML
-    private ToggleButton shuffleButton;
-    @FXML
     private ToggleButton favoriteSongButton;
-    @FXML
-    private ToggleButton volumeButton;
     @FXML
     private Slider volumeSlider;
     @FXML
     private Label volumeLabel;
+    //----------------------------------------------------------//
 
-    private Timer timer;
-    private TimerTask task;
-    private boolean running;
-
-
-//    public void playMedia() {
-//
-//        // open choose directory of music if current playlist have nothing
-//        if (currentPlaylist.getSongs().isEmpty()) chooseFile();
-//
-//        songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
-//        // focus to current song is playing in list view
-//        listView.getFocusModel().focus(songNumber);
-//        // scroll to current song is playing in list view
-//        listView.scrollTo(songNumber);
-//
-//        // set volume for media player when choose a new song with value of volumeSlider
-//        mediaPlayer.setVolume(volumeSlider.getValue() * 0.01);
-//        System.out.println(mediaPlayer.getVolume());
-//
-//        if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
-//            mediaPlayer.pause();
-//            cancelTimer();
-//
-//        } else mediaPlayer.play();
-//
-//        // begin timer for progress bar
-//        // start from 0 to total duration of song then stop
-//        beginTimer();
-//
-//    }
-
-//    public void resetMedia() {
-//        songProgressBar.setProgress(0);
-//        songNameLabel.setText(songFiles.get(songNumber).getName());
-//        mediaPlayer.seek(Duration.seconds(0));
-//    }
-//
-//    public void previousMedia() {
-//        if (songNumber > 0) {
-//            songNumber--;
-//            mediaPlayer.stop();
-//            if (running) {
-//                cancelTimer();
-//            }
-//            media = new Media(songFiles.get(songNumber).toURI().toString());
-//            mediaPlayer = new MediaPlayer(media);
-//            playMedia();
-//        } else {
-//            songNumber = songFiles.size() - 1;
-//            mediaPlayer.stop();
-//            if (running) {
-//
-//                cancelTimer();
-//            }
-//            media = new Media(songFiles.get(songNumber).toURI().toString());
-//            mediaPlayer = new MediaPlayer(media);
-//
-//            listView.getFocusModel().focus(songNumber);
-//            playMedia();
-//        }
-//    }
-//
-//    public void nextMedia() {
-//        if (songNumber < songFiles.size() - 1)
-//            songNumber++;
-//        else
-//            songNumber = 0;
-//
-//        mediaPlayer.stop();
-//        if (running) {
-//            cancelTimer();
-//        }
-//        media = new Media(songFiles.get(songNumber).toURI().toString());
-//        mediaPlayer = new MediaPlayer(media);
-//
-//        playMedia();
-//    }
-
-    // End Play ------------------------------------------------------------
-
-//    public void beginTimer() {
-//
-//        timer = new Timer();
-//
-//        task = new TimerTask() {
-//
-//            public void run() {
-//                Platform.runLater(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        running = true;
-//                        double current = mediaPlayer.getCurrentTime().toSeconds();
-//                        double end = media.getDuration().toSeconds();
-//                        songProgressBar.setProgress(current / end);
-//
-//                        if (current / end == 1) {
-//                            cancelTimer();
-//                            resetMedia();
-//                            nextMedia();
-//                        }
-//                    }
-//                });
-//            }
-//        };
-//
-//        // each 1000ms (1s), run code in run() method (TimerTask) to calculate value to update progress bar
-//        timer.scheduleAtFixedRate(task, 0, 1000);
-//    }
-//
-//    public void cancelTimer() {
-//
-//        running = false;
-//        timer.cancel();
-//    }
 
     @FXML
     protected void playMedia() {
@@ -198,13 +64,31 @@ public class MediaPlayerController {
         mediaPlayerManagement.resetMedia();
     }
 
+    /**
+     * Choose music directory and add songs file from this directory to {@link MainPlaylist},
+     * add songs from {@link MainPlaylist} to {@link CurrentPlaylist},
+     * and create instance of {@link MediaPlayerController#mediaPlayerManagement}.
+     * <p>
+     * After create instance of {@link MediaPlayerController#mediaPlayerManagement} then {@link MediaPlayerManagement#initialPlayer()}
+     */
     @FXML
     public void chooseFile() {
         Files files = new Files();
         files.chooseFileDir();
+
         mainPlaylist.addSongs(files);
+
+        // add song from MainPlaylist
+        currentPlaylist.addSongFromOtherPlaylist(mainPlaylist);
+
+        // create instance of MediaPlayerManagement
         mediaPlayerManagement = new MediaPlayerManagement(currentPlaylist, listView, songNameLabel, songProgressBar, volumeSlider);
-        prepareMusicList();
+
+//        favoritePlaylist.addSongToFavorite(mainPlaylist);
+        System.out.println(currentPlaylist.getSongs().size());
+
+        // initialize media player
+        mediaPlayerManagement.initialPlayer();
 
         if (files.getListFiles().isEmpty()) {
             String title = "No song added";
@@ -214,20 +98,7 @@ public class MediaPlayerController {
 
 
     }
-//
-//    @FXML
-//    protected void mainPlaylistLView() {
-//        currentPlaylist.addSongFromOtherPlaylist(mainPlaylist);
-//        headerLabel.setText("Home");
-//        addToListView();
-//    }
-//
-//    @FXML
-//    protected void favoritePlaylistLView() {
-//        currentPlaylist.addSongFromOtherPlaylist(favoritePlaylist);
-//        headerLabel.setText("Favorite");
-//        addToListView();
-//    }
+
 
     /**
      * Use two events are mouse click and mouse drag to get value of slider (0 -> 100, step: 1).
@@ -246,70 +117,44 @@ public class MediaPlayerController {
     }
 
 
-    // set imported Song to list view
-    public void addToListView() {
-        // if list view has elements, clear its
-        listView.getItems().clear();
-
-        // adding items to list view
-        for (Song song : currentPlaylist.getSongs()) {
-            songItems.add(song.getSongName() + "\n" + song.getSongPath());
-        }
-
-//        System.out.println(mainPlaylist);
-//        System.out.println(songItems);
-        listView.setItems(songItems);
-    }
-
+    /**
+     * When selects song item on list view, this method will be call and get index of this selected item,
+     * then set the index to songNumber of {@link MediaPlayerManagement} class to play new selected song
+     */
     @FXML
     private void selectedListViewItem() {
-        int songNumber = mediaPlayerManagement.getSongNumber();
-        mediaPlayerManagement.stopMedia();
-        songNumber = listView.getSelectionModel().getSelectedIndex();
+        // get song number from clicked item index on list view
+        int songNumber = listView.getSelectionModel().getSelectedIndex();
+        // set song number
         mediaPlayerManagement.setSongNumber(songNumber);
+        // prepare media to play
+        mediaPlayerManagement.prepareMedia();
 
         System.out.println(songNumber);
         mediaPlayerManagement.playMedia();
-//        songPlayer = new SongPlayer(slitPathLView(item), 1);
-//        songPlayer.play();
-//        songNameLabel.setText(slitPathLView(item));
+
     }
 
-    // open About Stage
+    /**
+     * Open About stage when click aboutButton
+     * by call {@link AboutApplication#start(Stage)} method
+     *
+     * @throws Exception if {@link AboutApplication#start(Stage)} method has exceptions
+     */
     @FXML
     private void openAbout() throws Exception {
         Stage stage = new Stage();
-        AboutApplication application = new AboutApplication();
-        application.start(stage);
+        AboutApplication aboutApplication = new AboutApplication();
+        aboutApplication.start(stage);
     }
 
-    // get song name from list view item
-    private String getSongNameFromLView(String str) {
-        String result = "";
-        StringTokenizer tokenizer = new StringTokenizer(str, "\n");
-        result = tokenizer.nextToken();
-        return result;
-    }
 
-    // get song's path from list view item
-    private String getSongPathFromLView(String str) {
-        String result = "";
-        StringTokenizer tokenizer = new StringTokenizer(str, "\n");
-        tokenizer.nextToken();
-        result = tokenizer.nextToken();
-        return result;
-    }
-
+    /**
+     * Shuffle music list by shuffle {@link CurrentPlaylist}
+     */
     @FXML
     protected void shuffleMusic() {
-        mediaPlayerManagement.stopMedia();
-        mediaPlayerManagement.setSongNumber(0);
-        currentPlaylist.shufflePlaylist();
-        // add songs to List View from Current Playlist
-        addToListView();
-        //
-        mediaPlayerManagement.initialPlayer();
-        mediaPlayerManagement.playMedia();
+        mediaPlayerManagement.shuffleMusic();
     }
 
 
@@ -327,43 +172,49 @@ public class MediaPlayerController {
 
     }
 
-    private void prepareMusicList() {
-
-        currentPlaylist.addSongFromOtherPlaylist(mainPlaylist);
-//        favoritePlaylist.addSongToFavorite(mainPlaylist);
-        System.out.println(currentPlaylist.getSongs().size());
-
-        mediaPlayerManagement.initialPlayer();
-        addToListView();
-    }
+    /**
+     * <p>This method is to use switch between playlist with buttons on left-side-bar.
+     *  <ul>
+     *      <li> First, get text of three buttons using getText() method.</li>
+     *
+     *      <li> Second, get text from button (buttonText) that user clicked.</li>
+     *
+     *      <li> Last, compare text of buttonText to three texts of button then switch to this playlist.</li>
+     *  </ul>
+     * </p>
+     *
+     * @param event get source of component and cast it to {@link Button} type then get text from it
+     */
 
     @FXML
     protected void switchPlaylist(ActionEvent event) {
+
+        // get text from three buttons
         final String homeButtonText = homeButton.getText();
         final String favoriteListButtonText = favoriteListButton.getText();
         final String playingQueueButtonText = playingQueueButton.getText();
 
+        // stop media player
         mediaPlayerManagement.stopMedia();
+
+        // get text from button that user clicked
         String buttonText = ((Button) event.getSource()).getText();
 
+        // switching to playlist by button that user clicked
         if (buttonText.equalsIgnoreCase(homeButtonText)) {
             headerLabel.setText(HOME_HEADER_TEXT);
             currentPlaylist.addSongFromOtherPlaylist(mainPlaylist);
-            addToListView();
             System.out.println(currentPlaylist.getSongs().size());
         }
 
         if (buttonText.equalsIgnoreCase(favoriteListButtonText)) {
             headerLabel.setText(FAVORITE_LIST_HEADER_TEXT);
             currentPlaylist.addSongFromOtherPlaylist(favoritePlaylist);
-            addToListView();
             System.out.println(currentPlaylist.getSongs().size());
         }
 
         if (buttonText.equalsIgnoreCase(playingQueueButtonText)) {
             headerLabel.setText(PLAYING_QUEUE_HEADER_TEXT);
-//            currentPlaylist.addSongFromOtherPlaylist();
-            addToListView();
             System.out.println(currentPlaylist.getSongs().size());
         }
 
@@ -397,6 +248,9 @@ public class MediaPlayerController {
         changeVolume();
     }
 
+
+    // add songs to favorite playlist
+    // developing
     @FXML
     protected void addFavoriteSong() {
         int songNumber = mediaPlayerManagement.getSongNumber();
