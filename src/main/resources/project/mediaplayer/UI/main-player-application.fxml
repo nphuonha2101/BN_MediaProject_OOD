@@ -145,18 +145,47 @@
                       style="-fx-background-color: #22272e; -fx-background-radius: 10;"
                       stylesheets="@../../../css/style.css" BorderPane.alignment="CENTER">
                     <children>
-                        <Label id="headerLabel" fx:id="headerLabel" prefHeight="50.0" prefWidth="443.0"
-                               stylesheets="@../../../css/style.css" text="Home" textFill="#fefefe">
-                            <font>
-                                <Font name="System Bold" size="24.0"/>
-                            </font>
-                            <opaqueInsets>
-                                <Insets/>
-                            </opaqueInsets>
-                            <VBox.margin>
-                                <Insets bottom="15.0" left="15.0" right="15.0"/>
-                            </VBox.margin>
-                        </Label>
+                        <HBox alignment="CENTER" prefHeight="41.0" prefWidth="589.0">
+                            <children>
+                                <Label id="headerLabel" fx:id="headerLabel" prefHeight="48.0" prefWidth="288.0"
+                                       stylesheets="@../../../css/style.css" text="Home" textFill="#fefefe"
+                                       HBox.hgrow="ALWAYS">
+                                    <font>
+                                        <Font name="System Bold" size="24.0"/>
+                                    </font>
+                                    <opaqueInsets>
+                                        <Insets/>
+                                    </opaqueInsets>
+                                    <HBox.margin>
+                                        <Insets left="15.0"/>
+                                    </HBox.margin>
+                                </Label>
+                                <TextField id="searchBar" fx:id="searchBar" onAction="#searchSongs" prefHeight="44.0"
+                                           prefWidth="222.0" promptText="Search Songs"
+                                           stylesheets="@../../../css/style.css" HBox.hgrow="ALWAYS">
+                                    <HBox.margin>
+                                        <Insets right="15.0"/>
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="20.0"/>
+                                    </padding>
+                                </TextField>
+                                <ToggleButton fx:id="clearSearchesButton" mnemonicParsing="false"
+                                              onAction="#clearSearches" prefHeight="35.0" prefWidth="60.0">
+                                    <graphic>
+                                        <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../img/icons8-clear-search-96.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <HBox.margin>
+                                        <Insets right="15.0"/>
+                                    </HBox.margin>
+                                </ToggleButton>
+                            </children>
+                        </HBox>
                         <ListView id="listView" fx:id="listView" onMouseClicked="#selectedListViewItem"
                                   prefHeight="325.0" prefWidth="483.0" stylesheets="@../../../css/style.css"
                                   VBox.vgrow="ALWAYS">
@@ -203,7 +232,8 @@
                                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.hgrow="ALWAYS"
                                       GridPane.vgrow="ALWAYS">
                                     <children>
-                                        <Label fx:id="songNameLabel" alignment="CENTER" prefHeight="35.0"
+                                        <Label fx:id="songNameLabel" alignment="CENTER"
+                                               onMouseClicked="#scrollToMusicOnListView" prefHeight="35.0"
                                                prefWidth="238.0" text="Song name" textFill="#fefefe">
                                             <font>
                                                 <Font size="14.0"/>
@@ -303,7 +333,7 @@
                                       GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                                     <children>
                                         <ToggleButton fx:id="favoriteSongButton" accessibleRole="TOGGLE_BUTTON"
-                                                      mnemonicParsing="false" onAction="#addFavoriteSong"
+                                                      mnemonicParsing="false" onAction="#addAndRemoveFavoriteSong"
                                                       stylesheets="@../../../css/style.css">
                                             <graphic>
                                                 <ImageView id="favoriteSongButton" fitHeight="23.0" fitWidth="23.0"

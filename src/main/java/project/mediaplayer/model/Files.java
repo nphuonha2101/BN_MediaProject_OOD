@@ -64,7 +64,8 @@ public class Files {
 
 
     /**
-     * choose directory and get files from its directory
+     * <p>Choose directory and get files from its directory.</p>
+     * <p>This method only add music file with these extension (*.mp3, *.wav, *.aac) </p>
      */
 
     public void chooseFileDir() {
@@ -73,6 +74,7 @@ public class Files {
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Open Music Folder");
         File directory = directoryChooser.showDialog(null);
+        // If directory isn't null then adds files from it
         if (directory != null) {
             for (File file : directory.listFiles()
             ) {

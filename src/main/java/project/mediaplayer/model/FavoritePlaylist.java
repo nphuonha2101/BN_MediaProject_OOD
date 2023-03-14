@@ -2,12 +2,12 @@ package project.mediaplayer.model;
 
 import java.util.ArrayList;
 
-/* The purposes of Favorite Playlist:
-    - Favorite playlist to storage songs in which user favorite */
+/**
+ * The purposes of {@link FavoritePlaylist}:
+ * - Favorite Playlist to storage songs in which user favorite
+ */
 
 public class FavoritePlaylist extends Playlists {
-    private String playlistName;
-    private boolean isFavorite;
     private final ArrayList<Song> songs = new ArrayList<>();
 
     public FavoritePlaylist(int playlistType) {
@@ -26,16 +26,30 @@ public class FavoritePlaylist extends Playlists {
         }
     }
 
-    public void addSongToFavoritePlaylist(Song song) {
-        if (this.songs.isEmpty() || !this.songs.contains(song) || !song.isFavorite())
-            this.songs.add(song);
-        song.setFavorite(true);
-    }
+//    /**
+//     * Adding song from {@link CurrentPlaylist} to {@link FavoritePlaylist}
+//     * @param song meaning song to add to {@link FavoritePlaylist}
+//     */
+//    public void addSongToFavoritePlaylist(Song song) {
+//        // if this songs list is empty or songs list doesn't contain this song or this song isn't favorite
+//        // then adds song
+//            this.songs.add(song);
+//        // and set attribute isFavorite of song with true
+//        song.setFavorite(true);
+//    }
 
-    public void removeSongFromFavoritePlaylist(Song song) {
-        if (!this.songs.isEmpty() || this.songs.contains(song) || song.isFavorite())
-            this.songs.remove(song);
-        song.setFavorite(false);
-    }
+
+//    /**
+//     * Removing song from {@link FavoritePlaylist}
+//     * @param song meaning song to remove from {@link FavoritePlaylist}
+//     */
+//    public void removeSongFromFavoritePlaylist(Song song) {
+//        // if this songs list isn't empty or songs list contained this song or this song is favorite
+//        // then removes song
+//        if (!this.songs.isEmpty())
+//            this.songs.remove(song);
+//        // and set attribute isFavorite of song with false
+//        song.setFavorite(false);
+//    }
 
 }

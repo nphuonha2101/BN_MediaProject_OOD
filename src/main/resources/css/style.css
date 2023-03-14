@@ -72,7 +72,7 @@
 
 /* Thumb is button to scroll in scroll bar */
 .scroll-bar .thumb, .slider .thumb {
-    -fx-background-color: #fefefe;
+    -fx-background-color: #a8b2af;
     -fx-background-radius: 10;
 }
 
@@ -85,6 +85,22 @@
     -fx-text-fill: #4dabf7;
 }
 
+#searchBar {
+    -fx-background-color: #1e2228;
+    -fx-background-radius: 5;
+
+    -fx-text-fill: #fefefe;
+}
+
+#searchBar:hover {
+    -fx-border-radius: 5;
+    -fx-border-color: #57595d;
+}
+
+#searchBar:focused {
+    -fx-border-radius: 5;
+    -fx-border-color: #4dabf7;
+}
 
 
 

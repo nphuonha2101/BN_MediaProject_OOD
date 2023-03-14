@@ -1,9 +1,5 @@
 package project.mediaplayer.model;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.ListView;
-
 /**
  * <p>The purposes of {@link CurrentPlaylist}:
  *  <ul>
@@ -31,23 +27,20 @@ public class CurrentPlaylist extends Playlists {
 
 
     /**
-     * Add songs from {@link CurrentPlaylist} to UI using {@link ListView}
-     *
-     * @param listView a list to display song list on UI, user can interact with it to choose music to play
+     * Use songID was got from selected listView item
+     * and return index of song has this songID in CurrentPlaylist
      */
-    public void addToListView(ListView<String> listView) {
-        ObservableList<String> observableListSongs = FXCollections.observableArrayList();
+    public int getSongIndexWithSongID(int songID) {
+        int result = 0;
+        for (int i = 0; i < this.songs.size(); i++) {
+            Song song = this.songs.get(i);
 
-        // if list view has elements, clear its
-        listView.getItems().clear();
-
-        // adding items to list view
-        for (Song song : this.getSongs()) {
-            observableListSongs.add(song.getSongName() + "\n" + song.getSongPath());
+            if (song.getSongID() == songID) {
+                result = i;
+                break;
+            }
         }
-
-//        System.out.println(mainPlaylist);
-//        System.out.println(songItems);
-        listView.setItems(observableListSongs);
+        return result;
     }
+
 }

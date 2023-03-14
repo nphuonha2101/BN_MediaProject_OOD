@@ -2,16 +2,17 @@ package project.mediaplayer.model;
 
 public class Song {
 
-
+    private final int songID;
     private String songName;
 //    private String singer;
 //    private String genre;
 
     private boolean isFavorite;
-//    private Time songDuration;
+    //    private Time songDuration;
     private String songPath;
 
-    public Song(String songName, boolean isFavorite, String songPath) {
+    public Song(int songID, String songName, boolean isFavorite, String songPath) {
+        this.songID = songID;
         this.songName = songName;
 
 //        this.singer = singer;
@@ -22,27 +23,19 @@ public class Song {
     }
 
 
-
     // GETTER METHODS
+
+    public int getSongID() {
+        return this.songID;
+    }
+
     public String getSongName() {
         return songName;
     }
-//
-//    public String getSinger() {
-//        return singer;
-//    }
-//
-//    public String getGenre() {
-//        return genre;
-//    }
 
     public boolean isFavorite() {
         return this.isFavorite;
     }
-
-//    public Time getSongDuration() {
-//        return this.songDuration;
-//    }
 
     public String getSongPath() {
         return this.songPath;
@@ -57,23 +50,9 @@ public class Song {
     public void setSongName(String songName) {
         this.songName = songName;
     }
-
-//    public void setSinger(String singer) {
-//        this.singer = singer;
-//    }
-//
-//    public void setGenre(String genre) {
-//        this.genre = genre;
-//    }
-
     public void setFavorite(boolean favorite) {
         isFavorite = favorite;
     }
-
-//    public void setSongDuration(Time songDuration) {
-//        this.songDuration = songDuration;
-//    }
-
     public void setSongPath(String songPath) {
         this.songPath = songPath;
     }
@@ -84,9 +63,10 @@ public class Song {
     @Override
     public String toString() {
         return "Song{" +
-                "songName='" + songName + '\'' +
+                "songID=" + songID +
+                ", songName=" + songName +
                 ", isFavorite=" + isFavorite +
-                ", songPath='" + songPath + '\'' +
+                ", songPath='" + songPath +
                 '}';
     }
 }

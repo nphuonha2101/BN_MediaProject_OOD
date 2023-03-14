@@ -1,9 +1,6 @@
 package project.mediaplayer.model;
 
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.Slider;
+import javafx.scene.control.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
@@ -21,6 +18,7 @@ public class MediaPlayerManagement {
     private MediaPlayer mediaPlayer;
     private final Label songNameLabel;
 
+    private final ToggleButton favoriteSongButton;
     private int songNumber = 0;
 
     private MediaTimer mediaTimer;
@@ -31,13 +29,14 @@ public class MediaPlayerManagement {
                                  ListView<String> songsListView,
                                  Label songNameLabel,
                                  ProgressBar songProgressBar,
-                                 Slider volumeSlider) {
+                                 Slider volumeSlider, ToggleButton favoriteSongButton) {
         this.currentPlaylist = currentPlaylist;
         this.songsListView = songsListView;
         this.songNameLabel = songNameLabel;
 
         this.songProgressBar = songProgressBar;
         this.volumeSlider = volumeSlider;
+        this.favoriteSongButton = favoriteSongButton;
 
     }
 
@@ -91,6 +90,8 @@ public class MediaPlayerManagement {
      * The initializing will work after first run program or after shuffle playlist to update {@link MediaPlayerManagement#songFiles}
      */
     public void initialPlayer() {
+        setSongNumber(0);
+
         // clear songFiles if it already has elements
         songFiles.clear();
         // add songs to songFiles from Current Playlist
@@ -105,7 +106,8 @@ public class MediaPlayerManagement {
         // create media timer with the media player and the song progress bar
         mediaTimer = new MediaTimer(this, mediaPlayer, songProgressBar);
 
-        currentPlaylist.addToListView(songsListView);
+        // update songs list view
+        currentPlaylist.updateListView(songsListView);
 
     }
 
@@ -125,13 +127,18 @@ public class MediaPlayerManagement {
      * </p>
      */
     public void playMedia() {
-
+        /* update state of favorite button for each time playing new song
+         *  the value of method setSelected() is true or false
+         *  and this value update from attribute isFavorite of songs
+         */
+        favoriteSongButton.setSelected(currentPlaylist.getSongs().get(songNumber).isFavorite());
 
         // open choose directory of music if current playlist have nothing
         songNameLabel.setText(currentPlaylist.getSongs().get(songNumber).getSongName());
+        System.out.println("Song Number: " + songNumber);
         // focus to current song is playing in list view
         songsListView.getFocusModel().focus(songNumber);
-        // scroll to current song is playing in list view
+        // scroll to current playing music on listView
         songsListView.scrollTo(songNumber);
 
         // set volume for media player when choose a new song with value of volumeSlider
@@ -233,7 +240,6 @@ public class MediaPlayerManagement {
      * and add song files from shuffled list to {@link MediaPlayerManagement#songFiles} with method {@link MediaPlayerManagement#initialPlayer()}</p>
      */
     public void shuffleMusic() {
-
         stopMedia();
         currentPlaylist.shufflePlaylist();
         initialPlayer();
