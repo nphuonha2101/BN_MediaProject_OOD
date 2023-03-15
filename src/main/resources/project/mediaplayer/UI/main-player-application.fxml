@@ -176,7 +176,7 @@
                                         <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="@../../../img/icons8-clear-search-96.png"/>
+                                                <Image url="@../../../img/icons8-clear-symbol-96.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>

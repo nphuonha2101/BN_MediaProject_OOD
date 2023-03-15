@@ -147,8 +147,14 @@ public abstract class Playlists {
             if (substringSongName.equalsIgnoreCase(searchSongName))
                 result.add(song);
         }
-        if (result.isEmpty())
-            throw new RuntimeException("No result for " + searchSongName);
+
+        if (result.isEmpty()) {
+            String title = "No song founded";
+            String message = "The song with name: \"" + searchSongName.toUpperCase() + "\" cannot found! \n" +
+                    "Please check song name and try again!";
+
+            AlertUtils.showInformationAlert(title, message);
+        }
 
         return result;
     }

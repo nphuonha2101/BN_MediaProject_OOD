@@ -85,6 +85,7 @@
     -fx-text-fill: #4dabf7;
 }
 
+/* search bar style (TextField) */
 #searchBar {
     -fx-background-color: #1e2228;
     -fx-background-radius: 5;
@@ -92,16 +93,17 @@
     -fx-text-fill: #fefefe;
 }
 
+/* search bar style when hover */
 #searchBar:hover {
     -fx-border-radius: 5;
     -fx-border-color: #57595d;
 }
 
+/* search bar style when focus */
 #searchBar:focused {
     -fx-border-radius: 5;
     -fx-border-color: #4dabf7;
 }
-
 
 
 

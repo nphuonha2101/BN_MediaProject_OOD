@@ -89,7 +89,7 @@ public class MediaPlayerManagement {
      * <p>
      * The initializing will work after first run program or after shuffle playlist to update {@link MediaPlayerManagement#songFiles}
      */
-    public void initialPlayer() {
+    public void initializePlayer() {
         setSongNumber(0);
 
         // clear songFiles if it already has elements
@@ -127,6 +127,7 @@ public class MediaPlayerManagement {
      * </p>
      */
     public void playMedia() {
+
         /* update state of favorite button for each time playing new song
          *  the value of method setSelected() is true or false
          *  and this value update from attribute isFavorite of songs
@@ -145,9 +146,6 @@ public class MediaPlayerManagement {
         mediaPlayer.setVolume(volumeSlider.getValue() * 0.01);
         System.out.println(mediaPlayer.getVolume());
 
-//        media = new Media(songFiles.get(songNumber).toURI().toString());
-//        mediaPlayer = new MediaPlayer(media);
-
         if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
             mediaPlayer.pause();
             mediaTimer.cancelTimer();
@@ -157,7 +155,6 @@ public class MediaPlayerManagement {
             // begin timer for progress bar
             // start from 0 to total duration of song then stop
             mediaTimer.beginTimer();
-
         }
 
     }
@@ -237,12 +234,12 @@ public class MediaPlayerManagement {
     /**
      * <p>This method shuffleMusic to shuffle list songs of CurrentPlaylist,
      * then add shuffled list songs to ListView,
-     * and add song files from shuffled list to {@link MediaPlayerManagement#songFiles} with method {@link MediaPlayerManagement#initialPlayer()}</p>
+     * and add song files from shuffled list to {@link MediaPlayerManagement#songFiles} with method {@link MediaPlayerManagement#initializePlayer()}</p>
      */
     public void shuffleMusic() {
         stopMedia();
         currentPlaylist.shufflePlaylist();
-        initialPlayer();
+        initializePlayer();
     }
 
 
