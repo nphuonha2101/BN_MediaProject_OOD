@@ -326,6 +326,7 @@ public class MediaPlayerController {
         int currentSongNumber = mediaPlayerManagement.getSongNumber();
         // scrolls to current playing song
         listView.scrollTo(currentSongNumber);
+        System.out.println("hi");
     }
 
 
