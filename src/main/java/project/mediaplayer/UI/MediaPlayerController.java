@@ -21,6 +21,8 @@ public class MediaPlayerController {
     private final FoundSongsList foundSongsList = new FoundSongsList(Playlists.FOUND_SONGS_PLAYLIST);
     private MediaPlayerManagement mediaPlayerManagement;
 
+    private final MediaPlayerCommandInvoker mediaPlayerCommandInvoker = new MediaPlayerCommandInvoker();
+
     //----------------------------------------------------------//
     @FXML
     private Button homeButton;
@@ -52,22 +54,27 @@ public class MediaPlayerController {
 
     @FXML
     protected void playMedia() {
-        mediaPlayerManagement.playMedia();
+        mediaPlayerCommandInvoker.setPlayerCommand(new PlayMediaCommand(mediaPlayerManagement));
+        mediaPlayerCommandInvoker.mediaPlayerAction();
     }
 
     @FXML
+
     protected void nextMedia() {
-        mediaPlayerManagement.nextMedia();
+        mediaPlayerCommandInvoker.setPlayerCommand(new NextMediaCommand(mediaPlayerManagement));
+        mediaPlayerCommandInvoker.mediaPlayerAction();
     }
 
     @FXML
     protected void previousMedia() {
-        mediaPlayerManagement.previousMedia();
+        mediaPlayerCommandInvoker.setPlayerCommand(new PreviousMediaCommand(mediaPlayerManagement));
+        mediaPlayerCommandInvoker.mediaPlayerAction();
     }
 
     @FXML
     protected void resetMedia() {
-        mediaPlayerManagement.resetMedia();
+        mediaPlayerCommandInvoker.setPlayerCommand(new ResetMediaCommand(mediaPlayerManagement));
+        mediaPlayerCommandInvoker.mediaPlayerAction();
     }
 
 
@@ -95,7 +102,7 @@ public class MediaPlayerController {
         System.out.println(currentPlaylist.getSongs().size());
 
         // initialize media player
-        mediaPlayerManagement.initialPlayer();
+        mediaPlayerManagement.initializePlayer();
 
         if (files.getListFiles().isEmpty()) {
             String title = "No song added";
@@ -174,7 +181,7 @@ public class MediaPlayerController {
     @FXML
     protected void shuffleMusic() {
         headerLabel.setText(PLAYING_QUEUE_HEADER_TEXT);
-        mediaPlayerManagement.shuffleMusic();
+        mediaPlayerManagement.shuffleMedia();
     }
 
 
@@ -248,7 +255,7 @@ public class MediaPlayerController {
         }
 
         // initial player after switched between playlists
-        mediaPlayerManagement.initialPlayer();
+        mediaPlayerManagement.initializePlayer();
     }
 
 

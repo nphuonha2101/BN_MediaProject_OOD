@@ -79,11 +79,7 @@ public class MediaPlayerManagement {
         // if not create this instance for each prepare media,
         // the song progress bar will work once then after it doesn't work
         mediaTimer = new MediaTimer(this, mediaPlayer, songProgressBar);
-
-
     }
-
-
     /**
      * Initializes the player by adding songs from the current playlist and setting up media and media player.
      * <p>
@@ -110,7 +106,6 @@ public class MediaPlayerManagement {
         currentPlaylist.updateListView(songsListView);
 
     }
-
     /**
      * <p>This method ({@link MediaPlayerManagement#playMedia()} ()}) is describes event click play button will play music current in ListView
      * <ul> When clicked playButton:
@@ -127,7 +122,6 @@ public class MediaPlayerManagement {
      * </p>
      */
     public void playMedia() {
-
         /* update state of favorite button for each time playing new song
          *  the value of method setSelected() is true or false
          *  and this value update from attribute isFavorite of songs
@@ -158,7 +152,6 @@ public class MediaPlayerManagement {
         }
 
     }
-
     /**
      * <p>This method ({@link MediaPlayerManagement#resetMedia()} ()}) to replay current music is playing</p>
      * <ul>When clicked resetButton:
@@ -172,7 +165,6 @@ public class MediaPlayerManagement {
         songNameLabel.setText(songFiles.get(songNumber).getName());
         mediaPlayer.seek(Duration.seconds(0));
     }
-
     /**
      * <p>This method ({@link MediaPlayerManagement#previousMedia()} ()}) to play previous music
      * <ul>When clicked previousButton:
@@ -199,7 +191,6 @@ public class MediaPlayerManagement {
         playMedia();
 
     }
-
     /**
      * <p>This method ({@link MediaPlayerManagement#nextMedia()}) to play next music
      * <ul>When clicked nextButton:
@@ -236,11 +227,9 @@ public class MediaPlayerManagement {
      * then add shuffled list songs to ListView,
      * and add song files from shuffled list to {@link MediaPlayerManagement#songFiles} with method {@link MediaPlayerManagement#initializePlayer()}</p>
      */
-    public void shuffleMusic() {
+    public void shuffleMedia() {
         stopMedia();
         currentPlaylist.shufflePlaylist();
         initializePlayer();
     }
-
-
 }
