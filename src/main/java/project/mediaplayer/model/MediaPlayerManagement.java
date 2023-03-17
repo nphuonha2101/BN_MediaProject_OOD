@@ -236,7 +236,7 @@ public class MediaPlayerManagement {
      * then add shuffled list songs to ListView,
      * and add song files from shuffled list to {@link MediaPlayerManagement#songFiles} with method {@link MediaPlayerManagement#initializePlayer()}</p>
      */
-    public void shuffleMusic() {
+    public void shuffleMedia() {
         stopMedia();
         currentPlaylist.shufflePlaylist();
         initializePlayer();

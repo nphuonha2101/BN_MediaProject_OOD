@@ -20,6 +20,7 @@ public class MediaPlayerController {
     private final CurrentPlaylist currentPlaylist = new CurrentPlaylist(Playlists.CURRENT_PLAYLIST);
     private final FoundSongsList foundSongsList = new FoundSongsList(Playlists.FOUND_SONGS_PLAYLIST);
     private MediaPlayerManagement mediaPlayerManagement;
+    private final MediaPlayerCommandInvoker mediaPlayerCommandInvoker = new MediaPlayerCommandInvoker();
 
     //----------------------------------------------------------//
     @FXML
@@ -52,22 +53,26 @@ public class MediaPlayerController {
 
     @FXML
     protected void playMedia() {
-        mediaPlayerManagement.playMedia();
+        mediaPlayerCommandInvoker.setMediaPlayerCommand(new PlayMediaCommand(mediaPlayerManagement));
+        mediaPlayerCommandInvoker.commandAction();
     }
 
     @FXML
     protected void nextMedia() {
-        mediaPlayerManagement.nextMedia();
+        mediaPlayerCommandInvoker.setMediaPlayerCommand(new NextMediaCommand(mediaPlayerManagement));
+        mediaPlayerCommandInvoker.commandAction();
     }
 
     @FXML
     protected void previousMedia() {
-        mediaPlayerManagement.previousMedia();
+        mediaPlayerCommandInvoker.setMediaPlayerCommand(new PlayMediaCommand(mediaPlayerManagement));
+        mediaPlayerCommandInvoker.commandAction();
     }
 
     @FXML
     protected void resetMedia() {
-        mediaPlayerManagement.resetMedia();
+        mediaPlayerCommandInvoker.setMediaPlayerCommand(new ResetMediaCommand(mediaPlayerManagement));
+        mediaPlayerCommandInvoker.commandAction();
     }
 
 
@@ -76,7 +81,7 @@ public class MediaPlayerController {
      * add songs from {@link MainPlaylist} to {@link CurrentPlaylist},
      * and create instance of {@link MediaPlayerController#mediaPlayerManagement}.
      * <p>
-     * After create instance of {@link MediaPlayerController#mediaPlayerManagement} then {@link MediaPlayerManagement#initialPlayer()}
+     * After create instance of {@link MediaPlayerController#mediaPlayerManagement} then {@link MediaPlayerManagement#initializePlayer()}
      */
     @FXML
     public void chooseFile() {
@@ -95,7 +100,7 @@ public class MediaPlayerController {
         System.out.println(currentPlaylist.getSongs().size());
 
         // initialize media player
-        mediaPlayerManagement.initialPlayer();
+        mediaPlayerManagement.initializePlayer();
 
         if (files.getListFiles().isEmpty()) {
             String title = "No song added";
@@ -174,7 +179,7 @@ public class MediaPlayerController {
     @FXML
     protected void shuffleMusic() {
         headerLabel.setText(PLAYING_QUEUE_HEADER_TEXT);
-        mediaPlayerManagement.shuffleMusic();
+        mediaPlayerManagement.shuffleMedia();
     }
 
 
@@ -248,7 +253,7 @@ public class MediaPlayerController {
         }
 
         // initial player after switched between playlists
-        mediaPlayerManagement.initialPlayer();
+        mediaPlayerManagement.initializePlayer();
     }
 
 
