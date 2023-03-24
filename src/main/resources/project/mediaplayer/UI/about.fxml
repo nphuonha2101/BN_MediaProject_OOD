@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" onKeyPressed="#closeStage" prefHeight="400.0"
-            prefWidth="600.0" style="-fx-background-color: #1e2228; -fx-border-color: #4dabf7;"
+            prefWidth="600.0" style="-fx-background-color: #1e2228; -fx-border-color: #a5c8ff;"
             stylesheets="@../../../css/style.css" xmlns="http://javafx.com/javafx/19"
             fx:controller="project.mediaplayer.UI.AboutController">
     <children>
@@ -21,7 +21,7 @@
                         <ImageView fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true"
                                    HBox.hgrow="ALWAYS">
                             <image>
-                                <Image url="@../../../img/icons8-info-96.png"/>
+                                <Image url="@../../../img/icons8-info-48.png"/>
                             </image>
                         </ImageView>
                         <Label prefHeight="65.0" prefWidth="460.0" text="About" textFill="#fefefe">
@@ -52,8 +52,8 @@
                             <rowConstraints>
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
                             <children>
                                 <Label prefHeight="17.0" prefWidth="193.0" text="Our GitHub project repository:"
                                        textFill="#fefefe"/>

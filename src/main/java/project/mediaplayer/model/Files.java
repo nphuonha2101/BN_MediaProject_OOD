@@ -2,9 +2,13 @@ package project.mediaplayer.model;
 
 import javafx.stage.DirectoryChooser;
 
+import java.awt.*;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
-
+import java.util.List;
 
 /**
  * <p> - The {@link Files} class is use for storage files of the directory which was chosen
@@ -21,6 +25,8 @@ import java.util.ArrayList;
  * </p>
  */
 public class Files {
+
+    private static final String FAVORITE_DATA_FILE_PATH = "src/main/resources/data/favoriteSongData.txt";
     private final ArrayList<File> files = new ArrayList<>();
 
 //    public Files(ArrayList<File> files){
@@ -89,5 +95,51 @@ public class Files {
 //    public String readLastMusicDirectoryPath() {
 //
 //    }
+
+    public static void main(String[] args) throws IOException {
+        File file = new File(FAVORITE_DATA_FILE_PATH);
+        Desktop.getDesktop().open(file);
+//        Files files1 = new Files();
+//        files1.writeFavoriteSongsData(null);
+    }
+
+//    public List<Song> readSongsFromFavoriteFile() {
+//        try {
+//            File dataFile = new File(FAVORITE_DATA_FILE_PATH);
+//            if (!dataFile.exists()) {
+//                dataFile.createNewFile();
+//            } else {
+//
+//            }
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+    public void writeFavoriteSongsData(List<Song> songList) {
+        try {
+            File dataFile = new File(FAVORITE_DATA_FILE_PATH);
+            if (!dataFile.exists()) {
+                dataFile.createNewFile();
+            } else {
+                FileWriter fileWriter = new FileWriter(dataFile);
+                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+                bufferedWriter.write("");
+                for (Song song : songList
+                ) {
+                    System.out.println(song);
+                    bufferedWriter.write(song.getSongID() + "\t" + song.getSongName() + "\t" + song.getSongPath());
+                    bufferedWriter.newLine();
+                }
+
+                bufferedWriter.close();
+                System.out.println("favorite songs data was wrote success");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }

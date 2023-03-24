@@ -9,13 +9,12 @@
             prefHeight="519.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/19"
             fx:controller="project.mediaplayer.UI.MediaPlayerController">
     <children>
-        <BorderPane prefHeight="504.0" prefWidth="699.0" style="-fx-background-color: #1e2228;"
-                    stylesheets="@../../../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <BorderPane id="parentBorderPane" prefHeight="504.0" prefWidth="699.0" stylesheets="@../../../css/style.css"
+                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                    AnchorPane.topAnchor="0.0">
             <left>
-                <VBox alignment="CENTER" minHeight="250.0" prefHeight="504.0" prefWidth="176.0"
-                      style="-fx-background-color: #1e2228;" stylesheets="@../../../css/style.css"
-                      BorderPane.alignment="CENTER">
+                <VBox id="leftBarVBox" alignment="CENTER" minHeight="250.0" prefHeight="504.0" prefWidth="176.0"
+                      stylesheets="@../../../css/style.css" BorderPane.alignment="CENTER">
                     <children>
                         <Pane prefHeight="104.0" prefWidth="166.0">
                             <children>
@@ -33,7 +32,7 @@
                             <graphic>
                                 <ImageView fitHeight="21.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../../img/icons8-home-96.png"/>
+                                        <Image url="@../../../img/icons8-home-48.png"/>
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -41,11 +40,8 @@
                                 <Insets/>
                             </opaqueInsets>
                             <padding>
-                                <Insets left="20.0" right="20.0"/>
+                                <Insets left="20.0"/>
                             </padding>
-                            <font>
-                                <Font name="System Bold" size="12.0"/>
-                            </font>
                             <VBox.margin>
                                 <Insets bottom="2.0" top="2.0"/>
                             </VBox.margin>
@@ -56,7 +52,7 @@
                             <graphic>
                                 <ImageView fitHeight="21.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../../img/icons8-favorite-96.png"/>
+                                        <Image url="@../../../img/icons8-wish-list-48.png"/>
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -64,7 +60,7 @@
                                 <Insets/>
                             </opaqueInsets>
                             <padding>
-                                <Insets left="20.0" right="5.0"/>
+                                <Insets left="20.0"/>
                             </padding>
                             <VBox.margin>
                                 <Insets bottom="2.0" top="2.0"/>
@@ -76,7 +72,7 @@
                             <graphic>
                                 <ImageView fitHeight="21.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../../img/icons8-playlist-96.png"/>
+                                        <Image url="@../../../img/icons8-playlist-48.png"/>
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -84,7 +80,7 @@
                                 <Insets/>
                             </opaqueInsets>
                             <padding>
-                                <Insets left="20.0" right="5.0"/>
+                                <Insets left="20.0"/>
                             </padding>
                             <VBox.margin>
                                 <Insets bottom="2.0" top="2.0"/>
@@ -96,7 +92,7 @@
                             <graphic>
                                 <ImageView fitHeight="21.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../../img/icons8-music-folder-96.png"/>
+                                        <Image url="@../../../img/icons8-music-folder-48.png"/>
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -104,7 +100,7 @@
                                 <Insets/>
                             </opaqueInsets>
                             <padding>
-                                <Insets left="20.0" right="5.0"/>
+                                <Insets left="20.0"/>
                             </padding>
                             <VBox.margin>
                                 <Insets bottom="2.0" top="2.0"/>
@@ -117,7 +113,7 @@
                             <graphic>
                                 <ImageView fitHeight="21.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../../img/icons8-info-96.png"/>
+                                        <Image url="@../../../img/icons8-info-48.png"/>
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -141,9 +137,8 @@
                 </VBox>
             </left>
             <center>
-                <VBox id="contentVBox" prefHeight="200.0" prefWidth="100.0"
-                      style="-fx-background-color: #22272e; -fx-background-radius: 10;"
-                      stylesheets="@../../../css/style.css" BorderPane.alignment="CENTER">
+                <VBox id="contentVBox" prefHeight="200.0" prefWidth="100.0" stylesheets="@../../../css/style.css"
+                      BorderPane.alignment="CENTER">
                     <children>
                         <HBox alignment="CENTER" prefHeight="41.0" prefWidth="589.0">
                             <children>
@@ -164,24 +159,25 @@
                                            prefWidth="222.0" promptText="Search Songs"
                                            stylesheets="@../../../css/style.css" HBox.hgrow="ALWAYS">
                                     <HBox.margin>
-                                        <Insets right="15.0"/>
+                                        <Insets/>
                                     </HBox.margin>
                                     <padding>
                                         <Insets left="20.0"/>
                                     </padding>
                                 </TextField>
-                                <ToggleButton fx:id="clearSearchesButton" mnemonicParsing="false"
-                                              onAction="#clearSearches" prefHeight="35.0" prefWidth="60.0">
+                                <ToggleButton id="buttonClearSearch" fx:id="clearSearchesButton" mnemonicParsing="false"
+                                              onAction="#clearSearches" prefHeight="50.0" prefWidth="60.0"
+                                              stylesheets="@../../../css/style.css">
                                     <graphic>
                                         <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="@../../../img/icons8-clear-symbol-96.png"/>
+                                                <Image url="@../../../img/icons8-clear-symbol-48.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>
                                     <HBox.margin>
-                                        <Insets right="15.0"/>
+                                        <Insets left="5.0" right="15.0"/>
                                     </HBox.margin>
                                 </ToggleButton>
                             </children>
@@ -206,8 +202,7 @@
                 </VBox>
             </center>
             <bottom>
-                <VBox alignment="CENTER" prefHeight="99.0" prefWidth="699.0"
-                      style="-fx-background-color: #22272e; -fx-background-radius: 10;"
+                <VBox id="playerControlsVBox" alignment="CENTER" prefHeight="99.0" prefWidth="699.0"
                       stylesheets="@../../../css/style.css" BorderPane.alignment="CENTER">
                     <children>
                         <HBox alignment="CENTER" prefHeight="58.0" prefWidth="765.0" VBox.vgrow="ALWAYS">
@@ -255,7 +250,7 @@
                                                 <ImageView id="previousButton" fitHeight="25.0" fitWidth="25.0"
                                                            pickOnBounds="true" preserveRatio="true">
                                                     <image>
-                                                        <Image url="@../../../img/icons8-shuffle-96.png"/>
+                                                        <Image url="@../../../img/icons8-shuffle-48.png"/>
                                                     </image>
                                                 </ImageView>
                                             </graphic>
@@ -272,7 +267,7 @@
                                                 <ImageView id="previousButton" fitHeight="25.0" fitWidth="25.0"
                                                            pickOnBounds="true" preserveRatio="true">
                                                     <image>
-                                                        <Image url="@../../../img/icons8-skip-to-start-96.png"/>
+                                                        <Image url="@../../../img/icons8-skip-to-start-48.png"/>
                                                     </image>
                                                 </ImageView>
                                             </graphic>
@@ -285,10 +280,10 @@
                                                       styleClass="mediaControlButtons"
                                                       stylesheets="@../../../css/style.css" HBox.hgrow="ALWAYS">
                                             <graphic>
-                                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true"
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true"
                                                            preserveRatio="true">
                                                     <image>
-                                                        <Image url="@../../../img/icons8-play-96.png"/>
+                                                        <Image url="@../../../img/icons8-circled-play-48.png"/>
                                                     </image>
                                                 </ImageView>
                                             </graphic>
@@ -304,7 +299,7 @@
                                                 <ImageView id="nextButton" fitHeight="25.0" fitWidth="25.0"
                                                            pickOnBounds="true" preserveRatio="true">
                                                     <image>
-                                                        <Image url="@../../../img/icons8-end-96.png"/>
+                                                        <Image url="@../../../img/icons8-end-48.png"/>
                                                     </image>
                                                 </ImageView>
                                             </graphic>
@@ -319,7 +314,7 @@
                                                 <ImageView id="nextButton" fitHeight="25.0" fitWidth="25.0"
                                                            pickOnBounds="true" preserveRatio="true">
                                                     <image>
-                                                        <Image url="@../../../img/icons8-repeat-96.png"/>
+                                                        <Image url="@../../../img/icons8-replay-48.png"/>
                                                     </image>
                                                 </ImageView>
                                             </graphic>
@@ -336,10 +331,10 @@
                                                       mnemonicParsing="false" onAction="#addAndRemoveFavoriteSong"
                                                       stylesheets="@../../../css/style.css">
                                             <graphic>
-                                                <ImageView id="favoriteSongButton" fitHeight="23.0" fitWidth="23.0"
+                                                <ImageView id="favoriteSongButton" fitHeight="25.0" fitWidth="25.0"
                                                            pickOnBounds="true" preserveRatio="true">
                                                     <image>
-                                                        <Image url="@../../../img/icons8-favorite-96.png"/>
+                                                        <Image url="@../../../img/icons8-favorite-48.png"/>
                                                     </image>
                                                 </ImageView>
                                             </graphic>
@@ -354,17 +349,13 @@
                                                 <ImageView id="favoriteSongButton" fitHeight="23.0" fitWidth="23.0"
                                                            pickOnBounds="true" preserveRatio="true">
                                                     <image>
-                                                        <Image url="@../../../img/icons8-speaker-96.png"/>
+                                                        <Image url="@../../../img/icons8-speaker-48.png"/>
                                                     </image>
                                                 </ImageView>
                                             </graphic>
                                         </ToggleButton>
                                         <Label fx:id="volumeLabel" alignment="CENTER" prefHeight="17.0" prefWidth="31.0"
-                                               textAlignment="JUSTIFY" textFill="#fefefe">
-                                            <font>
-                                                <Font name="System Bold" size="12.0"/>
-                                            </font>
-                                        </Label>
+                                               text="100" textAlignment="JUSTIFY" textFill="#fefefe"/>
                                         <Slider id="volumeSlider" fx:id="volumeSlider" blockIncrement="1.0"
                                                 onMouseClicked="#changeVolume" onMouseDragged="#changeVolume"
                                                 prefHeight="13.0" prefWidth="110.0" snapToTicks="true"
@@ -374,12 +365,12 @@
                             </children>
                         </GridPane>
                     </children>
-                    <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="10.0"/>
-                    </padding>
                     <BorderPane.margin>
                         <Insets bottom="15.0" left="15.0" right="15.0"/>
                     </BorderPane.margin>
+                    <padding>
+                        <Insets left="10.0" right="10.0" top="10.0"/>
+                    </padding>
                 </VBox>
             </bottom>
         </BorderPane>

@@ -21,6 +21,7 @@ public class MediaPlayerController {
     private final FoundSongsList foundSongsList = new FoundSongsList(Playlists.FOUND_SONGS_PLAYLIST);
     private MediaPlayerManagement mediaPlayerManagement;
     private final MediaPlayerCommandInvoker mediaPlayerCommandInvoker = new MediaPlayerCommandInvoker();
+    private final Files files = new Files();
 
     //----------------------------------------------------------//
     @FXML
@@ -88,24 +89,25 @@ public class MediaPlayerController {
         Files files = new Files();
         files.chooseFileDir();
 
-        mainPlaylist.addSongs(files);
-
-        // add song from MainPlaylist
-        currentPlaylist.addSongFromOtherPlaylist(mainPlaylist);
-
-        // create instance of MediaPlayerManagement
-        mediaPlayerManagement = new MediaPlayerManagement(currentPlaylist, listView, songNameLabel, songProgressBar, volumeSlider, favoriteSongButton);
-
-//        favoritePlaylist.addSongToFavorite(mainPlaylist);
-        System.out.println(currentPlaylist.getSongs().size());
-
-        // initialize media player
-        mediaPlayerManagement.initializePlayer();
-
         if (files.getListFiles().isEmpty()) {
             String title = "No song added";
             String message = "Seem a directory you chose didn't have any music file (*.mp3, *.aac, *.wav). \n" + "Please import it again!";
-            showInfoDialog(title, message);
+            AlertUtils.showInformationAlert(title, message);
+        } else {
+
+            mainPlaylist.addSongs(files);
+
+            // add song from MainPlaylist
+            currentPlaylist.addSongFromOtherPlaylist(mainPlaylist);
+
+            // create instance of MediaPlayerManagement
+            mediaPlayerManagement = new MediaPlayerManagement(currentPlaylist, listView, songNameLabel, songProgressBar, volumeSlider, favoriteSongButton);
+
+//        favoritePlaylist.addSongToFavorite(mainPlaylist);
+            System.out.println(currentPlaylist.getSongs().size());
+
+            // initialize media player
+            mediaPlayerManagement.initializePlayer();
         }
 
 
@@ -125,7 +127,7 @@ public class MediaPlayerController {
         // get value from volume slider and set to media player volume
         mediaPlayerManagement.setVolume(volumeSlider.getValue() * 0.01);
         // set volume value from slider
-        volumeLabel.setText((int) volumeSlider.getValue() + "");
+        volumeLabel.setText(String.valueOf((int) volumeSlider.getValue()));
     }
 
 
@@ -183,21 +185,6 @@ public class MediaPlayerController {
     }
 
 
-    // show info dialog with title and message
-    private void showInfoDialog(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
-        // set title for dialog title bar
-        alert.setTitle(title);
-        // set text for dialog header
-        alert.setHeaderText("INFORMATION");
-        // set text for dialog content
-        alert.setContentText(message);
-        alert.show();
-
-    }
-
-
     /**
      * <p>This method is to use switch between playlist with buttons on left-side-bar.
      *  <ul>
@@ -237,6 +224,10 @@ public class MediaPlayerController {
         if (buttonText.equalsIgnoreCase(favoriteListButtonText)) {
             headerLabel.setText(FAVORITE_LIST_HEADER_TEXT);
             currentPlaylist.addSongFromOtherPlaylist(favoritePlaylist);
+
+            // test
+            files.writeFavoriteSongsData(favoritePlaylist.getSongs());
+
             System.out.println(currentPlaylist.getSongs().size());
 
         }
@@ -249,11 +240,10 @@ public class MediaPlayerController {
         if (currentPlaylist.getSongs().isEmpty()) {
             String dialogTitle = "No song added";
             String dialogMessage = "This playlist has no song, please import its from right folder. " + "The file formats are acceptable are .mp3, .aac, .wav";
-            showInfoDialog(dialogTitle, dialogMessage);
-        }
-
-        // initial player after switched between playlists
-        mediaPlayerManagement.initializePlayer();
+            AlertUtils.showInformationAlert(dialogTitle, dialogMessage);
+        } else
+            // initial player after switched between playlists
+            mediaPlayerManagement.initializePlayer();
     }
 
 
@@ -307,8 +297,8 @@ public class MediaPlayerController {
             currentPlayingSong.setFavorite(false);
             // then removes this song to favorite playlist
             favoritePlaylist.getSongs().remove(currentPlayingSong);
-
         }
+
 
         System.out.println(favoritePlaylist);
         System.out.println(currentPlayingSong);
