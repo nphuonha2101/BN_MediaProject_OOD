@@ -22,8 +22,8 @@ import java.util.ArrayList;
  */
 public class Files {
 
-    public static final String FAVORITE_DATA_FILE_PATH = "src/main/resources/data/previousImportedFavoriteSongsData.dat";
-    public static final String PREVIOUS_IMPORTED_SONGS_DATA_FILE_PATH = "src/main/resources/data/previousImportedSongsData.dat";
+    public static final String FAVORITE_DATA_FILE_PATH = "src" + File.separator + "main" + File.separator + "resources" + File.separator + "data" + File.separator + "previousImportedFavoriteSongsData.dat";
+    public static final String PREVIOUS_IMPORTED_SONGS_DATA_FILE_PATH = "src" + File.separator + "main" + File.separator + "resources" + File.separator + "data" + File.separator + "previousImportedSongsData.dat";
     private final ArrayList<File> files = new ArrayList<>();
 
 //    public Files(ArrayList<File> files){
@@ -44,22 +44,6 @@ public class Files {
     public ArrayList<File> getListFiles() {
         return this.files;
     }
-
-    // add file to files list
-    public void addFile(File file) {
-        this.files.add(file);
-    }
-
-    // remove file from files list
-    public void removeFile(File file) {
-        this.files.remove(file);
-    }
-
-    // clear all files list
-    public void clearAll() {
-        this.files.clear();
-    }
-
 
     /**
      * <p>Choose directory and get files from its directory.</p>
