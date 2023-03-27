@@ -4,34 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Nguyen Phuong Nha: &#10;- uses Command Pattern for Media Control Buttons">
-      <change afterPath="$PROJECT_DIR$/lib/fonts-roboto-2012023.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/Roboto-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/Roboto-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/Roboto-Regular.ttf" afterDir="false" />
+    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Nguyen Phuong Nha: &#10;- change color for UI">
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FoundSongList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/HomePlaylist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/NonShufflePlaylist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/PlayNextMedia.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/PlayPauseMedia.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/PlayPreviousMedia.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/PlayingPlaylist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/PlaylistBehavior.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ResetMedia.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ShuffleMedia.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ShufflePlaylist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/StopMedia.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/previousImportedFavoriteSongsData.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/previousImportedSongsData.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/CurrentPlaylist.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FavoritePlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FavoritePlaylist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data/favoriteSong.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/favoriteSongData.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-clear-search-96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-end-96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-favorite-96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-home-96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-info-96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-music-folder-96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-pause-96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-play-96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-playlist-96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-repeat-96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-search-96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-settings-96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-shuffle-96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-skip-to-start-96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-speaker-96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/about.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/about.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FoundSongsList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/IMediaPlayerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/IMediaPlayerCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MainPlaylist.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerCommandInvoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerCommandInvoker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/NextMediaCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/NextMediaCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/PlayMediaCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/PlayPauseMediaCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Playlists.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Playlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/PreviousMediaCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/PreviousMediaCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ResetMediaCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ResetMediaCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ShuffleMediaCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ShuffleMediaCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/favoriteSongData.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/musicDirectoryPathData.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fonts/Roboto-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fonts/Roboto-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fonts/Roboto-Regular.ttf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/main-player-application.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/main-player-application.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,6 +76,9 @@
         <option name="url" value="https://github.com/nphuonha2101/BN_MediaProject_OOD.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/resources/data/previousImportedSongsData.txt" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -110,7 +125,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -277,6 +292,13 @@
       <workItem from="1679418726750" duration="995000" />
       <workItem from="1679420725549" duration="929000" />
       <workItem from="1679501550645" duration="315000" />
+      <workItem from="1679670808378" duration="298000" />
+      <workItem from="1679724119649" duration="11014000" />
+      <workItem from="1679741465237" duration="8766000" />
+      <workItem from="1679761758288" duration="579000" />
+      <workItem from="1679799623098" duration="783000" />
+      <workItem from="1679814927974" duration="124000" />
+      <workItem from="1679834739284" duration="3684000" />
     </task>
     <task id="LOCAL-00001" summary="second commit">
       <created>1676170105282</created>
@@ -446,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679068056393</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Nguyen Phuong Nha: &#10;- change color for UI">
+      <created>1679670958578</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1679670958578</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -534,7 +563,8 @@
     <MESSAGE value="Nguyen Phuong Nha: &#10;- add method volumeChangeWithButton() on MediaPlayerController&#10;- add volumeLabel to display current volume value&#10;- add focus music item on listView when playing music resemble&#10;- improve about stage UI" />
     <MESSAGE value="Nguyen Phuong Nha: &#10;- adds feature search songs&#10;- improves feature add songs to FavoritePlaylist&#10;- add comment and JavaDoc for some classes and methods" />
     <MESSAGE value="Nguyen Phuong Nha: &#10;- uses Command Pattern for Media Control Buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nguyen Phuong Nha: &#10;- uses Command Pattern for Media Control Buttons" />
+    <MESSAGE value="Nguyen Phuong Nha: &#10;- change color for UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nguyen Phuong Nha: &#10;- change color for UI" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -551,7 +581,20 @@
           </properties>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FavoritePlaylist.java</url>
+          <line>13</line>
+          <properties class="project.mediaplayer.model.FavoritePlaylist">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="java-exception" />
+        <breakpoint enabled="true" type="javascript-exception" />
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

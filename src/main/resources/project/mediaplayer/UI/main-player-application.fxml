@@ -243,7 +243,7 @@
                                       GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                                     <children>
                                         <ToggleButton fx:id="shuffleButton" accessibleRole="TOGGLE_BUTTON"
-                                                      mnemonicParsing="false" onAction="#shuffleMusic" prefHeight="32.0"
+                                                      mnemonicParsing="false" onAction="#shuffleMedia" prefHeight="32.0"
                                                       prefWidth="36.0" styleClass="mediaControlButtons"
                                                       stylesheets="@../../../css/style.css">
                                             <graphic>

@@ -63,7 +63,8 @@ public class MediaTimer {
                         // reset progress bar when timer is finishes
                         songProgressBar.setProgress(0);
                         // play next media (next song) when the timer is finishes
-                        mediaPlayerManagement.nextMedia();
+                        mediaPlayerManagement.setMediaPlayerControl(new PlayNextMedia());
+                        mediaPlayerManagement.doActionControl();
                     }
                 });
             }

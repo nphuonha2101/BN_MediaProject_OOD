@@ -3,12 +3,8 @@ package project.mediaplayer.model;
 import javafx.stage.DirectoryChooser;
 
 import java.awt.*;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * <p> - The {@link Files} class is use for storage files of the directory which was chosen
@@ -26,7 +22,8 @@ import java.util.List;
  */
 public class Files {
 
-    private static final String FAVORITE_DATA_FILE_PATH = "src/main/resources/data/favoriteSongData.txt";
+    public static final String FAVORITE_DATA_FILE_PATH = "src/main/resources/data/previousImportedFavoriteSongsData.dat";
+    public static final String PREVIOUS_IMPORTED_SONGS_DATA_FILE_PATH = "src/main/resources/data/previousImportedSongsData.dat";
     private final ArrayList<File> files = new ArrayList<>();
 
 //    public Files(ArrayList<File> files){
@@ -34,12 +31,7 @@ public class Files {
 //    }
 
     /**
-     * - Get File name (Song name) from file path and
-     * use {@code String.lastIndexOf()} method to find the last backslash character to get substring from its position + 1 (file name)
-     * <br>
-     * - Ex: user/music/demo.mp3 => the last backslash index is 10, so we use substring method to substring from index 11 => demo.mp3
-     * <br>
-     * - In Java, use \\ to perform \ symbol
+     * - Get File name (Song name) from file path using {@link File#getName()} method
      */
     public static String getFileNameFromFilePath(File mediaFile) {
 //        String result = "";
@@ -92,34 +84,15 @@ public class Files {
         }
     }
 
-//    public String readLastMusicDirectoryPath() {
-//
-//    }
-
     public static void main(String[] args) throws IOException {
-        File file = new File(FAVORITE_DATA_FILE_PATH);
+        File file = new File(Files.PREVIOUS_IMPORTED_SONGS_DATA_FILE_PATH);
         Desktop.getDesktop().open(file);
-//        Files files1 = new Files();
-//        files1.writeFavoriteSongsData(null);
     }
 
-//    public List<Song> readSongsFromFavoriteFile() {
-//        try {
-//            File dataFile = new File(FAVORITE_DATA_FILE_PATH);
-//            if (!dataFile.exists()) {
-//                dataFile.createNewFile();
-//            } else {
-//
-//            }
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    public void writeSongsDataFile(String dataFilePath, Playlist playlist) {
 
-    public void writeFavoriteSongsData(List<Song> songList) {
         try {
-            File dataFile = new File(FAVORITE_DATA_FILE_PATH);
+            File dataFile = new File(dataFilePath);
             if (!dataFile.exists()) {
                 dataFile.createNewFile();
             } else {
@@ -127,15 +100,36 @@ public class Files {
                 BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
                 bufferedWriter.write("");
-                for (Song song : songList
+                for (Song song : playlist.getSongList()
                 ) {
                     System.out.println(song);
-                    bufferedWriter.write(song.getSongID() + "\t" + song.getSongName() + "\t" + song.getSongPath());
+                    bufferedWriter.write(song.getSongID() + "\t" + song.getSongName() + "\t" + song.isFavorite() + "\t" + song.getSongPath());
                     bufferedWriter.newLine();
                 }
 
                 bufferedWriter.close();
                 System.out.println("favorite songs data was wrote success");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void readSongsFromDataFile(String dataFilePath, Playlist playlist) {
+        try {
+            File dataFile = new File(dataFilePath);
+            if (!dataFile.exists()) {
+                dataFile.createNewFile();
+            } else {
+                FileReader fileReader = new FileReader(dataFile);
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+                while (true) {
+                    String line = bufferedReader.readLine();
+                    if (line == null) break;
+//                    System.out.println("Read Line: " + line);
+                    playlist.addSongsFromDataFileToPlaylist(line, playlist);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

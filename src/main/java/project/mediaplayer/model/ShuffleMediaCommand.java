@@ -9,6 +9,7 @@ public class ShuffleMediaCommand implements IMediaPlayerCommand {
 
     @Override
     public void execute() {
-        this.mediaPlayerManagement.shuffleMedia();
+        mediaPlayerManagement.setMediaPlayerControl(new ShuffleMedia());
+        mediaPlayerManagement.doActionControl();
     }
 }

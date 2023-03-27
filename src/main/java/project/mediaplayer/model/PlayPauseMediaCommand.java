@@ -1,15 +1,16 @@
 package project.mediaplayer.model;
 
-public class NextMediaCommand implements IMediaPlayerCommand {
+
+public class PlayPauseMediaCommand implements IMediaPlayerCommand {
     private final MediaPlayerManagement mediaPlayerManagement;
 
-    public NextMediaCommand(MediaPlayerManagement mediaPlayerManagement) {
+    public PlayPauseMediaCommand(MediaPlayerManagement mediaPlayerManagement) {
         this.mediaPlayerManagement = mediaPlayerManagement;
     }
 
     @Override
     public void execute() {
-        mediaPlayerManagement.setMediaPlayerControl(new PlayNextMedia());
+        mediaPlayerManagement.setMediaPlayerControl(new PlayPauseMedia());
         mediaPlayerManagement.doActionControl();
     }
 }

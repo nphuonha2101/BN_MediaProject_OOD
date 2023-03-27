@@ -9,6 +9,7 @@ public class ResetMediaCommand implements IMediaPlayerCommand {
 
     @Override
     public void execute() {
-        this.mediaPlayerManagement.resetMedia();
+        mediaPlayerManagement.setMediaPlayerControl(new ResetMedia());
+        mediaPlayerManagement.doActionControl();
     }
 }

@@ -10,6 +10,7 @@ public class PreviousMediaCommand implements IMediaPlayerCommand {
 
     @Override
     public void execute() {
-        this.mediaPlayerManagement.previousMedia();
+        mediaPlayerManagement.setMediaPlayerControl(new PlayPreviousMedia());
+        mediaPlayerManagement.doActionControl();
     }
 }
