@@ -354,12 +354,12 @@
                                                 </ImageView>
                                             </graphic>
                                         </ToggleButton>
-                                        <Label fx:id="volumeLabel" alignment="CENTER" prefHeight="17.0" prefWidth="31.0"
-                                               text="100" textAlignment="JUSTIFY" textFill="#fefefe"/>
+                                        <Label fx:id="volumeLabel" alignment="CENTER" prefHeight="17.0" prefWidth="54.0"
+                                               text="50%" textAlignment="JUSTIFY" textFill="#fefefe"/>
                                         <Slider id="volumeSlider" fx:id="volumeSlider" blockIncrement="1.0"
                                                 onMouseClicked="#changeVolume" onMouseDragged="#changeVolume"
                                                 prefHeight="13.0" prefWidth="110.0" snapToTicks="true"
-                                                stylesheets="@../../../css/style.css" value="100.0"/>
+                                                stylesheets="@../../../css/style.css" value="50.0"/>
                                     </children>
                                 </HBox>
                             </children>

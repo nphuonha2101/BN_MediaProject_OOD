@@ -86,8 +86,6 @@ public class MediaPlayerController implements Initializable {
             String message = "Hmmm! There is no song in your library, please click \"Open Folder\" button to continue!";
             AlertUtils.showInformationAlert(title, message);
         }
-
-
     }
 
     @FXML
@@ -175,7 +173,7 @@ public class MediaPlayerController implements Initializable {
         // get value from volume slider and set to media player volume
         mediaPlayerManagement.setVolume(volumeSlider.getValue() * 0.01);
         // set volume value from slider
-        volumeLabel.setText(String.valueOf((int) volumeSlider.getValue()));
+        volumeLabel.setText((int) volumeSlider.getValue() + "%");
     }
 
 
