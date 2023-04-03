@@ -6,8 +6,8 @@ package project.mediaplayer.model;
  */
 
 public class FavoritePlaylist extends Playlist {
-    public FavoritePlaylist(String playlistName, PlaylistBehavior playlistBehavior) {
-        super(playlistName, playlistBehavior);
+    public FavoritePlaylist(String playlistName) {
+        super(playlistName);
     }
 
 }

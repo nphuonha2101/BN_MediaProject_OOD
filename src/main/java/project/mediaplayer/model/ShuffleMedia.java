@@ -2,6 +2,9 @@ package project.mediaplayer.model;
 
 import javafx.scene.control.ToggleButton;
 
+import java.util.Collections;
+import java.util.Comparator;
+
 public class ShuffleMedia implements MediaPlayerControl {
     @Override
     public void playerControl(MediaPlayerManagement mediaPlayerManagement) {
@@ -11,14 +14,19 @@ public class ShuffleMedia implements MediaPlayerControl {
         mediaPlayerManagement.setMediaPlayerControl(new StopMedia());
         mediaPlayerManagement.doActionControl();
 
-        if (!shuffleMediaButton.isSelected()) {
+        if (shuffleMediaButton.isSelected()) {
             System.out.println(shuffleMediaButton.isSelected());
-            playlist.setPlaylistBehavior(new ShufflePlaylist());
-            playlist.doPlaylistBehavior();
+            Collections.shuffle(mediaPlayerManagement.getPlaylist().getSongList());
         } else {
             System.out.println(shuffleMediaButton.isSelected());
-            playlist.setPlaylistBehavior(new NonShufflePlaylist());
-            playlist.doPlaylistBehavior();
+            Collections.sort(mediaPlayerManagement.getPlaylist().getSongList(), new Comparator<Song>() {
+                @Override
+                public int compare(Song song1, Song song2) {
+                    if (song1.getSongName().compareTo(song2.getSongName()) < 0)
+                        return -1;
+                    else return 1;
+                }
+            });
         }
 
         mediaPlayerManagement.initializePlayer();

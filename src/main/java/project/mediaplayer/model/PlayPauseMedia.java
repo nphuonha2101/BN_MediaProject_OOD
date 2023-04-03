@@ -32,7 +32,7 @@ public class PlayPauseMedia implements MediaPlayerControl {
         // focus to current song is playing in list view
         songsListView.getFocusModel().focus(songNumber);
         // scroll to current playing music on listView
-        songsListView.scrollTo(songNumber);
+//        songsListView.scrollTo(songNumber);
 
         // set volume for media player when choose a new song with value of volumeSlider
         mediaPlayer.setVolume(volumeSlider.getValue() * 0.01);

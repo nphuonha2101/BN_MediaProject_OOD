@@ -5,7 +5,7 @@ package project.mediaplayer.model;
  * or {@link Playlist#addSongsFromDataFileToPlaylist(String, Playlist)}
  */
 public class HomePlaylist extends Playlist {
-    public HomePlaylist(String playlistName, PlaylistBehavior playlistBehavior) {
-        super(playlistName, playlistBehavior);
+    public HomePlaylist(String playlistName) {
+        super(playlistName);
     }
 }

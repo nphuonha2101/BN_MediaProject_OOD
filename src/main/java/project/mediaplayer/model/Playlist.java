@@ -18,12 +18,10 @@ public abstract class Playlist {
 
     private List<Song> songList = new ArrayList<>();
     private String playlistName;
-    private PlaylistBehavior playlistBehavior;
 
-    public Playlist(String playlistName, PlaylistBehavior playlistBehavior) {
+
+    public Playlist(String playlistName) {
         this.playlistName = playlistName;
-        this.playlistBehavior = playlistBehavior;
-        playlistBehavior.playlistBehavior(this);
     }
 
     public static void main(String[] args) {
@@ -48,14 +46,6 @@ public abstract class Playlist {
 
     public void setPlaylistFrom(Playlist otherPlaylist) {
         this.songList = otherPlaylist.songList;
-    }
-
-    public void setPlaylistBehavior(PlaylistBehavior otherPlaylistBehavior) {
-        this.playlistBehavior = playlistBehavior;
-    }
-
-    public void doPlaylistBehavior() {
-        playlistBehavior.playlistBehavior(this);
     }
 
     /**

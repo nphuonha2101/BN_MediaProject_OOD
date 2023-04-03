@@ -19,10 +19,10 @@ public class MediaPlayerController implements Initializable {
     private final static String PLAYING_QUEUE_HEADER_TEXT = "Playing Queue";
     private final static String SEARCH_HEADER_LABEL = "Search Result";
 
-    private final Playlist homePlaylist = new HomePlaylist(Playlist.HOME_PLAYLIST_NAME, new NonShufflePlaylist());
-    private final Playlist favoritePlaylist = new FavoritePlaylist(Playlist.FAVORITE_PLAYLIST_NAME, new NonShufflePlaylist());
-    private final Playlist playingPlaylist = new PlayingPlaylist(Playlist.PLAYING_PLAYLIST_NAME, new NonShufflePlaylist());
-    private final Playlist foundSongsList = new FoundSongList(Playlist.FOUND_SONGS_PLAYLIST_NAME, new ShufflePlaylist());
+    private final Playlist homePlaylist = new HomePlaylist(Playlist.HOME_PLAYLIST_NAME);
+    private final Playlist favoritePlaylist = new FavoritePlaylist(Playlist.FAVORITE_PLAYLIST_NAME);
+    private final Playlist playingPlaylist = new PlayingPlaylist(Playlist.PLAYING_PLAYLIST_NAME);
+    private final Playlist foundSongsList = new FoundSongList(Playlist.FOUND_SONGS_PLAYLIST_NAME);
     private MediaPlayerManagement mediaPlayerManagement;
     private final MediaPlayerCommandInvoker mediaPlayerCommandInvoker = new MediaPlayerCommandInvoker();
     private final Files files = new Files();
