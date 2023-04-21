@@ -2,9 +2,9 @@ package project.mediaplayer.model;
 
 import javafx.scene.media.MediaPlayer;
 
-public class StopMedia implements MediaPlayerControl {
+public class ConcreteStrategyStopMedia implements MediaPlayerManagementStrategy {
     @Override
-    public void playerControl(MediaPlayerManagement mediaPlayerManagement) {
+    public void doStrategyAction(MediaPlayerManagement mediaPlayerManagement) {
         MediaTimer mediaTimer = mediaPlayerManagement.getMediaTimer();
         MediaPlayer mediaPlayer = mediaPlayerManagement.getMediaPlayer();
 

@@ -22,20 +22,9 @@ import java.util.ResourceBundle;
 public class AboutController implements Initializable {
 
     @FXML
-    private Hyperlink githubHL;
-
-    @FXML
-    private Hyperlink bangGithubHL;
-
-    @FXML
-    private Hyperlink nhaGithubHL;
-
-    @FXML
     private Button okCloseButton;
-
     @FXML
     private TextFlow textFlowAbout;
-
 
     // close stage about when click ok button
     @FXML

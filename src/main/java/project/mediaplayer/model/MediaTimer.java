@@ -1,27 +1,28 @@
 package project.mediaplayer.model;
 
 import javafx.application.Platform;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.media.MediaPlayer;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MediaTimer {
+public class MediaTimer implements MediaTimerSubject {
     private java.util.Timer timer;
     private TimerTask task;
     private boolean running;
-    private final ProgressBar songProgressBar;
     private final MediaPlayer mediaPlayer;
-    private Label songNameLabel;
+    private double songProgress;
+
+    private final List<MediaTimerObserver> mediaTimerObserverList = new ArrayList<>();
+
 
     private final MediaPlayerManagement mediaPlayerManagement;
 
-    public MediaTimer(MediaPlayerManagement mediaPlayerManagement, MediaPlayer mediaPlayer, ProgressBar songProgressBar) {
+    public MediaTimer(MediaPlayerManagement mediaPlayerManagement, MediaPlayer mediaPlayer) {
         this.mediaPlayerManagement = mediaPlayerManagement;
         this.mediaPlayer = mediaPlayer;
-        this.songProgressBar = songProgressBar;
     }
 
     public boolean getIsRunning() {
@@ -36,11 +37,8 @@ public class MediaTimer {
      * <p>This method ({@link MediaTimer#beginTimer()}) to begin count timer music is playing
      * <ul>When method beginTimer called
      *     <li>Starts a timer that updates the song progress bar and automatically switches to the next song when the current song finishes playing.</li>
-     *     <li>This method uses a Timer object to schedule a task that updates the song progress bar</li>
-     *     <li>every second. The task runs on the JavaFX Application Thread to ensure that it doesn't</li>
-     *     <li>interfere with the user interface. If the current song has finished playing, this method</li>
-     *     <li>cancels the timer and calls the resetMedia() and nextMedia() methods on the mediaPlayerManagement</li>
-     *     <li>object to switch to the next song.</li>
+     *     <li>This method uses a Timer object to schedule a task that updates the song progress bar
+     *     every second.</li>
      * </ul>
      * </p>
      */
@@ -54,24 +52,28 @@ public class MediaTimer {
                     getIsRunning();
                     double current = mediaPlayer.getCurrentTime().toSeconds();
                     double end = mediaPlayer.getTotalDuration().toSeconds();
-                    songProgressBar.setProgress(current / end);
-
+//                    songProgressBar.setProgress(current / end);
+                    setSongProgress(current / end);
                     System.out.println(current / end);
 
                     if (current / end == 1) {
                         cancelTimer();
                         // reset progress bar when timer is finishes
-                        songProgressBar.setProgress(0);
+//                        songProgressBar.setProgress(0);
+                        setSongProgress(0);
                         // play next media (next song) when the timer is finishes
-                        mediaPlayerManagement.setMediaPlayerControl(new PlayNextMedia());
-                        mediaPlayerManagement.doActionControl();
+                        mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategyPlayNextMedia());
+                        mediaPlayerManagement.doStrategyAction();
                     }
+                    notifyMediaTimerObservers();
+
                 });
             }
         };
 
         // each 1000ms (1s), run code in run() method (TimerTask) to calculate value to update progress bar
         timer.scheduleAtFixedRate(task, 0, 1000);
+
     }
 
     /**
@@ -85,6 +87,8 @@ public class MediaTimer {
     public void cancelTimer() {
         setIsRunning(false);
         timer.cancel();
+
+        notifyMediaTimerObservers();
     }
 
     /**
@@ -96,6 +100,31 @@ public class MediaTimer {
 
     public Timer getTimer() {
         return this.timer;
+    }
+
+    public double getSongProgress() {
+        return songProgress;
+    }
+
+    public void setSongProgress(double songProgress) {
+        this.songProgress = songProgress;
+    }
+
+    @Override
+    public void registerMediaTimerObserver(MediaTimerObserver mediaTimerObserver) {
+        if (!this.mediaTimerObserverList.contains(mediaTimerObserver))
+            this.mediaTimerObserverList.add(mediaTimerObserver);
+    }
+
+    @Override
+    public void unregisterMediaTimerObserver(MediaTimerObserver mediaTimerObserver) {
+        this.mediaTimerObserverList.remove(mediaTimerObserver);
+    }
+
+    @Override
+    public void notifyMediaTimerObservers() {
+        for (MediaTimerObserver mediaTimerObserver : mediaTimerObserverList)
+            mediaTimerObserver.updateMediaTimerObserver(this.songProgress);
     }
 
 

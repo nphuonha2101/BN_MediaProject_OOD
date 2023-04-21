@@ -178,7 +178,8 @@
 }
 
 /* button style when hover or clicked */
-.button:focused, #buttonOpenFolder:pressed, #aboutButton:pressed, #okButton:pressed, .toggle-button:pressed, #favoriteSongButton:selected {
+.button:focused, #buttonOpenFolder:pressed, #aboutButton:pressed, #okButton:pressed,
+.toggle-button:pressed, #favoriteSongButton:selected, #shuffleButton:selected {
     -fx-font-weight: bold;
     -fx-text-fill: #00315e;
     -fx-background-radius: 5;
@@ -252,6 +253,7 @@
 .hyperlink {
     -fx-text-fill: #a5c8ff;
 }
+
 /* color after clicked on hyperlink on About stage */
 .hyperlink:visited {
     -fx-text-fill: #004785;

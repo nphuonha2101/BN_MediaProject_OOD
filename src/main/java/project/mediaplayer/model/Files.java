@@ -2,9 +2,9 @@ package project.mediaplayer.model;
 
 import javafx.stage.DirectoryChooser;
 
-import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p> - The {@link Files} class is use for storage files of the directory which was chosen
@@ -26,23 +26,17 @@ public class Files {
     public static final String PREVIOUS_IMPORTED_SONGS_DATA_FILE_PATH = "src" + File.separator + "main" + File.separator + "resources" + File.separator + "data" + File.separator + "previousImportedSongsData.dat";
     private final ArrayList<File> files = new ArrayList<>();
 
-//    public Files(ArrayList<File> files){
-//        this.files = files;
-//    }
+
+    // get files list
+    public ArrayList<File> getListFiles() {
+        return this.files;
+    }
 
     /**
      * - Get File name (Song name) from file path using {@link File#getName()} method
      */
     public static String getFileNameFromFilePath(File mediaFile) {
-//        String result = "";
-//        int a = path.lastIndexOf("\\");
-//        result = path.substring(a + 1);
         return mediaFile.getName();
-    }
-
-    // get files list
-    public ArrayList<File> getListFiles() {
-        return this.files;
     }
 
     /**
@@ -66,11 +60,6 @@ public class Files {
                     files.add(file);
             }
         }
-    }
-
-    public static void main(String[] args) throws IOException {
-        File file = new File(Files.PREVIOUS_IMPORTED_SONGS_DATA_FILE_PATH);
-        Desktop.getDesktop().open(file);
     }
 
     public void writeSongsDataFile(String dataFilePath, Playlist playlist) {
@@ -99,7 +88,8 @@ public class Files {
         }
     }
 
-    public void readSongsFromDataFile(String dataFilePath, Playlist playlist) {
+    public List<String> readRecordsFromDataFile(String dataFilePath) {
+        List<String> result = new ArrayList<>();
         try {
             File dataFile = new File(dataFilePath);
             if (!dataFile.exists()) {
@@ -112,11 +102,12 @@ public class Files {
                     String line = bufferedReader.readLine();
                     if (line == null) break;
 //                    System.out.println("Read Line: " + line);
-                    playlist.addSongsFromDataFileToPlaylist(line, playlist);
+                    result.add(line);
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return result;
     }
 }
