@@ -1,5 +1,20 @@
 package project.mediaplayer.model;
 
+/**
+ * This class is a Concrete Strategy Class of Class {@link MediaPlayerManagement}
+ * <p>
+ * The purpose of this class is to Play Previous Media
+ * <p>
+ * First, the method {@link MediaPlayerManagement#doStrategyAction()} will check the songNumber
+ * <li>
+ * If songNumber at the head of media file list then the the songNumber = size of media list - 1 (tail of list).
+ * </li>
+ * <li>
+ * If songNumber not at the head of media file list the set songNumber = songNumber - 1.
+ * </li>
+ * Then prepare new Media with SongNumber with {@link MediaPlayerManagement#prepareMedia()} method
+ * and automatic play new media file.
+ */
 public class ConcreteStrategyPlayPreviousMedia implements MediaPlayerManagementStrategy {
     @Override
     public void doStrategyAction(MediaPlayerManagement mediaPlayerManagement) {
@@ -14,11 +29,12 @@ public class ConcreteStrategyPlayPreviousMedia implements MediaPlayerManagementS
             mediaPlayerManagement.setSongNumber(mediaPlayerManagement.getSongFiles().size() - 1);
 
         // If the timer is running, cancel it.
-        if (mediaPlayerManagement.getMediaTimer().getIsRunning())
-            mediaPlayerManagement.getMediaTimer().cancelTimer();
+//        if (mediaPlayerManagement.getMediaTimer().getIsRunning())
+//            mediaPlayerManagement.getMediaTimer().cancelTimer();
 
+        // prepare new media with new songNumber
         mediaPlayerManagement.prepareMedia();
-        // Play the new media file.
+        // automatic play the media file
         mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategyPlayPauseMedia());
         mediaPlayerManagement.doStrategyAction();
     }

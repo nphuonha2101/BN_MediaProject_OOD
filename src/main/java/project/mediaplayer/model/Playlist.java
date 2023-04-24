@@ -11,22 +11,11 @@ public class Playlist implements PlaylistSubject {
     public static final String FAVORITE_PLAYLIST_NAME = "Favorite";
     public static final String PLAYING_PLAYLIST_NAME = "Playing Queue";
     public static final String FOUND_SONGS_PLAYLIST_NAME = "Search Result";
-
     private String alertTitle;
     private String alertMessage;
-
     private List<Song> songList = new ArrayList<>();
     private final List<PlaylistObserver> playlistObserverList = new ArrayList<>();
     private String playlistName;
-
-    public Playlist(String playlistName) {
-        this.playlistName = playlistName;
-    }
-
-    public static void main(String[] args) {
-
-    }
-
     public String getPlaylistName() {
         return this.playlistName;
     }
@@ -50,6 +39,13 @@ public class Playlist implements PlaylistSubject {
         notifyPlaylistObservers();
     }
 
+    //-----------------------CONSTRUCTOR------------------------//
+    public Playlist(String playlistName) {
+        this.playlistName = playlistName;
+    }
+
+    //-----------------------PLAYLIST'S METHODS------------------------//
+
     /**
      * <p>Find list of songs which has name start with {@param searchSongName}.</p>
      * <p>Because the built-in method startsWith(String) don't allow to find with ignore case
@@ -71,8 +67,8 @@ public class Playlist implements PlaylistSubject {
 
         // alert to user because this song that they need to find not found
         if (result.isEmpty()) {
-            this.alertTitle = "No song founded";
-            this.alertMessage = "The song with name: \"" + searchSongName.toUpperCase() + "\" cannot found! \n" +
+            String alertTitle = "No song founded";
+            String alertMessage = "The song with name: \"" + searchSongName.toUpperCase() + "\" cannot found! \n" +
                     "Please check song name and try again!";
 
             setAlertDialogTitleAndMessage(alertTitle, alertMessage);
@@ -129,16 +125,25 @@ public class Playlist implements PlaylistSubject {
             if (checkedFile.exists()) {
                 Song song = new Song(songID, songName, isFavorite, songPath);
                 this.getSongList().add(song);
-            } else {
-                // show information dialog
-                // will add in the future
-                break;
             }
         }
-
     }
 
+    public void addSongToPlaylist(Song song, boolean isFavorite) {
+        if (!this.songList.contains(song)) {
+            song.setFavorite(isFavorite);
+            this.songList.add(song);
+        }
+    }
 
+    public void removeSongToPlaylist(Song song, boolean isFavorite) {
+        if (this.songList.contains(song)) {
+            song.setFavorite(isFavorite);
+            this.songList.remove(song);
+        }
+    }
+
+    //-----------------------SUBJECT METHODS------------------------//
     @Override
     public void registerPlaylistObserver(PlaylistObserver playlistObserver) {
         if (!this.playlistObserverList.contains(playlistObserver))
@@ -158,19 +163,6 @@ public class Playlist implements PlaylistSubject {
         }
     }
 
-    public void addSongToPlaylist(Song song, boolean isFavorite) {
-        if (!this.songList.contains(song)) {
-            song.setFavorite(isFavorite);
-            this.songList.add(song);
-        }
-    }
-
-    public void removeSongToPlaylist(Song song, boolean isFavorite) {
-        if (this.songList.contains(song)) {
-            song.setFavorite(isFavorite);
-            this.songList.remove(song);
-        }
-    }
 
     public void setAlertDialogTitleAndMessage(String alertTitle, String alertMessage) {
         this.alertTitle = alertTitle;

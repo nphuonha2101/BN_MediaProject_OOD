@@ -4,50 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Nguyen Phuong Nha: &#10;- fixes shuffle media issue&#10;- un-implements strategy pattern for Playlist">
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayNextMedia.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayPauseMedia.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayPreviousMedia.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyResetMedia.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyShuffleMedia.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategySortMedia.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagementObserver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagementSubject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaTimerObserver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaTimerSubject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/PlaylistObserver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/PlaylistSubject.java" afterDir="false" />
+    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Nguyen Phuong Nha: &#10;- add JavaDocs for MediaPlayerManagement's Concrete Strategy classes">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/fonts-roboto-2012023.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-base-18-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-base-18.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-base-18.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-base-18.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-graphics-18-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-graphics-18.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-graphics-18.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-graphics-18.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-media-18.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-media-18.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-swing-18-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javafx-swing-18.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/jlayer-1.0.1.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/junit-3.8.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/AboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/AboutController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/AlertUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FavoritePlaylist.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayNextMedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayNextMedia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayPauseMedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayPauseMedia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayPreviousMedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayPreviousMedia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyResetMedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyResetMedia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyShuffleMedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyShuffleMedia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategySortMedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategySortMedia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyStopMedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyStopMedia.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FoundSongList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/HomePlaylist.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/IMediaPlayerCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerCommandInvoker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagementStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaTimer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/NextMediaCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/PlayNextMedia.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/PlayPauseMedia.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/PlayPauseMediaCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/PlayPreviousMedia.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/PlayingPlaylist.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Playlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/PreviousMediaCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ResetMedia.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ResetMediaCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ShuffleMedia.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ShuffleMediaCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/StopMedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyStopMedia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Song.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data/previousImportedFavoriteSongsData.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/previousImportedFavoriteSongsData.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data/previousImportedSongsData.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/previousImportedSongsData.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/main-player-application.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/main-player-application.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +115,7 @@
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Java Workspace/OOD_Labs&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Libs/javafx-sdk-20.0.1/lib&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -131,9 +123,9 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.43045563&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.archetype.catalogs&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -222,10 +214,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MediaPlayerApplication" />
+        <item itemvalue="Application.SongPlayer" />
         <item itemvalue="Application.Playlist" />
         <item itemvalue="Application.Files" />
         <item itemvalue="Application.AlertUtils" />
-        <item itemvalue="Application.SongPlayer" />
       </list>
     </recent_temporary>
   </component>
@@ -350,6 +342,16 @@
       <workItem from="1681868885152" duration="594000" />
       <workItem from="1681892968987" duration="290000" />
       <workItem from="1682003495883" duration="2581000" />
+      <workItem from="1682143888875" duration="1499000" />
+      <workItem from="1682149777931" duration="1231000" />
+      <workItem from="1682176415282" duration="998000" />
+      <workItem from="1682220491036" duration="59000" />
+      <workItem from="1682260814076" duration="2738000" />
+      <workItem from="1682263577777" duration="649000" />
+      <workItem from="1682316976554" duration="1084000" />
+      <workItem from="1682318216851" duration="5166000" />
+      <workItem from="1682333341741" duration="8079000" />
+      <workItem from="1682349913564" duration="619000" />
     </task>
     <task id="LOCAL-00001" summary="second commit">
       <created>1676170105282</created>
@@ -664,22 +666,17 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaTimer.java</url>
-          <line>125</line>
-          <properties class="project.mediaplayer.model.MediaTimer" method="notifyMediaTimerObservers">
+          <url>file://$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java</url>
+          <line>46</line>
+          <properties class="project.mediaplayer.model.Files" method="chooseFileDir">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="5" />
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaTimer.java</url>
-          <line>67</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaTimer.java</url>
-          <line>128</line>
+          <line>122</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

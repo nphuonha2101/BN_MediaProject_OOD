@@ -73,8 +73,10 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
         }
     }
 
-    public void setSongProgress(double songProgress) {
+    public void setMediaTimerSongProgress(double songProgress) {
         this.mediaTimer.setSongProgress(songProgress);
+
+        notifyMPManagementObservers();
     }
 
     //-----------------------OBSERVER METHOD------------------------//
@@ -93,20 +95,22 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
 
         // when playlist has songs then initialize the media player
         initializePlayer();
+
         // notify to playlist's observers (controller) to request view update list view
-        notifyMPManagementObservers();
+//        notifyMPManagementObservers();
     }
 
     /**
-     * @param songProgress
+     * Update songProgress from {@link MediaTimer} and notify to {@link MediaPlayerManagementObserver}
+     * this songProgress value to update to progress bar in View
+     *
+     * @param songProgress is a value was got from {@link MediaTimer} (songProgress = currentDuration/totalDuration)
      */
     @Override
     public void updateMediaTimerObserver(double songProgress) {
         this.songProgress = songProgress;
         System.out.println("MPM: " + this.songProgress);
         notifyMPManagementObservers();
-
-
     }
 
     //-----------------------SUBJECT METHODS------------------------//
@@ -134,6 +138,7 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
     }
 
     //-----------------------MEDIA PLAYER MANAGEMENT STRATEGY METHOD------------------------//
+
     public void setMediaPlayerControlStrategy(MediaPlayerManagementStrategy mediaPlayerManagementStrategy) {
         if (this.mediaPlayer != null)
             this.mediaPlayerManagementStrategy = mediaPlayerManagementStrategy;
@@ -157,7 +162,7 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
 
         // if old timer is currently working then stop to avoid conflict
         // because when playMedia() method start, a new timer will begin
-        if (mediaTimer.getTimer() != null)
+        if (mediaTimer != null && mediaTimer.getTimer() != null)
             mediaTimer.cancelTimer();
 
         // new media and media player for new song
@@ -167,6 +172,7 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
         // create new timer instance to begin count for progress bar
         // if not create this instance for each prepare media,
         // the song progress bar will work once then after it doesn't work
+        // because the media player will change for each play next/previous media
         mediaTimer = new MediaTimer(this, mediaPlayer);
         mediaTimer.registerMediaTimerObserver(this);
 
@@ -178,6 +184,8 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
      * The initializing will work after first run program or after shuffle playlist to update {@link MediaPlayerManagement#songFiles}
      */
     public void initializePlayer() {
+        // when initialize player, to ensure that playlist always play first media of list
+        // we must set songNumber to 0
         if (!this.songList.isEmpty()) {
             setSongNumber(0);
 
@@ -188,16 +196,10 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
                 File songFile = new File(song.getSongPath());
                 songFiles.add(songFile);
             }
-            // create media object with the path of the first song in the list
-            media = new Media(songFiles.get(songNumber).toURI().toString());
-            // create media player with the media object
-            mediaPlayer = new MediaPlayer(media);
-            // create media timer with the media player and the song progress bar
-            mediaTimer = new MediaTimer(this, mediaPlayer);
-            mediaTimer.registerMediaTimerObserver(this);
 
-        } else {
-            // notify
+            // prepare media with songNumber = 0
+            prepareMedia();
+
         }
     }
 

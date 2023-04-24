@@ -1,4 +1,3 @@
-
 package project.mediaplayer.UI;
 
 import javafx.collections.FXCollections;
@@ -15,7 +14,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.StringTokenizer;
 
-public class MediaPlayerController implements Initializable, PlaylistObserver, MediaPlayerManagementObserver, MediaTimerObserver {
+public class MediaPlayerController implements Initializable, PlaylistObserver, MediaPlayerManagementObserver {
 
     //-----------------------HEADER LABEL TEXT CONSTANTS------------------------//
     private final static String HOME_HEADER_TEXT = "Home";
@@ -28,9 +27,8 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
     private final Playlist favoritePlaylist = new Playlist(Playlist.FAVORITE_PLAYLIST_NAME);
     private final Playlist playingPlaylist = new Playlist(Playlist.PLAYING_PLAYLIST_NAME);
     private final Playlist foundSongsList = new Playlist(Playlist.FOUND_SONGS_PLAYLIST_NAME);
-    private MediaPlayerManagement mediaPlayerManagement;
-    //    private final MediaPlayerCommandInvoker mediaPlayerCommandInvoker = new MediaPlayerCommandInvoker();
     private final Files files = new Files();
+    private MediaPlayerManagement mediaPlayerManagement;
 
     //-----------------------VIEW COMPONENTS------------------------//
     @FXML
@@ -73,6 +71,9 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
         this.songProgressBar.setProgress(songProgressValue);
         System.out.println("Controller: " + songProgressValue);
 
+        // because the volume will set on PlayPause Strategy
+        // if not change volume when update observer then first click on the list view the media player will play
+        // with no sound
         changeVolume();
     }
 
@@ -80,12 +81,6 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
     public void updatePlaylistObserver(List<Song> songList, String alertTitle, String alertMessage) {
         updateListView(songList);
         showInformationAlert(alertTitle, alertMessage);
-    }
-
-    @Override
-    public void updateMediaTimerObserver(double songProgress) {
-        this.songProgressBar.setProgress(songProgress);
-        System.out.println("timer controller test " + songProgress);
     }
 
     //-----------------------FXML METHODS (VIEW METHODS)------------------------//
@@ -185,6 +180,8 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
         // gets Song information selected from list view
         String selectedSongItem = listView.getSelectionModel().getSelectedItem();
 
+        listView.getFocusModel().focus(listView.getSelectionModel().getSelectedIndex());
+
         // uses StringTokenizer to get songID with delim "\t"
         StringTokenizer stringTokenizer = new StringTokenizer(selectedSongItem, "\t");
         // result: "SongID:"
@@ -203,7 +200,6 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
         // play media with prepared media
         mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategyPlayPauseMedia());
         mediaPlayerManagement.doStrategyAction();
-
     }
 
     /**
@@ -232,7 +228,6 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
      */
     @FXML
     protected void switchPlaylist(ActionEvent event) {
-//
         // get text from three buttons
         final String homeButtonText = homeButton.getText();
         final String favoriteListButtonText = favoriteListButton.getText();
@@ -270,7 +265,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
             showInformationAlert(title, message);
         }
         // initial player after switched between playlists
-//            mediaPlayerManagement.initializePlayer();
+        mediaPlayerManagement.initializePlayer();
     }
 
     /**
@@ -307,10 +302,13 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
         int currentSongNumber = mediaPlayerManagement.getSongNumber();
         Song currentPlayingSong = playingPlaylist.getSongList().get(currentSongNumber);
 
-        if (favoriteSongButton.isSelected())
+        if (favoriteSongButton.isSelected()) {
+            favoriteSongButton.setSelected(true);
             favoritePlaylist.addSongToPlaylist(currentPlayingSong, true);
-        else
+        } else {
+            favoriteSongButton.setSelected(false);
             favoritePlaylist.removeSongToPlaylist(currentPlayingSong, false);
+        }
 
 
         // write favorite songs to favorite data file after add or remove song from favorite playlist
@@ -363,9 +361,6 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
         searchBar.clear();
         // clears foundSongsList to free memory
         foundSongsList.getSongList().clear();
-
-        // updates list view with currentPlaylist songs
-//        playingPlaylist.updateListView(listView);
 
         // sets text for header label with header label of playing queue
         // if we don't set it, the label with display content of search header

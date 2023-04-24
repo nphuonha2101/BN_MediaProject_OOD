@@ -33,18 +33,23 @@ public class AboutController implements Initializable {
         stage.close();
     }
 
-    // open link in hyperlink
+    /**
+     * Make {@link Hyperlink} open link when click on it
+     *
+     * @param event
+     * @throws URISyntaxException
+     * @throws IOException
+     */
     @FXML
     private void goToLink(ActionEvent event) throws URISyntaxException, IOException {
-
 
         // get hyperlink object clicked
         Hyperlink hyperlink = (Hyperlink) event.getSource();
 
         // get text of hyper link (url)
         String url = hyperlink.getText();
-//        System.out.println(url);
 
+        // use java.awt.Desktop to open the link in system default browser
         Desktop.getDesktop().browse(new URI(url));
 
     }

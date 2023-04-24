@@ -9,22 +9,23 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MediaTimer implements MediaTimerSubject {
+    private final List<MediaTimerObserver> mediaTimerObserverList = new ArrayList<>();
+
     private java.util.Timer timer;
     private TimerTask task;
     private boolean running;
     private final MediaPlayer mediaPlayer;
     private double songProgress;
-
-    private final List<MediaTimerObserver> mediaTimerObserverList = new ArrayList<>();
-
-
     private final MediaPlayerManagement mediaPlayerManagement;
 
+
+    //-----------------------CONSTRUCTOR------------------------//
     public MediaTimer(MediaPlayerManagement mediaPlayerManagement, MediaPlayer mediaPlayer) {
         this.mediaPlayerManagement = mediaPlayerManagement;
         this.mediaPlayer = mediaPlayer;
     }
 
+    //-----------------------GETTERS AND SETTERS------------------------//
     public boolean getIsRunning() {
         return this.running;
     }
@@ -32,6 +33,20 @@ public class MediaTimer implements MediaTimerSubject {
     public void setIsRunning(boolean runningState) {
         this.running = runningState;
     }
+
+    public Timer getTimer() {
+        return this.timer;
+    }
+
+    public double getSongProgress() {
+        return songProgress;
+    }
+
+    public void setSongProgress(double songProgress) {
+        this.songProgress = songProgress;
+    }
+
+    //-----------------------MEDIA TIMER METHODS------------------------//
 
     /**
      * <p>This method ({@link MediaTimer#beginTimer()}) to begin count timer music is playing
@@ -50,13 +65,13 @@ public class MediaTimer implements MediaTimerSubject {
 
                 Platform.runLater(() -> {
                     getIsRunning();
-                    double current = mediaPlayer.getCurrentTime().toSeconds();
-                    double end = mediaPlayer.getTotalDuration().toSeconds();
-//                    songProgressBar.setProgress(current / end);
-                    setSongProgress(current / end);
-                    System.out.println(current / end);
+                    double currentDuration = mediaPlayer.getCurrentTime().toSeconds();
+                    double totalDuration = mediaPlayer.getTotalDuration().toSeconds();
 
-                    if (current / end == 1) {
+                    setSongProgress(currentDuration / totalDuration);
+                    System.out.println(currentDuration / totalDuration);
+
+                    if (currentDuration / totalDuration == 1) {
                         cancelTimer();
                         // reset progress bar when timer is finishes
 //                        songProgressBar.setProgress(0);
@@ -66,7 +81,6 @@ public class MediaTimer implements MediaTimerSubject {
                         mediaPlayerManagement.doStrategyAction();
                     }
                     notifyMediaTimerObservers();
-
                 });
             }
         };
@@ -91,25 +105,7 @@ public class MediaTimer implements MediaTimerSubject {
         notifyMediaTimerObservers();
     }
 
-    /**
-     * Get timer to define if timer is null in method {@link MediaPlayerManagement#prepareMedia()}.
-     * <p>
-     * If timer is not null (timer of previous media player exist),
-     * then cancels old timer to avoid old timer and new timer runs concurrently.
-     */
-
-    public Timer getTimer() {
-        return this.timer;
-    }
-
-    public double getSongProgress() {
-        return songProgress;
-    }
-
-    public void setSongProgress(double songProgress) {
-        this.songProgress = songProgress;
-    }
-
+    //-----------------------SUBJECT METHODS------------------------//
     @Override
     public void registerMediaTimerObserver(MediaTimerObserver mediaTimerObserver) {
         if (!this.mediaTimerObserverList.contains(mediaTimerObserver))

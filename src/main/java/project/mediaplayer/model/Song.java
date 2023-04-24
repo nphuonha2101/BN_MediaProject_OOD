@@ -1,24 +1,15 @@
 package project.mediaplayer.model;
 
 public class Song {
-
     private final int songID;
     private String songName;
-//    private String singer;
-//    private String genre;
-
     private boolean isFavorite;
-    //    private Time songDuration;
     private String songPath;
 
     public Song(int songID, String songName, boolean isFavorite, String songPath) {
         this.songID = songID;
         this.songName = songName;
-
-//        this.singer = singer;
-//        this.genre = genre;
         this.isFavorite = isFavorite;
-//        this.songDuration = songDuration;
         this.songPath = songPath;
     }
 
