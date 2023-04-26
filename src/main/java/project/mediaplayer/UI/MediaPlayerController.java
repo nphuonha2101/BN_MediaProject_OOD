@@ -57,12 +57,33 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
     private TextField searchBar;
 
     //-----------------------OBSERVER METHODS------------------------//
+
+    /**
+     * Registers this object as an observer to the given {@code PlaylistSubject} and {@code MediaPlayerManagementSubject}.
+     * This method registers this object as an observer to the given {@code PlaylistSubject} and {@code MediaPlayerManagementSubject},
+     * so that it can receive updates from these subjects when certain events occur.
+     *
+     * @param playlistSubject              The {@code PlaylistSubject} to register as an observer.
+     * @param mediaPlayerManagementSubject The {@code MediaPlayerManagementSubject} to register as an observer.
+     */
     private void registerSubjects(PlaylistSubject playlistSubject,
                                   MediaPlayerManagementSubject mediaPlayerManagementSubject) {
         playlistSubject.registerPlaylistObserver(this);
         mediaPlayerManagementSubject.registerMPManagementObserver(this);
     }
 
+    /**
+     * Updates the media player management observer with the new song information and settings.
+     *
+     * @param songName          the name of the current song being played
+     * @param isFavoriteSong    a boolean indicating whether or not the current song is a favorite song
+     * @param volumeValue       the current volume level of the media player
+     * @param songNumber        the index of the current song in the playlist
+     * @param songProgressValue the current progress of the song playback, represented as a double between 0 and 1
+     *                          The method updates the song name label, favorite song button, list view focus, and song progress bar
+     *                          with the new song information and settings. It also calls the changeVolume() method to ensure that
+     *                          the media player volume is correctly set.
+     */
     @Override
     public void updateMediaPlayerManagementObserver(String songName, boolean isFavoriteSong, double volumeValue, int songNumber, double songProgressValue) {
         this.songNameLabel.setText(songName);
@@ -77,6 +98,14 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
         changeVolume();
     }
 
+    /**
+     * This method is called by the subject to notify the observer about the updated playlist.
+     * It updates the list view with the new songs list and displays an information alert with the provided title and message.
+     *
+     * @param songList     the updated list of songs
+     * @param alertTitle   the title of the information alert
+     * @param alertMessage the message of the information alert
+     */
     @Override
     public void updatePlaylistObserver(List<Song> songList, String alertTitle, String alertMessage) {
         updateListView(songList);
@@ -84,26 +113,48 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
     }
 
     //-----------------------FXML METHODS (VIEW METHODS)------------------------//
+
+    /**
+     * The method that handles the action event when the play button is clicked.
+     * It sets the media player control strategy to ConcreteStrategyPlayPauseMedia,
+     * which represents the strategy to play or pause the media player.
+     * It then performs the strategy action using the mediaPlayerManagement object.
+     * The method also sets the media player volume value based on the value of the volume slider.
+     */
     @FXML
     protected void playMedia() {
         mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategyPlayPauseMedia());
         mediaPlayerManagement.doStrategyAction();
-
         mediaPlayerManagement.setMediaPlayerVolumeValue(volumeSlider.getValue() * 0.01);
     }
 
+    /**
+     * This method is called when the user clicks the "Next" button.
+     * It sets the concrete strategy object of the MediaPlayerManagement object to the ConcreteStrategyPlayNextMedia object
+     * and executes its doStrategyAction() method to play the next media in the playlist.
+     */
     @FXML
     protected void nextMedia() {
         mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategyPlayNextMedia());
         mediaPlayerManagement.doStrategyAction();
     }
 
+    /**
+     * This method is called when the user clicks on the "Previous" button in the UI.
+     * It sets the media player control strategy to ConcreteStrategyPlayPreviousMedia and
+     * performs the strategy action using the mediaPlayerManagement object.
+     */
     @FXML
     protected void previousMedia() {
         mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategyPlayPreviousMedia());
         mediaPlayerManagement.doStrategyAction();
     }
 
+    /**
+     * Resets the current media to the beginning and stops playing it.
+     * Sets the ConcreteStrategyResetMedia as the current media player control strategy and executes the strategy action
+     * using the mediaPlayerManagement object.
+     */
     @FXML
     protected void resetMedia() {
         mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategyResetMedia());
@@ -111,7 +162,11 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
     }
 
     /**
-     * Shuffle music list by shuffle playlist
+     * Shuffles or sorts the media playlist according to the status of the shuffleButton.
+     * If the shuffleButton is selected, it shuffles the media playlist using the ConcreteStrategyShuffleMedia strategy.
+     * If the shuffleButton is not selected, it sorts the media playlist using the ConcreteStrategySortMedia strategy.
+     * Updates the ListView with the updated songList after shuffling or sorting.
+     * Also sets the header label of the ListView to "Playing Queue".
      */
     @FXML
     protected void shuffleMedia() {
@@ -423,6 +478,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
 
     /**
      * Add songs from Playlist to UI using {@link ListView}
+     * Updates the ListView with the given list of songs.
      *
      * @param songList a list to display song list on UI, user can interact with it to choose music to play
      */
@@ -441,6 +497,12 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
         listView.scrollTo(0);
     }
 
+    /**
+     * Shows an information alert with the given title and message.
+     *
+     * @param alertTitle   The title of the alert.
+     * @param alertMessage The message of the alert.
+     */
     public void showInformationAlert(String alertTitle, String alertMessage) {
 
         if (alertTitle != null && alertMessage != null) {

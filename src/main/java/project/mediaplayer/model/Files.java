@@ -62,6 +62,13 @@ public class Files {
         }
     }
 
+    /**
+     * Writes the data of a playlist containing song information to a file.
+     *
+     * @param dataFilePath The file path of the file to write to.
+     * @param playlist     The playlist containing the song information.
+     * @throws IOException If an I/O error occurs.
+     */
     public void writeSongsDataFile(String dataFilePath, Playlist playlist) {
 
         try {
@@ -88,6 +95,13 @@ public class Files {
         }
     }
 
+    /**
+     * Reads records from a data file located at the specified file path.
+     *
+     * @param dataFilePath The file path of the data file to read from.
+     * @return A list of strings containing the records read from the data file.
+     * @throws IOException If an I/O error occurs.
+     */
     public List<String> readRecordsFromDataFile(String dataFilePath) {
         List<String> result = new ArrayList<>();
         try {

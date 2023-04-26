@@ -14,6 +14,14 @@ public class MediaPlayerApplication extends Application {
     public static final String APPLICATION_ICON_PATH = "src" + File.separator + "main" + File.separator + "resources"
             + File.separator + "img" + File.separator + "application-logo-icon.png";
 
+    /**
+     * Initializes and starts the main player application stage by loading the FXML file, setting the scene
+     * Displaying the stage with the specified minimum width and height.
+     * Sets the title and icon of the stage.
+     *
+     * @param stage The primary stage of the application.
+     * @throws IOException If an I/O error occurs while loading the FXML file.
+     */
     @Override
     public void start(Stage stage) throws IOException {
         // create FXMLLoader from FXML file of this scene

@@ -34,11 +34,11 @@ public class AboutController implements Initializable {
     }
 
     /**
-     * Make {@link Hyperlink} open link when click on it
+     * Handles the action event when a hyperlink is clicked. Opens the link in the system's default browser.
      *
-     * @param event
-     * @throws URISyntaxException
-     * @throws IOException
+     * @param event The action event triggered by the hyperlink click.
+     * @throws URISyntaxException If the URI syntax is invalid.
+     * @throws IOException        If an I/O error occurs.
      */
     @FXML
     private void goToLink(ActionEvent event) throws URISyntaxException, IOException {
@@ -54,8 +54,15 @@ public class AboutController implements Initializable {
 
     }
 
+    /**
+     * Initializes the About section of the B&N Media Player UI.
+     *
+     * @param url            The URL of the FXML file for the About section.
+     * @param resourceBundle The resource bundle for the About section.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Create Text objects for software name and description
         Text softwareName = new Text("B&N Media Player Release 2023\n\n");
         Text softwareDescription = new Text("This program was written by Pham Cao Bang and Nguyen Phuong Nha for Object Orientation Design subject. Technicals have been used for this project included: \n" +
                 "\t- JavaFX (Scene Builder) for building UI\n" +
@@ -64,12 +71,13 @@ public class AboutController implements Initializable {
 
         // get default system font name
         String defaultFontName = Font.getDefault().getName();
+        // Set font and size for software name and description
         softwareName.setFont(Font.font(defaultFontName, FontWeight.BOLD, 20));
         softwareDescription.setFont(Font.font(defaultFontName, 15));
-
+        // Set text color for software name and description
         softwareName.setFill(Paint.valueOf("#fefefe"));
         softwareDescription.setFill(Paint.valueOf("#fefefe"));
-
+        // Add software name and description to text flow container
         textFlowAbout.getChildren().add(softwareName);
         textFlowAbout.getChildren().add(softwareDescription);
 

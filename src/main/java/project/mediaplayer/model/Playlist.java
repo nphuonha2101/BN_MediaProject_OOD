@@ -94,6 +94,11 @@ public class Playlist implements PlaylistSubject {
         return result;
     }
 
+    /**
+     * Adds songs from a list of files to the current playlist. The old list of songs is cleared before adding new songs.
+     *
+     * @param files The list of files containing the songs to add to the playlist.
+     */
     public void addSongsFromFilesToPlaylist(Files files) {
         // clear old list songs if it exists
         this.getSongList().clear();
@@ -110,6 +115,13 @@ public class Playlist implements PlaylistSubject {
         files.writeSongsDataFile(Files.PREVIOUS_IMPORTED_SONGS_DATA_FILE_PATH, this);
     }
 
+    /**
+     * Adds songs from a data file to the current playlist. Only songs whose corresponding files exist will be added to the playlist.
+     *
+     * @param files        The Files object used for reading data from the data file.
+     * @param dataFilePath The file path of the data file to read from.
+     * @throws IOException If an I/O error occurs.
+     */
     public void addSongsFromDataFileToPlaylist(Files files, String dataFilePath) {
         for (String fileRecord : files.readRecordsFromDataFile(dataFilePath)
         ) {

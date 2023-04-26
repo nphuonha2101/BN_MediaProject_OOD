@@ -11,6 +11,12 @@ public class AboutApplication extends Application {
         launch();
     }
 
+    /**
+     * Starts the JavaFX application by loading the "about.fxml" file and displaying it on a new stage.
+     *
+     * @param stage The primary stage for this application.
+     * @throws Exception If an exception occurs during the loading of the FXML file.
+     */
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(AboutApplication.class.getResource("about.fxml"));
