@@ -10,7 +10,6 @@ import java.util.TimerTask;
 
 public class MediaTimer implements MediaTimerSubject {
     private final List<MediaTimerObserver> mediaTimerObserverList = new ArrayList<>();
-
     private java.util.Timer timer;
     private TimerTask task;
     private boolean running;
@@ -71,14 +70,12 @@ public class MediaTimer implements MediaTimerSubject {
                     setSongProgress(currentDuration / totalDuration);
                     System.out.println(currentDuration / totalDuration);
 
+                    // when the song finished then cancel timer and play next media
                     if (currentDuration / totalDuration == 1) {
                         cancelTimer();
-                        // reset progress bar when timer is finishes
-//                        songProgressBar.setProgress(0);
                         setSongProgress(0);
                         // play next media (next song) when the timer is finishes
-                        mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategyPlayNextMedia());
-                        mediaPlayerManagement.doStrategyAction();
+                        mediaPlayerManagement.playNextMedia();
                     }
                     notifyMediaTimerObservers();
                 });

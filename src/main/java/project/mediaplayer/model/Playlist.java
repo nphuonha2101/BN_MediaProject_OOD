@@ -16,6 +16,8 @@ public class Playlist implements PlaylistSubject {
     private List<Song> songList = new ArrayList<>();
     private final List<PlaylistObserver> playlistObserverList = new ArrayList<>();
     private String playlistName;
+
+    //-----------------------GETTERS AND SETTERS------------------------//
     public String getPlaylistName() {
         return this.playlistName;
     }
@@ -28,14 +30,25 @@ public class Playlist implements PlaylistSubject {
         return this.songList;
     }
 
+    /**
+     * Set song list of this playlist by another song list
+     *
+     * @param songList is song list that you want to set to this playlist
+     */
     public void setSongList(List<Song> songList) {
         this.songList = songList;
 
         notifyPlaylistObservers();
     }
 
+    /**
+     * Set song list of this playlist by other playlist's song list
+     *
+     * @param otherPlaylist is playlist that you want to set to this playlist
+     */
     public void setPlaylistFrom(Playlist otherPlaylist) {
         this.songList = otherPlaylist.songList;
+
         notifyPlaylistObservers();
     }
 
@@ -120,7 +133,6 @@ public class Playlist implements PlaylistSubject {
      *
      * @param files        The Files object used for reading data from the data file.
      * @param dataFilePath The file path of the data file to read from.
-     * @throws IOException If an I/O error occurs.
      */
     public void addSongsFromDataFileToPlaylist(Files files, String dataFilePath) {
         for (String fileRecord : files.readRecordsFromDataFile(dataFilePath)
@@ -141,6 +153,12 @@ public class Playlist implements PlaylistSubject {
         }
     }
 
+    /**
+     * Add a song to this playlist
+     *
+     * @param song       is a song that you want to add to this playlist
+     * @param isFavorite to define if you want this song was added is favorite
+     */
     public void addSongToPlaylist(Song song, boolean isFavorite) {
         if (!this.songList.contains(song)) {
             song.setFavorite(isFavorite);
@@ -148,6 +166,12 @@ public class Playlist implements PlaylistSubject {
         }
     }
 
+    /**
+     * Remove a song to this playlist
+     *
+     * @param song       is a song that you want to remove to this playlist
+     * @param isFavorite to define if you want this song was removed is favorite
+     */
     public void removeSongToPlaylist(Song song, boolean isFavorite) {
         if (this.songList.contains(song)) {
             song.setFavorite(isFavorite);
@@ -175,7 +199,15 @@ public class Playlist implements PlaylistSubject {
         }
     }
 
+    //-----------------------OTHER METHODS------------------------//
 
+    /**
+     * Set title and message to dialog to notify {@link project.mediaplayer.UI.MediaPlayerController} class to show alert
+     * with  {@link project.mediaplayer.UI.MediaPlayerController#showInformationAlert(String, String)} method
+     *
+     * @param alertTitle   is a title of the information alert
+     * @param alertMessage is a message of the information alert
+     */
     public void setAlertDialogTitleAndMessage(String alertTitle, String alertMessage) {
         this.alertTitle = alertTitle;
         this.alertMessage = alertMessage;

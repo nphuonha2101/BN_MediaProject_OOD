@@ -9,7 +9,6 @@ import java.util.List;
 
 public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManagementSubject, MediaTimerObserver {
     private final List<MediaPlayerManagementObserver> mediaPlayerManagementObserverList = new ArrayList<>();
-
     private final List<File> songFiles = new ArrayList<>();
     private List<Song> songList = new ArrayList<>();
     private Media media;
@@ -19,6 +18,7 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
     private int songNumber = 0;
     private double songProgress;
     private String songName;
+    private boolean shuffleState;
     private boolean isPlayingSongFavorite;
     private double mediaPlayerVolumeValue;
     private final PlaylistSubject playlistSubject;
@@ -56,6 +56,14 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
 
     public void setPlayingSongFavorite(boolean playingSongFavorite) {
         isPlayingSongFavorite = playingSongFavorite;
+    }
+
+    public boolean getShuffleState() {
+        return shuffleState;
+    }
+
+    public void setShuffleState(boolean shuffleState) {
+        this.shuffleState = shuffleState;
     }
 
     public List<Song> getSongList() {
@@ -149,6 +157,43 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
             this.mediaPlayerManagementStrategy.doStrategyAction(this);
     }
 
+    //-----------------------MEDIA PLAYER CONTROLS------------------------//
+    public void playPauseMedia() {
+        this.setMediaPlayerControlStrategy(new ConcreteStrategyPlayPauseMedia());
+        this.doStrategyAction();
+    }
+
+    public void playNextMedia() {
+        this.setMediaPlayerControlStrategy(new ConcreteStrategyPlayNextMedia());
+        this.doStrategyAction();
+    }
+
+    public void playPreviousMedia() {
+        this.setMediaPlayerControlStrategy(new ConcreteStrategyPlayPreviousMedia());
+        this.doStrategyAction();
+    }
+
+    public void resetMedia() {
+        this.setMediaPlayerControlStrategy(new ConcreteStrategyResetMedia());
+        this.doStrategyAction();
+    }
+
+    public void stopMedia() {
+        this.setMediaPlayerControlStrategy(new ConcreteStrategyStopMedia());
+        this.doStrategyAction();
+    }
+
+    public void sortMediaList() {
+        this.setMediaPlayerControlStrategy(new ConcreteStrategySortMedia());
+        this.doStrategyAction();
+    }
+
+    public void shuffleMediaList() {
+        this.setMediaPlayerControlStrategy(new ConcreteStrategyShuffleMedia());
+        this.doStrategyAction();
+    }
+
+
     //-----------------------OTHER MEDIA PLAYER MANAGEMENT METHODS------------------------//
 
     /**
@@ -199,7 +244,6 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
 
             // prepare media with songNumber = 0
             prepareMedia();
-
         }
     }
 

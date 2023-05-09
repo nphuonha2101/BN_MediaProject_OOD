@@ -25,18 +25,10 @@ public class ConcreteStrategyPlayNextMedia implements MediaPlayerManagementStrat
         else // when songNumber is at the tail of media file list of
             mediaPlayerManagement.setSongNumber(0);
 
-        // stop current media player before play next media
-//        mediaPlayerManagement.getMediaPlayer().stop();
-
-        // cancel the timer if previous timer still running
-//        if (mediaPlayerManagement.getMediaTimer().getIsRunning())
-//            mediaPlayerManagement.getMediaTimer().cancelTimer();
-
         // prepare new media with new songNumber
         mediaPlayerManagement.prepareMedia();
 
         // automatic play media file
-        mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategyPlayPauseMedia());
-        mediaPlayerManagement.doStrategyAction();
+        mediaPlayerManagement.playPauseMedia();
     }
 }

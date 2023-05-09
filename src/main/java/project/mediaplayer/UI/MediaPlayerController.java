@@ -14,6 +14,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.StringTokenizer;
 
+/**
+ * This is a Controller class of this Media Player Application stage.
+ * The Controller class connects View with Model's methods using MVC Pattern with Observer Pattern.
+ * In this JavaFX Application, the View was represented by FXML file.
+ */
 public class MediaPlayerController implements Initializable, PlaylistObserver, MediaPlayerManagementObserver {
 
     //-----------------------HEADER LABEL TEXT CONSTANTS------------------------//
@@ -66,8 +71,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
      * @param playlistSubject              The {@code PlaylistSubject} to register as an observer.
      * @param mediaPlayerManagementSubject The {@code MediaPlayerManagementSubject} to register as an observer.
      */
-    private void registerSubjects(PlaylistSubject playlistSubject,
-                                  MediaPlayerManagementSubject mediaPlayerManagementSubject) {
+    private void registerSubjects(PlaylistSubject playlistSubject, MediaPlayerManagementSubject mediaPlayerManagementSubject) {
         playlistSubject.registerPlaylistObserver(this);
         mediaPlayerManagementSubject.registerMPManagementObserver(this);
     }
@@ -123,8 +127,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
      */
     @FXML
     protected void playMedia() {
-        mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategyPlayPauseMedia());
-        mediaPlayerManagement.doStrategyAction();
+        mediaPlayerManagement.playPauseMedia();
         mediaPlayerManagement.setMediaPlayerVolumeValue(volumeSlider.getValue() * 0.01);
     }
 
@@ -135,8 +138,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
      */
     @FXML
     protected void nextMedia() {
-        mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategyPlayNextMedia());
-        mediaPlayerManagement.doStrategyAction();
+        mediaPlayerManagement.playNextMedia();
     }
 
     /**
@@ -146,8 +148,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
      */
     @FXML
     protected void previousMedia() {
-        mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategyPlayPreviousMedia());
-        mediaPlayerManagement.doStrategyAction();
+        mediaPlayerManagement.playPreviousMedia();
     }
 
     /**
@@ -157,8 +158,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
      */
     @FXML
     protected void resetMedia() {
-        mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategyResetMedia());
-        mediaPlayerManagement.doStrategyAction();
+        mediaPlayerManagement.resetMedia();
     }
 
     /**
@@ -171,13 +171,10 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
     @FXML
     protected void shuffleMedia() {
         headerLabel.setText(PLAYING_QUEUE_HEADER_TEXT);
-        if (shuffleButton.isSelected()) {
-            mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategyShuffleMedia());
-            mediaPlayerManagement.doStrategyAction();
-        } else {
-            mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategySortMedia());
-            mediaPlayerManagement.doStrategyAction();
-        }
+        if (shuffleButton.isSelected())
+            mediaPlayerManagement.shuffleMediaList();
+        else
+            mediaPlayerManagement.sortMediaList();
 
         updateListView(mediaPlayerManagement.getSongList());
     }
@@ -253,8 +250,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
         // prepares media to play
         mediaPlayerManagement.prepareMedia();
         // play media with prepared media
-        mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategyPlayPauseMedia());
-        mediaPlayerManagement.doStrategyAction();
+        mediaPlayerManagement.playPauseMedia();
     }
 
     /**
@@ -289,8 +285,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
         final String playingQueueButtonText = playingQueueButton.getText();
 
         // stop media player
-        mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategyStopMedia());
-        mediaPlayerManagement.doStrategyAction();
+        mediaPlayerManagement.stopMedia();
 
         // get text from button that user clicked
         String buttonText = ((Button) event.getSource()).getText();
@@ -335,10 +330,8 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
      */
     @FXML
     protected void volumeChangeWithButton() {
-        if (volumeSlider.getValue() > 0)
-            volumeSlider.setValue(0);
-        else
-            volumeSlider.setValue(100);
+        if (volumeSlider.getValue() > 0) volumeSlider.setValue(0);
+        else volumeSlider.setValue(100);
 
         changeVolume();
     }
@@ -358,13 +351,10 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
         Song currentPlayingSong = playingPlaylist.getSongList().get(currentSongNumber);
 
         if (favoriteSongButton.isSelected()) {
-            favoriteSongButton.setSelected(true);
             favoritePlaylist.addSongToPlaylist(currentPlayingSong, true);
         } else {
-            favoriteSongButton.setSelected(false);
             favoritePlaylist.removeSongToPlaylist(currentPlayingSong, false);
         }
-
 
         // write favorite songs to favorite data file after add or remove song from favorite playlist
         files.writeSongsDataFile(Files.FAVORITE_DATA_FILE_PATH, favoritePlaylist);
@@ -458,8 +448,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
             favoritePlaylist.addSongsFromDataFileToPlaylist(files, Files.FAVORITE_DATA_FILE_PATH);
 
             // set favorite for home playlist songs from previous favorite songs data
-            for (Song song : favoritePlaylist.getSongList()
-            ) {
+            for (Song song : favoritePlaylist.getSongList()) {
                 // get index of song in home playlist by song id in favorite playlist
                 int index = homePlaylist.getSongIndexWithSongID(song.getSongID());
                 // set favorite for this song in home playlist with isFavorite value of this song in favorite playlist

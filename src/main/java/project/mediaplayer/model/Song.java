@@ -6,6 +6,7 @@ public class Song {
     private boolean isFavorite;
     private String songPath;
 
+    //-----------------------CONSTRUCTOR------------------------//
     public Song(int songID, String songName, boolean isFavorite, String songPath) {
         this.songID = songID;
         this.songName = songName;
@@ -14,8 +15,7 @@ public class Song {
     }
 
 
-    // GETTER METHODS
-
+    //-----------------------GETTERS AND SETTERS------------------------//
     public int getSongID() {
         return this.songID;
     }
@@ -32,12 +32,6 @@ public class Song {
         return this.songPath;
     }
 
-
-    //////////////////////////////////////////
-
-
-    // SETTER METHODS
-
     public void setSongName(String songName) {
         this.songName = songName;
     }
@@ -48,9 +42,7 @@ public class Song {
         this.songPath = songPath;
     }
 
-    //////////////////////////////////////////
-
-
+    //-----------------------TO STRING METHOD------------------------//
     @Override
     public String toString() {
         return "Song{" +

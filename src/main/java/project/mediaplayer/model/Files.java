@@ -21,7 +21,6 @@ import java.util.List;
  * </p>
  */
 public class Files {
-
     public static final String FAVORITE_DATA_FILE_PATH = "src" + File.separator + "main" + File.separator + "resources" + File.separator + "data" + File.separator + "previousImportedFavoriteSongsData.dat";
     public static final String PREVIOUS_IMPORTED_SONGS_DATA_FILE_PATH = "src" + File.separator + "main" + File.separator + "resources" + File.separator + "data" + File.separator + "previousImportedSongsData.dat";
     private final ArrayList<File> files = new ArrayList<>();
@@ -73,6 +72,7 @@ public class Files {
 
         try {
             File dataFile = new File(dataFilePath);
+            // create file if file not exist
             if (!dataFile.exists()) {
                 dataFile.createNewFile();
             } else {
@@ -86,7 +86,7 @@ public class Files {
                     bufferedWriter.write(song.getSongID() + "\t" + song.getSongName() + "\t" + song.isFavorite() + "\t" + song.getSongPath());
                     bufferedWriter.newLine();
                 }
-
+                // close the buffered writer to release the resource
                 bufferedWriter.close();
                 System.out.println("favorite songs data was wrote success");
             }
@@ -106,18 +106,23 @@ public class Files {
         List<String> result = new ArrayList<>();
         try {
             File dataFile = new File(dataFilePath);
+            // create file if file not exist
             if (!dataFile.exists()) {
                 dataFile.createNewFile();
             } else {
                 FileReader fileReader = new FileReader(dataFile);
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
 
+                // read line until the line is null
+                // file must be ensured the line before near the line after
                 while (true) {
                     String line = bufferedReader.readLine();
                     if (line == null) break;
 
                     result.add(line);
                 }
+                // close the buffered reader to release the resource
+                bufferedReader.close();
             }
         } catch (Exception e) {
             e.printStackTrace();

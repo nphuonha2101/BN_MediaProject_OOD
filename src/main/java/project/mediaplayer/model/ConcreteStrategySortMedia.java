@@ -14,8 +14,7 @@ public class ConcreteStrategySortMedia implements MediaPlayerManagementStrategy 
     @Override
     public void doStrategyAction(MediaPlayerManagement mediaPlayerManagement) {
         // first stop the media player to avoid conflict among threads
-        mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategyStopMedia());
-        mediaPlayerManagement.doStrategyAction();
+        mediaPlayerManagement.stopMedia();
 
         // sort the media using sort() method of Collections
         Collections.sort(mediaPlayerManagement.getSongList(), new Comparator<Song>() {
@@ -27,6 +26,8 @@ public class ConcreteStrategySortMedia implements MediaPlayerManagementStrategy 
                 else return -1;
             }
         });
+
+        mediaPlayerManagement.setShuffleState(false);
 
         // initialize the media player
         mediaPlayerManagement.initializePlayer();

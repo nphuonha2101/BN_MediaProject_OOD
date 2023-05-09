@@ -14,11 +14,12 @@ public class ConcreteStrategyShuffleMedia implements MediaPlayerManagementStrate
     @Override
     public void doStrategyAction(MediaPlayerManagement mediaPlayerManagement) {
         // first stop the media player to avoid conflict among threads
-        mediaPlayerManagement.setMediaPlayerControlStrategy(new ConcreteStrategyStopMedia());
-        mediaPlayerManagement.doStrategyAction();
+        mediaPlayerManagement.stopMedia();
 
         // shuffle media list of the mediaPlayerManagement
         Collections.shuffle(mediaPlayerManagement.getSongList());
+
+        mediaPlayerManagement.setShuffleState(true);
 
         // initialize the media player
         mediaPlayerManagement.initializePlayer();

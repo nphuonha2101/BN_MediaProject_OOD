@@ -19,6 +19,9 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * This is a Controller of About Application to handle event of About View
+ */
 public class AboutController implements Initializable {
 
     @FXML
@@ -82,4 +85,6 @@ public class AboutController implements Initializable {
         textFlowAbout.getChildren().add(softwareDescription);
 
     }
+
+
 }

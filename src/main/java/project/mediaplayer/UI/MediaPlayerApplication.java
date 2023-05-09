@@ -9,7 +9,10 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 
-
+/**
+ * This is a JavaFX Application class for this Application.
+ * To run this Application, please run main method of this class to start
+ */
 public class MediaPlayerApplication extends Application {
     public static final String APPLICATION_ICON_PATH = "src" + File.separator + "main" + File.separator + "resources"
             + File.separator + "img" + File.separator + "application-logo-icon.png";
@@ -27,7 +30,7 @@ public class MediaPlayerApplication extends Application {
         // create FXMLLoader from FXML file of this scene
         FXMLLoader fxmlLoader = new FXMLLoader(MediaPlayerApplication.class.getResource("main-player-application.fxml"));
 
-        // load FXML file form FXMLLoader
+        // load FXML file from FXMLLoader to scene
         Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         File imgIconFile = new File(APPLICATION_ICON_PATH);
 

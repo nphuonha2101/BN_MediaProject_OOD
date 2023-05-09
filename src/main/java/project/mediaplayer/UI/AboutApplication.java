@@ -6,6 +6,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+/**
+ * This is an About Application to show About stage
+ * when click About button on {@link MediaPlayerController}
+ */
 public class AboutApplication extends Application {
     public static void main(String[] args) {
         launch();
