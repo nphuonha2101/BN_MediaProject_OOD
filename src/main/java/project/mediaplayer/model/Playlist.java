@@ -37,7 +37,6 @@ public class Playlist implements PlaylistSubject {
      */
     public void setSongList(List<Song> songList) {
         this.songList = songList;
-
         notifyPlaylistObservers();
     }
 

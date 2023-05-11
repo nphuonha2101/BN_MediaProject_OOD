@@ -187,7 +187,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
      * After create instance of {@link MediaPlayerController#mediaPlayerManagement} then {@link MediaPlayerManagement#initializePlayer()}
      */
     @FXML
-    public void chooseFile() {
+    protected void chooseFile() {
         files.chooseFileDir();
 
         if (files.getListFiles().isEmpty()) {
@@ -228,7 +228,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
      * then set the index to songNumber of {@link MediaPlayerManagement} class to play new selected song
      */
     @FXML
-    private void selectedListViewItem() {
+    protected void selectedListViewItem() {
         // gets Song information selected from list view
         String selectedSongItem = listView.getSelectionModel().getSelectedItem();
 
@@ -260,7 +260,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
      * @throws Exception if {@link AboutApplication#start(Stage)} method has exceptions
      */
     @FXML
-    private void openAbout() throws Exception {
+    protected void openAbout() throws Exception {
         Stage stage = new Stage();
         AboutApplication aboutApplication = new AboutApplication();
         aboutApplication.start(stage);
@@ -440,7 +440,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
     public void initialize(URL location, ResourceBundle resources) {
         // create instance of MediaPlayerManagement
         mediaPlayerManagement = new MediaPlayerManagement(playingPlaylist);
-        registerSubjects(playingPlaylist, mediaPlayerManagement);
+        this.registerSubjects(playingPlaylist, mediaPlayerManagement);
 
         homePlaylist.addSongsFromDataFileToPlaylist(files, Files.PREVIOUS_IMPORTED_SONGS_DATA_FILE_PATH);
 

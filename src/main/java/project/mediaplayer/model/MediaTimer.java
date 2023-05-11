@@ -10,7 +10,7 @@ import java.util.TimerTask;
 
 public class MediaTimer implements MediaTimerSubject {
     private final List<MediaTimerObserver> mediaTimerObserverList = new ArrayList<>();
-    private java.util.Timer timer;
+    private Timer timer;
     private TimerTask task;
     private boolean running;
     private final MediaPlayer mediaPlayer;

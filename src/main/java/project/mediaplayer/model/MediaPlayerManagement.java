@@ -81,11 +81,11 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
         }
     }
 
-    public void setMediaTimerSongProgress(double songProgress) {
-        this.mediaTimer.setSongProgress(songProgress);
+        public void setMediaTimerSongProgress(double songProgress) {
+            this.mediaTimer.setSongProgress(songProgress);
 
-        notifyMPManagementObservers();
-    }
+            notifyMPManagementObservers();
+        }
 
     //-----------------------OBSERVER METHOD------------------------//
 
@@ -218,6 +218,8 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
         // if not create this instance for each prepare media,
         // the song progress bar will work once then after it doesn't work
         // because the media player will change for each play next/previous media
+
+        // register this observer to media timer
         mediaTimer = new MediaTimer(this, mediaPlayer);
         mediaTimer.registerMediaTimerObserver(this);
 
