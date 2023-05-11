@@ -64,11 +64,11 @@ Run project in IDE:
    ![Play, pause, next, Previous, reset, random](src/main/resources/img/githubPlay.png)
 
 2. **Volume Control and Seeking:** Users can adjust the volume of the music and seek to a specific position in a song.
-3. 
+ 
    ![Volume Control and Seeking](src/main/resources/img/githubProgress.png)
 
 3. **Open folder:** Choose folder have song you like in your computer.
-4. 
+ 
    ![Alert About](src/main/resources/img/githubOpenFolder.png)
 
 4. **Playlist Alert, about alert:** Users are alerted when the playlist does not have any songs, the application
