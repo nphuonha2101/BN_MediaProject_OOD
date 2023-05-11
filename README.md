@@ -26,8 +26,8 @@ ability to search for songs. Users can add songs to their favorite list by click
 2. Open the project in your Java IDE.
 
 ```
-$ cd BN_MediaProject_OOD
-$ code .
+   $ cd BN_MediaProject_OOD
+   $ code .
 ```
 
 3. Compile and run the application.
