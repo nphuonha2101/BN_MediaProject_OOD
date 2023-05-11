@@ -31,7 +31,7 @@
 
   3. Compile and run the application.
 
-  ```javascript
+  ```java
      public void start(Stage stage)throws Exception{
 
           FXMLLoader fxmlLoader=new FXMLLoader(AboutApplication.class.getResource("about.fxml"));
