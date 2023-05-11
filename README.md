@@ -49,6 +49,7 @@ $ code .
 ```
 
 Run project in IDE:
+
 ![Run project](src/main/resources/img/githubRun.png)
 
 4. Use the various controls provided to play, pause, skip, reset, and control the volume of the music.
@@ -59,20 +60,25 @@ Run project in IDE:
 
 1. **Play, Pause, Next, Previous, Reset, Random Music**: Users can control the playback of the music, including playing,
    pausing, skipping to the next song, resetting the current song, and playing songs randomly.
+   
    ![Play, pause, next, Previous, reset, random](src/main/resources/img/githubPlay.png)
 
 2. **Volume Control and Seeking:** Users can adjust the volume of the music and seek to a specific position in a song.
+3. 
    ![Volume Control and Seeking](src/main/resources/img/githubProgress.png)
 
 3. **Open folder:** Choose folder have song you like in your computer.
+4. 
    ![Alert About](src/main/resources/img/githubOpenFolder.png)
 
 4. **Playlist Alert, about alert:** Users are alerted when the playlist does not have any songs, the application
    provides information about the project itself through an "About" alert.
+   
    ![Playlist Alert](src/main/resources/img/githubAlert.png)
 
 5. **Search and Add to Favorite List:** Users can search for songs and add them to their favorite list by clicking the "
    heart" button.
+   
    ![Search and Add to Favorite List:](src/main/resources/img/githubSearch.png)
 
 ## Contributors
