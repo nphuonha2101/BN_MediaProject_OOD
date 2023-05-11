@@ -31,20 +31,13 @@
 
   3. Compile and run the application.
 
+You can run this program by running `main` method in `MediaPlayerApplication` class from path `src/main/java/project/mediaplayer/UI/MediaPlayerApplication.java`
+
   ```java
-     public void start(Stage stage)throws Exception{
+      public static void main(String[] args) {
+        launch(args);
 
-          FXMLLoader fxmlLoader=new FXMLLoader(AboutApplication.class.getResource("about.fxml"));
-          Scene scene=new Scene(fxmlLoader.load(),700,500);
-
-          stage.initStyle(StageStyle.UNDECORATED);
-          stage.setTitle("About B&N Media Player");
-          stage.setScene(scene);
-          stage.setResizable(false);
-
-          stage.show();
-
-     }
+    }
   ```
 
   Run project in IDE:
