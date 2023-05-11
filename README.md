@@ -21,13 +21,13 @@
   mkdir Media
   cd Media
   git clone https://github.com/nphuonha2101/BN_MediaProject_OOD.git
-
+  ```
   2. Open the project in your Java IDE.
 
   ```bash
   cd BN_MediaProject_OOD
   code .
-  
+  ```
 
   3. Compile and run the application.
 
