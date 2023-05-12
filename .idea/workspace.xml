@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Nha and Bang create general diagram, update readme.md">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Nha and Bang edit img in readme.md file">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Image Github/diagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imageGithub/diagram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Image Github/githubAlert.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imageGithub/githubAlert.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Image Github/githubOpenFolder.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imageGithub/githubOpenFolder.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Image Github/githubPlay.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imageGithub/githubPlay.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Image Github/githubProgress.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imageGithub/githubProgress.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Image Github/githubRun.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imageGithub/githubRun.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Image Github/githubSearch.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imageGithub/githubSearch.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +113,7 @@
       <recent name="project.mediaplayer.model" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="D:\Java Workspace\BN_MediaProject_OOD\src\main\java\project\mediaplayer\model" />
     </key>
   </component>
@@ -559,7 +567,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683864339710</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Nha and Bang edit img in readme.md file">
+      <created>1683872099986</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1683872099986</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,7 +642,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="bang" />
     <MESSAGE value="bang-ui2" />
     <MESSAGE value="Nguyen Phuong Nha - new UI" />
     <MESSAGE value="Nguyen Phuong Nha - new UI - 1" />
@@ -652,7 +666,8 @@
     <MESSAGE value="Nguyen Phuong Nha: &#10;- fixes shuffle media issue&#10;- un-implements strategy pattern for Playlist" />
     <MESSAGE value="Pham Cao Bang - Add some comments for some methods" />
     <MESSAGE value="Nha and Bang create general diagram, update readme.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nha and Bang create general diagram, update readme.md" />
+    <MESSAGE value="Nha and Bang edit img in readme.md file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nha and Bang edit img in readme.md file" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
