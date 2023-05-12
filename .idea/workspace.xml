@@ -5,20 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Nguyen Phuong Nha: &#10;- add JavaDocs for MediaPlayerManagement's Concrete Strategy classes">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/githubAlert.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/githubOpenFolder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/githubPlay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/githubProgress.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/githubRun.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/githubSearch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Image Github/diagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Image Github/githubAlert.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Image Github/githubOpenFolder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Image Github/githubPlay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Image Github/githubProgress.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Image Github/githubRun.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Image Github/githubSearch.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaTimer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Playlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data/previousImportedFavoriteSongsData.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/previousImportedFavoriteSongsData.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data/previousImportedSongsData.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/previousImportedSongsData.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/AboutApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/AboutApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/githubAlert.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/githubOpenFolder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/githubPlay.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/githubProgress.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/githubRun.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/githubSearch.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

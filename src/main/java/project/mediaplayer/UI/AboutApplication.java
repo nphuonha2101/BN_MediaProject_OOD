@@ -11,9 +11,6 @@ import javafx.stage.StageStyle;
  * when click About button on {@link MediaPlayerController}
  */
 public class AboutApplication extends Application {
-    public static void main(String[] args) {
-        launch();
-    }
 
     /**
      * Starts the JavaFX application by loading the "about.fxml" file and displaying it on a new stage.
