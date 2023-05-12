@@ -40,9 +40,9 @@ You can run this program by running `main` method in `MediaPlayerApplication` cl
     }
   ```
 
-  Run project in IDE:
+Run project in IDE:
 
-![Run project](Image Github/githubRun.png)
+![Run project](src/main/resources/Image Github/githubRun.png)
 
   4. Use the various controls provided to play, pause, skip, reset, and control the volume of the music.
 
@@ -53,31 +53,31 @@ You can run this program by running `main` method in `MediaPlayerApplication` cl
 1. **Play, Pause, Next, Previous, Reset, Random Music**: Users can control the playback of the music, including playing,
    pausing, skipping to the next song, resetting the current song, and playing songs randomly.
 
-   ![Play, pause, next, Previous, reset, random](Image Github/githubPlay.png)
+   ![Play, pause, next, Previous, reset, random](src/main/resources/Image Github/githubPlay.png)
 
 2. **Volume Control:** Users can adjust the volume of the music.
 
-   ![Volume Control and Seeking](Image Github/githubProgress.png)
+   ![Volume Control and Seeking](src/main/resources/Image Github/githubProgress.png)
 
 3. **Open folder:** Choose folder have song you like in your computer.
 
-   ![Alert About](Image Github/githubOpenFolder.png)
+   ![Alert About](src/main/resources/Image Github/githubOpenFolder.png)
 
 4. **Playlist Alert, about alert:** Users are alerted when the playlist does not have any songs, the application
    provides information about the project itself through an "About" alert.
 
-   ![Playlist Alert](Image Github/githubAlert.png)
+   ![Playlist Alert](src/main/resources/Image Github/githubAlert.png)
 
 5. **Search and Add to Favorite List:** Users can search for songs and add them to their favorite list by clicking the "
    heart" button.
 
-   ![Search and Add to Favorite List:](Image Github/githubSearch.png)
+   ![Search and Add to Favorite List:](src/main/resources/Image Github/githubSearch.png)
 
 ## Diagram
 
 This is our general class diagram
 
-![General diagram](Image Github/diagram.png)
+![General diagram](src/main/resources/Image Github/diagram.png)
 
 ## Contributors
 
