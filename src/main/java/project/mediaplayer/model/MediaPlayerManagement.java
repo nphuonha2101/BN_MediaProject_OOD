@@ -139,7 +139,6 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
         ) {
             mediaPlayerManagementObserver.updateMediaPlayerManagementObserver(this.songName,
                     this.isPlayingSongFavorite,
-                    this.getMediaPlayerVolumeValue(),
                     this.songNumber,
                     this.songProgress);
         }

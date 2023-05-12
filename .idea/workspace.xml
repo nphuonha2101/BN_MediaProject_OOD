@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Nha and Bang edit img in readme.md file">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Image Github/diagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imageGithub/diagram.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Image Github/githubAlert.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imageGithub/githubAlert.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Image Github/githubOpenFolder.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imageGithub/githubOpenFolder.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Image Github/githubPlay.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imageGithub/githubPlay.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Image Github/githubProgress.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imageGithub/githubProgress.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Image Github/githubRun.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imageGithub/githubRun.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Image Github/githubSearch.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imageGithub/githubSearch.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagementObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagementObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/previousImportedSongsData.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/previousImportedSongsData.dat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +47,9 @@
         <option name="url" value="https://github.com/nphuonha2101/BN_MediaProject_OOD.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Playlist.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -146,7 +146,7 @@
     </configuration>
     <configuration name="MediaPlayerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="project.mediaplayer.UI.MediaPlayerApplication" />
-      <module name="BN_MediaProject_OOD" />
+      <module name="MediaProject_OOD" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="project.mediaplayer.UI.*" />
@@ -349,6 +349,7 @@
       <workItem from="1683641258902" duration="530000" />
       <workItem from="1683668434664" duration="432000" />
       <workItem from="1683669065160" duration="2424000" />
+      <workItem from="1683887889857" duration="1434000" />
     </task>
     <task id="LOCAL-00001" summary="second commit">
       <created>1676170105282</created>
@@ -581,27 +582,6 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="Branch">
@@ -634,6 +614,27 @@
                 </option>
               </RecentGroup>
             </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

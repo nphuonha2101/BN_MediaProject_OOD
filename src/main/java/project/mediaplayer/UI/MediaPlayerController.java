@@ -81,7 +81,6 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
      *
      * @param songName          the name of the current song being played
      * @param isFavoriteSong    a boolean indicating whether or not the current song is a favorite song
-     * @param volumeValue       the current volume level of the media player
      * @param songNumber        the index of the current song in the playlist
      * @param songProgressValue the current progress of the song playback, represented as a double between 0 and 1
      *                          The method updates the song name label, favorite song button, list view focus, and song progress bar
@@ -89,7 +88,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
      *                          the media player volume is correctly set.
      */
     @Override
-    public void updateMediaPlayerManagementObserver(String songName, boolean isFavoriteSong, double volumeValue, int songNumber, double songProgressValue) {
+    public void updateMediaPlayerManagementObserver(String songName, boolean isFavoriteSong, int songNumber, double songProgressValue) {
         this.songNameLabel.setText(songName);
         this.favoriteSongButton.setSelected(isFavoriteSong);
         this.listView.getFocusModel().focus(songNumber);
