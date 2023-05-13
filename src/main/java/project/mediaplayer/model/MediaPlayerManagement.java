@@ -15,7 +15,7 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
     private MediaPlayer mediaPlayer;
     private MediaTimer mediaTimer;
     private MediaPlayerManagementStrategy mediaPlayerManagementStrategy;
-    private int songNumber = 0;
+    private int songIndexOfPlayingList = 0;
     private double songProgress;
     private String songName;
     private boolean shuffleState;
@@ -30,12 +30,12 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
     }
 
     //-----------------------GETTERS AND SETTERS------------------------//
-    public int getSongNumber() {
-        return this.songNumber;
+    public int getSongIndexOfPlayingList() {
+        return this.songIndexOfPlayingList;
     }
 
-    public void setSongNumber(int songNumber) {
-        this.songNumber = songNumber;
+    public void setSongIndexOfPlayingList(int songIndexOfPlayingList) {
+        this.songIndexOfPlayingList = songIndexOfPlayingList;
     }
 
     public List<File> getSongFiles() {
@@ -139,7 +139,7 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
         ) {
             mediaPlayerManagementObserver.updateMediaPlayerManagementObserver(this.songName,
                     this.isPlayingSongFavorite,
-                    this.songNumber,
+                    this.songIndexOfPlayingList,
                     this.songProgress);
         }
     }
@@ -210,7 +210,7 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
             mediaTimer.cancelTimer();
 
         // new media and media player for new song
-        media = new Media(songFiles.get(songNumber).toURI().toString());
+        media = new Media(songFiles.get(songIndexOfPlayingList).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
 
         // create new timer instance to begin count for progress bar
@@ -233,7 +233,7 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
         // when initialize player, to ensure that playlist always play first media of list
         // we must set songNumber to 0
         if (!this.songList.isEmpty()) {
-            setSongNumber(0);
+            setSongIndexOfPlayingList(0);
 
             // clear songFiles if it already has elements
             songFiles.clear();
@@ -243,9 +243,8 @@ public class MediaPlayerManagement implements PlaylistObserver, MediaPlayerManag
                 songFiles.add(songFile);
             }
 
-            // prepare media with songNumber = 0
+            // prepare media with songIndexOfPlayingList = 0
             prepareMedia();
         }
     }
-
 }

@@ -7,25 +7,25 @@ package project.mediaplayer.model;
  * <p>
  * First, the method {@link MediaPlayerManagement#doStrategyAction()} will check the songNumber
  * <li>
- * If songNumber at the tail of media file list then the the songNumber = 0 (head of list).
+ * If songIndexOfPlayingList at the tail of media file list then the the songIndexOfPlayingList = 0 (head of list).
  * </li>
  * <li>
- * If songNumber not at the tail of media file list the set songNumber = songNumber + 1.
+ * If songIndexOfPlayingList not at the tail of media file list the set songIndexOfPlayingList = songIndexOfPlayingList + 1.
  * </li>
- * Then prepare new Media with SongNumber with {@link MediaPlayerManagement#prepareMedia()} method
+ * Then prepare new Media with songIndexOfPlayingList with {@link MediaPlayerManagement#prepareMedia()} method
  * and automatic play new media file.
  */
 public class ConcreteStrategyPlayNextMedia implements MediaPlayerManagementStrategy {
     @Override
     public void doStrategyAction(MediaPlayerManagement mediaPlayerManagement) {
 
-        // when songNumber not at the tail of the media file list of mediaPlayerManagement class
-        if (mediaPlayerManagement.getSongNumber() < mediaPlayerManagement.getSongFiles().size() - 1)
-            mediaPlayerManagement.setSongNumber(mediaPlayerManagement.getSongNumber() + 1);
+        // when songIndexOfPlayingList not at the tail of the media file list of mediaPlayerManagement class
+        if (mediaPlayerManagement.getSongIndexOfPlayingList() < mediaPlayerManagement.getSongFiles().size() - 1)
+            mediaPlayerManagement.setSongIndexOfPlayingList(mediaPlayerManagement.getSongIndexOfPlayingList() + 1);
         else // when songNumber is at the tail of media file list of
-            mediaPlayerManagement.setSongNumber(0);
+            mediaPlayerManagement.setSongIndexOfPlayingList(0);
 
-        // prepare new media with new songNumber
+        // prepare new media with new songIndexOfPlayingList
         mediaPlayerManagement.prepareMedia();
 
         // automatic play media file

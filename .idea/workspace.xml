@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="Nha and Bang edit img in readme.md file">
+    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="small change">
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/AboutStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/AboutApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/AboutApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayNextMedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayNextMedia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayPauseMedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayPauseMedia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayPreviousMedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayPreviousMedia.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagementObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagementObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/previousImportedFavoriteSongsData.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/previousImportedFavoriteSongsData.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data/previousImportedSongsData.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/previousImportedSongsData.dat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +55,7 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Playlist.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Playlist.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -94,7 +100,7 @@
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/bangpham/Documents/Media/BN_MediaProject_OOD&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Java Workspace/OOD Labs&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -118,8 +124,8 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.MediaPlayerApplication">
-    <configuration name="AboutApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="project.mediaplayer.UI.AboutApplication" />
+    <configuration name="AboutStage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="project.mediaplayer.UI.AboutStage" />
       <module name="MediaProject_OOD" />
       <extension name="coverage">
         <pattern>
@@ -185,7 +191,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.AboutApplication" />
+      <item itemvalue="Application.AboutStage" />
       <item itemvalue="Application.Playlist" />
       <item itemvalue="Application.Files" />
       <item itemvalue="Application.MediaPlayerApplication" />
@@ -194,7 +200,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MediaPlayerApplication" />
-        <item itemvalue="Application.AboutApplication" />
+        <item itemvalue="Application.AboutStage" />
         <item itemvalue="Application.SongPlayer" />
         <item itemvalue="Application.Playlist" />
         <item itemvalue="Application.Files" />
@@ -349,7 +355,16 @@
       <workItem from="1683641258902" duration="530000" />
       <workItem from="1683668434664" duration="432000" />
       <workItem from="1683669065160" duration="2424000" />
-      <workItem from="1683887889857" duration="1434000" />
+      <workItem from="1683887889857" duration="3532000" />
+      <workItem from="1683905329769" duration="150000" />
+      <workItem from="1683908339615" duration="199000" />
+      <workItem from="1683908549590" duration="213000" />
+      <workItem from="1683908821824" duration="614000" />
+      <workItem from="1683909471875" duration="889000" />
+      <workItem from="1683941147438" duration="25000" />
+      <workItem from="1683951044140" duration="658000" />
+      <workItem from="1683976882808" duration="286000" />
+      <workItem from="1683977770789" duration="2433000" />
     </task>
     <task id="LOCAL-00001" summary="second commit">
       <created>1676170105282</created>
@@ -575,7 +590,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683872099986</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="small change">
+      <created>1683889884308</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1683889884308</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -628,7 +650,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -643,7 +665,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="bang-ui2" />
     <MESSAGE value="Nguyen Phuong Nha - new UI" />
     <MESSAGE value="Nguyen Phuong Nha - new UI - 1" />
     <MESSAGE value="Nguyen Phuong Nha - new UI - 2" />
@@ -668,7 +689,8 @@
     <MESSAGE value="Pham Cao Bang - Add some comments for some methods" />
     <MESSAGE value="Nha and Bang create general diagram, update readme.md" />
     <MESSAGE value="Nha and Bang edit img in readme.md file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nha and Bang edit img in readme.md file" />
+    <MESSAGE value="small change" />
+    <option name="LAST_COMMIT_MESSAGE" value="small change" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

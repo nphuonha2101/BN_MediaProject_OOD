@@ -79,19 +79,19 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
     /**
      * Updates the media player management observer with the new song information and settings.
      *
-     * @param songName          the name of the current song being played
-     * @param isFavoriteSong    a boolean indicating whether or not the current song is a favorite song
-     * @param songNumber        the index of the current song in the playlist
-     * @param songProgressValue the current progress of the song playback, represented as a double between 0 and 1
-     *                          The method updates the song name label, favorite song button, list view focus, and song progress bar
-     *                          with the new song information and settings. It also calls the changeVolume() method to ensure that
-     *                          the media player volume is correctly set.
+     * @param songName               the name of the current song being played
+     * @param isFavoriteSong         a boolean indicating whether or not the current song is a favorite song
+     * @param songIndexOfPlayingList the index of the current song in the playlist
+     * @param songProgressValue      the current progress of the song playback, represented as a double between 0 and 1
+     *                               The method updates the song name label, favorite song button, list view focus, and song progress bar
+     *                               with the new song information and settings. It also calls the changeVolume() method to ensure that
+     *                               the media player volume is correctly set.
      */
     @Override
-    public void updateMediaPlayerManagementObserver(String songName, boolean isFavoriteSong, int songNumber, double songProgressValue) {
+    public void updateMediaPlayerManagementObserver(String songName, boolean isFavoriteSong, int songIndexOfPlayingList, double songProgressValue) {
         this.songNameLabel.setText(songName);
         this.favoriteSongButton.setSelected(isFavoriteSong);
-        this.listView.getFocusModel().focus(songNumber);
+        this.listView.getFocusModel().focus(songIndexOfPlayingList);
         this.songProgressBar.setProgress(songProgressValue);
         System.out.println("Controller: " + songProgressValue);
 
@@ -245,7 +245,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
         int songNumber = playingPlaylist.getSongIndexWithSongID(songID);
 
         // sets song number which is recently found
-        mediaPlayerManagement.setSongNumber(songNumber);
+        mediaPlayerManagement.setSongIndexOfPlayingList(songNumber);
         // prepares media to play
         mediaPlayerManagement.prepareMedia();
         // play media with prepared media
@@ -254,15 +254,15 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
 
     /**
      * Open About stage when click aboutButton
-     * by call {@link AboutApplication#start(Stage)} method
+     * by call {@link AboutStage#start(Stage)} method
      *
-     * @throws Exception if {@link AboutApplication#start(Stage)} method has exceptions
+     * @throws Exception if {@link AboutStage#start(Stage)} method has exceptions
      */
     @FXML
     protected void openAbout() throws Exception {
         Stage stage = new Stage();
-        AboutApplication aboutApplication = new AboutApplication();
-        aboutApplication.start(stage);
+        AboutStage aboutStage = new AboutStage();
+        aboutStage.start(stage);
     }
 
     /**
@@ -346,7 +346,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
     protected void addAndRemoveFavoriteSong() {
 
         // gets current playing song number and get current playing song from it
-        int currentSongNumber = mediaPlayerManagement.getSongNumber();
+        int currentSongNumber = mediaPlayerManagement.getSongIndexOfPlayingList();
         Song currentPlayingSong = playingPlaylist.getSongList().get(currentSongNumber);
 
         if (favoriteSongButton.isSelected()) {
@@ -370,7 +370,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
     @FXML
     protected void scrollToMusicOnListView() {
         // gets current playing song number
-        int currentSongNumber = mediaPlayerManagement.getSongNumber();
+        int currentSongNumber = mediaPlayerManagement.getSongIndexOfPlayingList();
         // scrolls to current playing song
         listView.scrollTo(currentSongNumber);
     }
@@ -420,8 +420,8 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
          * So we need update focus and scroll to current playing song after clear searches.
          */
         updateListView(playingPlaylist.getSongList());
-        listView.getFocusModel().focus(mediaPlayerManagement.getSongNumber());
-        listView.scrollTo(mediaPlayerManagement.getSongNumber());
+        listView.getFocusModel().focus(mediaPlayerManagement.getSongIndexOfPlayingList());
+        listView.scrollTo(mediaPlayerManagement.getSongIndexOfPlayingList());
     }
 
     //-----------------------OTHER CONTROLLER'S METHODS------------------------//

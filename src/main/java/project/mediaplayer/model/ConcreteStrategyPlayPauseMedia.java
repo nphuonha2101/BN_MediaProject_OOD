@@ -5,7 +5,7 @@ import javafx.scene.media.MediaPlayer;
 /**
  * This class is a Concrete Strategy Class of Class {@link MediaPlayerManagement}
  * <p>
- * The purpose of this class is to Play Pause Media with the media of the songNumber
+ * The purpose of this class is to Play Pause Media with the media of the songIndexOfPlayingList
  * was prepared with {@link MediaPlayerManagement#prepareMedia()} method
  */
 
@@ -18,10 +18,10 @@ public class ConcreteStrategyPlayPauseMedia implements MediaPlayerManagementStra
         System.out.println(mediaPlayerManagement.getMediaPlayerVolumeValue());
 
         // set playing song name to notify to the observer (Controller) to update playing song name to the View
-        mediaPlayerManagement.setPlayingSongName(mediaPlayerManagement.getSongList().get(mediaPlayerManagement.getSongNumber()).getSongName());
+        mediaPlayerManagement.setPlayingSongName(mediaPlayerManagement.getSongList().get(mediaPlayerManagement.getSongIndexOfPlayingList()).getSongName());
         // set playing song favorite state if this song is favorite to notify to the observer (Controller)
         // to set selected state of the favorite song button on the view
-        mediaPlayerManagement.setPlayingSongFavorite(mediaPlayerManagement.getSongList().get(mediaPlayerManagement.getSongNumber()).isFavorite());
+        mediaPlayerManagement.setPlayingSongFavorite(mediaPlayerManagement.getSongList().get(mediaPlayerManagement.getSongIndexOfPlayingList()).isFavorite());
 
         // if the media player is playing then pause the media player
         // and cancel the timer (Pause function)
