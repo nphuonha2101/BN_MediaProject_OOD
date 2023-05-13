@@ -7,27 +7,27 @@ package project.mediaplayer.model;
  * <p>
  * First, the method {@link MediaPlayerManagement#doStrategyAction()} will check the songNumber
  * <li>
- * If songNumber at the head of media file list then the the songNumber = size of media list - 1 (tail of list).
+ * If songIndexOfPlayingList at the head of media file list then the the songIndexOfPlayingList = size of media list - 1 (tail of list).
  * </li>
  * <li>
- * If songNumber not at the head of media file list the set songNumber = songNumber - 1.
+ * If songIndexOfPlayingList not at the head of media file list the set songIndexOfPlayingList = songIndexOfPlayingList - 1.
  * </li>
- * Then prepare new Media with SongNumber with {@link MediaPlayerManagement#prepareMedia()} method
+ * Then prepare new Media with songIndexOfPlayingList with {@link MediaPlayerManagement#prepareMedia()} method
  * and automatic play new media file.
  */
 public class ConcreteStrategyPlayPreviousMedia implements MediaPlayerManagementStrategy {
     @Override
     public void doStrategyAction(MediaPlayerManagement mediaPlayerManagement) {
 
-        // Check if the current songNumber is greater than zero (not the first media file)
-        if (mediaPlayerManagement.getSongNumber() > 0)
-            // Decrease the songNumber to go to the previous media file.
-            mediaPlayerManagement.setSongNumber(mediaPlayerManagement.getSongNumber() - 1);
+        // Check if the current songIndexOfPlayingList is greater than zero (not the first media file)
+        if (mediaPlayerManagement.getSongIndexOfPlayingList() > 0)
+            // Decrease the songIndexOfPlayingList to go to the previous media file.
+            mediaPlayerManagement.setSongIndexOfPlayingList(mediaPlayerManagement.getSongIndexOfPlayingList() - 1);
         else
             // If the current media file is the first one, go to the last media file.
-            mediaPlayerManagement.setSongNumber(mediaPlayerManagement.getSongFiles().size() - 1);
+            mediaPlayerManagement.setSongIndexOfPlayingList(mediaPlayerManagement.getSongFiles().size() - 1);
 
-        // prepare new media with new songNumber
+        // prepare new media with new songIndexOfPlayingList
         mediaPlayerManagement.prepareMedia();
         // automatic play the media file
         mediaPlayerManagement.playPauseMedia();

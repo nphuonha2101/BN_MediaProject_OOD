@@ -5,7 +5,7 @@ package project.mediaplayer.model;
  * <p>
  * The purpose of this class is to Play Next Media
  * <p>
- * First, the method {@link MediaPlayerManagement#doStrategyAction()} will check the songNumber
+ * First, the method {@link MediaPlayerManagement#doStrategyAction()} will check the songIndexOfPlayingList
  * <li>
  * If songIndexOfPlayingList at the tail of media file list then the the songIndexOfPlayingList = 0 (head of list).
  * </li>

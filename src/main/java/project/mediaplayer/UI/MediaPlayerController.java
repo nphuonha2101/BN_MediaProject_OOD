@@ -290,6 +290,8 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
         String buttonText = ((Button) event.getSource()).getText();
 
         // switching to playlist by button that user clicked
+        // when switch playlist, playing playlist will be set from playlist was chosen
+
         if (buttonText.equalsIgnoreCase(homeButtonText)) {
             headerLabel.setText(homePlaylist.getPlaylistName());
             playingPlaylist.setPlaylistFrom(homePlaylist);
@@ -413,9 +415,9 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
          * Because when click to song item on search list view, the media will play and set focus to current playing song.
          * But this current list view only display searched song not songs on current playlist
          * Ex: - if search list view have three songIDs: 1, 9, 5
-         * but songNumbers of its songID on current playlist are: 20, 9, 8 (shuffled);
+         * but songIndexOfPlayingLists of its songID on current playlist are: 20, 9, 8 (shuffled);
          *     - if we selected song which has songID = 1, so songNumber of its is 20 (because of this list view only have three elements,
-         * so cannot focus to song which has songNumber = 20 on list view, and if it can focus, the song was focused not like with selected song).
+         * so cannot focus to song which has songIndexOfPlayingList = 20 on list view, and if it can focus, the song was focused not like with selected song).
          *
          * So we need update focus and scroll to current playing song after clear searches.
          */
