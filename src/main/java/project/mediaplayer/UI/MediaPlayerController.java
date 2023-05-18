@@ -186,8 +186,8 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
      * After create instance of {@link MediaPlayerController#mediaPlayerManagement} then {@link MediaPlayerManagement#initializePlayer()}
      */
     @FXML
-    protected void chooseFile() {
-        files.chooseFileDir();
+    protected void chooseFileFromDir() {
+        files.chooseFilesFromDir();
 
         if (files.getListFiles().isEmpty()) {
             String title = "No song added";
@@ -200,8 +200,27 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
             homePlaylist.addSongsFromFilesToPlaylist(files);
             // add song from homePlaylist
             playingPlaylist.setPlaylistFrom(homePlaylist);
-
         }
+    }
+
+    @FXML
+    protected void chooseFiles() {
+        files.chooseFiles();
+
+        if (files.getListFiles().isEmpty()) {
+            String title = "No song added";
+            String message = "Seem a directory you chose didn't have any music file (*.mp3, *.aac, *.wav). \n" + "Please import it again!";
+            showInformationAlert(title, message);
+        } else {
+            mediaPlayerManagement = new MediaPlayerManagement(playingPlaylist);
+            registerSubjects(playingPlaylist, mediaPlayerManagement);
+
+            homePlaylist.addSongsFromFilesToPlaylist(files);
+            // add song from homePlaylist
+            playingPlaylist.setPlaylistFrom(homePlaylist);
+        }
+
+
     }
 
     /**

@@ -1,7 +1,5 @@
 package project.mediaplayer.model;
 
-import javafx.stage.DirectoryChooser;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +8,7 @@ import java.util.List;
  * <p> - The {@link Files} class is use for storage files of the directory which was chosen
  * from class {@link javafx.stage.FileChooser} of {@code JavaFX}.
  * </p>
- * <p> - The method {@link #chooseFileDir() chooseFileDir()} is use {@link javafx.stage.FileChooser} to choose a directory which has
+ * <p> - The method {@link #chooseFiles() chooseFileDir()} is use {@link javafx.stage.FileChooser} to choose a directory which has
  * music files and only add music files from it (like *.mp3, *.aac, *.wav formats).
  * </p>
  * <p> - List of music files is use for adding {@link Song} object to Playlist.
@@ -23,13 +21,8 @@ import java.util.List;
 public class Files {
     public static final String FAVORITE_DATA_FILE_PATH = "src" + File.separator + "main" + File.separator + "resources" + File.separator + "data" + File.separator + "previousImportedFavoriteSongsData.dat";
     public static final String PREVIOUS_IMPORTED_SONGS_DATA_FILE_PATH = "src" + File.separator + "main" + File.separator + "resources" + File.separator + "data" + File.separator + "previousImportedSongsData.dat";
-    private final ArrayList<File> files = new ArrayList<>();
-
-
-    // get files list
-    public ArrayList<File> getListFiles() {
-        return this.files;
-    }
+    private List<File> files = new ArrayList<>();
+    private FilesStrategy filesStrategy;
 
     /**
      * - Get File name (Song name) from file path using {@link File#getName()} method
@@ -38,27 +31,48 @@ public class Files {
         return mediaFile.getName();
     }
 
+    public List<File> getListFiles() {
+        return this.files;
+    }
+
+    public void setListFiles(List<File> files) {
+        this.files = files;
+    }
+
+    /**
+     * <p>Choose one or multiples files with FileChooser</p>
+     * <p>This method only add music file with these extension (*.mp3, *.wav, *.aac) </p>
+     */
+    public void chooseFiles() {
+        this.setFilesStrategy(new ConcreteStrategyChooseFiles());
+        this.filesStrategy.chooseFileStrategy(this);
+    }
+
     /**
      * <p>Choose directory and get files from its directory.</p>
      * <p>This method only add music file with these extension (*.mp3, *.wav, *.aac) </p>
      */
+    public void chooseFilesFromDir() {
 
-    public void chooseFileDir() {
-        // clear old files list if it already existence
-        this.files.clear();
-        DirectoryChooser directoryChooser = new DirectoryChooser();
-        directoryChooser.setTitle("Open Music Folder");
-        File directory = directoryChooser.showDialog(null);
-        // If directory isn't null then adds files from it
-        if (directory != null) {
-            for (File file : directory.listFiles()
-            ) {
-                // only add .mp3, .aac, .wav file
-                if (file.getPath().endsWith(".mp3") || file.getPath().endsWith(".aac")
-                        || file.getPath().endsWith(".wav"))
-                    files.add(file);
-            }
-        }
+        this.setFilesStrategy(new ConcreteStrategyChooseFileFromDir());
+        this.filesStrategy.chooseFileStrategy(this);
+
+    }
+
+    /**
+     * Set Concrete Strategy of {@link this} to determine the way to choose Media files
+     *
+     * @param filesStrategy is a Concrete Strategy class of {@link Files} class
+     */
+    public void setFilesStrategy(FilesStrategy filesStrategy) {
+        this.filesStrategy = filesStrategy;
+    }
+
+    /**
+     * Do choose file strategy from Concrete Strategy class
+     */
+    public void doStrategyAction() {
+        this.filesStrategy.chooseFileStrategy(this);
     }
 
     /**
@@ -88,7 +102,7 @@ public class Files {
                 }
                 // close the buffered writer to release the resource
                 bufferedWriter.close();
-                System.out.println("favorite songs data was wrote success");
+                System.out.println("songs data was wrote success");
             }
         } catch (Exception e) {
             e.printStackTrace();

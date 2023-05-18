@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="small change">
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/AboutStage.java" afterDir="false" />
+    <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyChooseFileFromDir.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyChooseFiles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FilesStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/icons8-add-file-48.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/AboutApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/AboutApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayNextMedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayNextMedia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayPauseMedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayPauseMedia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayPreviousMedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyPlayPreviousMedia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagementObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaPlayerManagementObserver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data/previousImportedFavoriteSongsData.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/previousImportedFavoriteSongsData.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data/previousImportedSongsData.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/previousImportedSongsData.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/main-player-application.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/main-player-application.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,9 +24,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -365,6 +363,11 @@
       <workItem from="1683951044140" duration="658000" />
       <workItem from="1683976882808" duration="286000" />
       <workItem from="1683977770789" duration="2433000" />
+      <workItem from="1684000686341" duration="132000" />
+      <workItem from="1684077015437" duration="1418000" />
+      <workItem from="1684133691987" duration="398000" />
+      <workItem from="1684386911516" duration="35000" />
+      <workItem from="1684416597813" duration="7116000" />
     </task>
     <task id="LOCAL-00001" summary="second commit">
       <created>1676170105282</created>
@@ -709,7 +712,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java</url>
-          <line>39</line>
+          <line>40</line>
           <properties class="project.mediaplayer.model.Files">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

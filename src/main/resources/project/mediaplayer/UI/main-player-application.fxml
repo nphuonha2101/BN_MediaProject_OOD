@@ -87,8 +87,8 @@
                             </VBox.margin>
                         </Button>
                         <Button id="buttonOpenFolder" fx:id="openFolder" alignment="BASELINE_LEFT"
-                                mnemonicParsing="false" onAction="#chooseFile" prefHeight="40.0" prefWidth="166.0"
-                                stylesheets="@../../../css/style.css" text="Open Folder">
+                                mnemonicParsing="false" onAction="#chooseFileFromDir" prefHeight="40.0"
+                                prefWidth="166.0" stylesheets="@../../../css/style.css" text="Open Folder">
                             <graphic>
                                 <ImageView fitHeight="21.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -105,6 +105,23 @@
                             <VBox.margin>
                                 <Insets bottom="2.0" top="2.0"/>
                             </VBox.margin>
+                        </Button>
+                        <Button id="buttonOpenFolder" fx:id="openFolder1" alignment="BASELINE_LEFT"
+                                mnemonicParsing="false" onAction="#chooseFiles" prefHeight="40.0" prefWidth="166.0"
+                                stylesheets="@../../../css/style.css" text="Open File">
+                            <graphic>
+                                <ImageView fitHeight="21.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../img/icons8-add-file-48.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <padding>
+                                <Insets left="20.0"/>
+                            </padding>
                         </Button>
                         <Pane prefHeight="72.0" prefWidth="166.0" VBox.vgrow="ALWAYS"/>
                         <Button id="aboutButton" fx:id="aboutButton" alignment="BASELINE_LEFT" mnemonicParsing="false"
