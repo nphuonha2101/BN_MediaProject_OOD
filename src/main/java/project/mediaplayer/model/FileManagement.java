@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <p> - The {@link Files} class is use for storage files of the directory which was chosen
+ * <p> - The {@link FileManagement} class is use for storage files of the directory which was chosen
  * from class {@link javafx.stage.FileChooser} of {@code JavaFX}.
  * </p>
  * <p> - The method {@link #chooseFiles() chooseFileDir()} is use {@link javafx.stage.FileChooser} to choose a directory which has
@@ -18,11 +18,11 @@ import java.util.List;
  * and path of the song.
  * </p>
  */
-public class Files {
+public class FileManagement {
     public static final String FAVORITE_DATA_FILE_PATH = "src" + File.separator + "main" + File.separator + "resources" + File.separator + "data" + File.separator + "previousImportedFavoriteSongsData.dat";
     public static final String PREVIOUS_IMPORTED_SONGS_DATA_FILE_PATH = "src" + File.separator + "main" + File.separator + "resources" + File.separator + "data" + File.separator + "previousImportedSongsData.dat";
     private List<File> files = new ArrayList<>();
-    private FilesStrategy filesStrategy;
+    private FileManagementStrategy fileManagementStrategy;
 
     /**
      * - Get File name (Song name) from file path using {@link File#getName()} method
@@ -44,8 +44,8 @@ public class Files {
      * <p>This method only add music file with these extension (*.mp3, *.wav, *.aac) </p>
      */
     public void chooseFiles() {
-        this.setFilesStrategy(new ConcreteStrategyChooseFiles());
-        this.filesStrategy.chooseFileStrategy(this);
+        this.setFilesStrategy(new ConcreteStrategyChooseFileManagement());
+        this.fileManagementStrategy.chooseFileStrategy(this);
     }
 
     /**
@@ -55,24 +55,24 @@ public class Files {
     public void chooseFilesFromDir() {
 
         this.setFilesStrategy(new ConcreteStrategyChooseFileFromDir());
-        this.filesStrategy.chooseFileStrategy(this);
+        this.fileManagementStrategy.chooseFileStrategy(this);
 
     }
 
     /**
      * Set Concrete Strategy of {@link this} to determine the way to choose Media files
      *
-     * @param filesStrategy is a Concrete Strategy class of {@link Files} class
+     * @param fileManagementStrategy is a Concrete Strategy class of {@link FileManagement} class
      */
-    public void setFilesStrategy(FilesStrategy filesStrategy) {
-        this.filesStrategy = filesStrategy;
+    public void setFilesStrategy(FileManagementStrategy fileManagementStrategy) {
+        this.fileManagementStrategy = fileManagementStrategy;
     }
 
     /**
      * Do choose file strategy from Concrete Strategy class
      */
     public void doStrategyAction() {
-        this.filesStrategy.chooseFileStrategy(this);
+        this.fileManagementStrategy.chooseFileStrategy(this);
     }
 
     /**

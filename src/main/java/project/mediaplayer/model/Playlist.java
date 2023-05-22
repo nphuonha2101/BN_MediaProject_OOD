@@ -107,34 +107,34 @@ public class Playlist implements PlaylistSubject {
     }
 
     /**
-     * Adds songs from a list of files to the current playlist. The old list of songs is cleared before adding new songs.
+     * Adds songs from a list of fileManagement to the current playlist. The old list of songs is cleared before adding new songs.
      *
-     * @param files The list of files containing the songs to add to the playlist.
+     * @param fileManagement The list of fileManagement containing the songs to add to the playlist.
      */
-    public void addSongsFromFilesToPlaylist(Files files) {
+    public void addSongsFromFilesToPlaylist(FileManagement fileManagement) {
         // clear old list songs if it exists
         this.getSongList().clear();
         int songID = 0;
         // add songs from file list by new Song instance
-        for (File file : files.getListFiles()) {
+        for (File file : fileManagement.getListFiles()) {
             if (file != null) {
-                String nameSong = Files.getFileNameFromFilePath(file);
+                String nameSong = FileManagement.getFileNameFromFilePath(file);
                 this.getSongList().add(new Song(songID, nameSong, false, file.getPath()));
                 songID++;
             }
         }
         // write songs data which just have been imported to data file
-        files.writeSongsDataFile(Files.PREVIOUS_IMPORTED_SONGS_DATA_FILE_PATH, this);
+        fileManagement.writeSongsDataFile(FileManagement.PREVIOUS_IMPORTED_SONGS_DATA_FILE_PATH, this);
     }
 
     /**
-     * Adds songs from a data file to the current playlist. Only songs whose corresponding files exist will be added to the playlist.
+     * Adds songs from a data file to the current playlist. Only songs whose corresponding fileManagement exist will be added to the playlist.
      *
-     * @param files        The Files object used for reading data from the data file.
-     * @param dataFilePath The file path of the data file to read from.
+     * @param fileManagement The FileManagement object used for reading data from the data file.
+     * @param dataFilePath   The file path of the data file to read from.
      */
-    public void addSongsFromDataFileToPlaylist(Files files, String dataFilePath) {
-        for (String fileRecord : files.readRecordsFromDataFile(dataFilePath)
+    public void addSongsFromDataFileToPlaylist(FileManagement fileManagement, String dataFilePath) {
+        for (String fileRecord : fileManagement.readRecordsFromDataFile(dataFilePath)
         ) {
 
             StringTokenizer tokenizer = new StringTokenizer(fileRecord, "\t");

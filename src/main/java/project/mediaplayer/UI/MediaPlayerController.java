@@ -18,6 +18,22 @@ import java.util.StringTokenizer;
  * This is a Controller class of this Media Player Application stage.
  * The Controller class connects View with Model's methods using MVC Pattern with Observer Pattern.
  * In this JavaFX Application, the View was represented by FXML file.
+ * <br>
+ * NOTE: This program have two ways to import song:
+ * <ul>
+ *     <li>The first is load song from previous import data file</li>
+ *     <li>The second is load songs from {@link MediaPlayerController#chooseFiles()} and {@link MediaPlayerController#chooseFileFromDir()}</li>
+ * </ul>
+ * <ul>
+ *     <li>
+ *         The first way is carried by {@link Initializable#initialize(URL, ResourceBundle)} method to load songs from
+ *         data file when the app started.
+ *     </li>
+ *     <li>
+ *         The second way is carried by two methods {@link MediaPlayerController#chooseFiles()}
+ *         and {@link MediaPlayerController#chooseFileFromDir()}.
+ *     </li>
+ * </ul>
  */
 public class MediaPlayerController implements Initializable, PlaylistObserver, MediaPlayerManagementObserver {
 
@@ -32,7 +48,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
     private final Playlist favoritePlaylist = new Playlist(Playlist.FAVORITE_PLAYLIST_NAME);
     private final Playlist playingPlaylist = new Playlist(Playlist.PLAYING_PLAYLIST_NAME);
     private final Playlist foundSongsList = new Playlist(Playlist.FOUND_SONGS_PLAYLIST_NAME);
-    private final Files files = new Files();
+    private final FileManagement fileManagement = new FileManagement();
     private MediaPlayerManagement mediaPlayerManagement;
 
     //-----------------------VIEW COMPONENTS------------------------//
@@ -187,40 +203,20 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
      */
     @FXML
     protected void chooseFileFromDir() {
-        files.chooseFilesFromDir();
+        fileManagement.chooseFilesFromDir();
 
-        if (files.getListFiles().isEmpty()) {
-            String title = "No song added";
-            String message = "Seem a directory you chose didn't have any music file (*.mp3, *.aac, *.wav). \n" + "Please import it again!";
-            showInformationAlert(title, message);
-        } else {
-            mediaPlayerManagement = new MediaPlayerManagement(playingPlaylist);
-            registerSubjects(playingPlaylist, mediaPlayerManagement);
-
-            homePlaylist.addSongsFromFilesToPlaylist(files);
-            // add song from homePlaylist
-            playingPlaylist.setPlaylistFrom(homePlaylist);
-        }
+        loadSongsToPlaylists();
     }
 
+    /**
+     * Choose each music files that you want to play using {@link javafx.stage.FileChooser}
+     * and add songs at the same as {@link MediaPlayerController#chooseFileFromDir()} method
+     */
     @FXML
     protected void chooseFiles() {
-        files.chooseFiles();
+        fileManagement.chooseFiles();
 
-        if (files.getListFiles().isEmpty()) {
-            String title = "No song added";
-            String message = "Seem a directory you chose didn't have any music file (*.mp3, *.aac, *.wav). \n" + "Please import it again!";
-            showInformationAlert(title, message);
-        } else {
-            mediaPlayerManagement = new MediaPlayerManagement(playingPlaylist);
-            registerSubjects(playingPlaylist, mediaPlayerManagement);
-
-            homePlaylist.addSongsFromFilesToPlaylist(files);
-            // add song from homePlaylist
-            playingPlaylist.setPlaylistFrom(homePlaylist);
-        }
-
-
+        loadSongsToPlaylists();
     }
 
     /**
@@ -377,7 +373,7 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
         }
 
         // write favorite songs to favorite data file after add or remove song from favorite playlist
-        files.writeSongsDataFile(Files.FAVORITE_DATA_FILE_PATH, favoritePlaylist);
+        fileManagement.writeSongsDataFile(FileManagement.FAVORITE_DATA_FILE_PATH, favoritePlaylist);
 
         // TEST
         System.out.println(favoritePlaylist);
@@ -462,10 +458,10 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
         mediaPlayerManagement = new MediaPlayerManagement(playingPlaylist);
         this.registerSubjects(playingPlaylist, mediaPlayerManagement);
 
-        homePlaylist.addSongsFromDataFileToPlaylist(files, Files.PREVIOUS_IMPORTED_SONGS_DATA_FILE_PATH);
+        homePlaylist.addSongsFromDataFileToPlaylist(fileManagement, FileManagement.PREVIOUS_IMPORTED_SONGS_DATA_FILE_PATH);
 
         if (!homePlaylist.getSongList().isEmpty()) {
-            favoritePlaylist.addSongsFromDataFileToPlaylist(files, Files.FAVORITE_DATA_FILE_PATH);
+            favoritePlaylist.addSongsFromDataFileToPlaylist(fileManagement, FileManagement.FAVORITE_DATA_FILE_PATH);
 
             // set favorite for home playlist songs from previous favorite songs data
             for (Song song : favoritePlaylist.getSongList()) {
@@ -526,6 +522,24 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
             alert.setContentText(alertMessage);
             // to show alert
             alert.show();
+        }
+    }
+
+    /**
+     * This method will check files from {@link FileManagement} after imported files by two method
+     * {@link MediaPlayerController#chooseFileFromDir()} or {@link MediaPlayerController#chooseFiles()}
+     */
+    private void loadSongsToPlaylists() {
+        if (fileManagement.getListFiles().isEmpty()) {
+            String title = "No song added";
+            String message = "Seem a directory you chose didn't have any music file (*.mp3, *.aac, *.wav). \n" + "Please import it again!";
+            showInformationAlert(title, message);
+        } else {
+//            mediaPlayerManagement = new MediaPlayerManagement(playingPlaylist);
+//            registerSubjects(playingPlaylist, mediaPlayerManagement);
+            homePlaylist.addSongsFromFilesToPlaylist(fileManagement);
+            // add song from homePlaylist to playing playlist
+            playingPlaylist.setPlaylistFrom(homePlaylist);
         }
     }
 }

@@ -5,15 +5,15 @@ import javafx.stage.DirectoryChooser;
 import java.io.File;
 
 /**
- * This is a Concrete Strategy Choose File from Directory of {@link Files} class.
+ * This is a Concrete Strategy Choose File from Directory of {@link FileManagement} class.
  * This strategy using {@link DirectoryChooser} and add music files from it.
  */
-public class ConcreteStrategyChooseFileFromDir implements FilesStrategy {
+public class ConcreteStrategyChooseFileFromDir implements FileManagementStrategy {
 
     @Override
-    public void chooseFileStrategy(Files files) {
-        // clear old files if it exists
-        files.getListFiles().clear();
+    public void chooseFileStrategy(FileManagement fileManagement) {
+        // clear old file list if it exists
+        fileManagement.getListFiles().clear();
 
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Open Music Folder");
@@ -25,7 +25,7 @@ public class ConcreteStrategyChooseFileFromDir implements FilesStrategy {
                 // only add .mp3, .aac, .wav file
                 if (file.getPath().endsWith(".mp3") || file.getPath().endsWith(".aac")
                         || file.getPath().endsWith(".wav"))
-                    files.getListFiles().add(file);
+                    fileManagement.getListFiles().add(file);
             }
         }
     }
