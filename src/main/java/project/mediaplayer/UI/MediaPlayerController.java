@@ -402,11 +402,13 @@ public class MediaPlayerController implements Initializable, PlaylistObserver, M
         headerLabel.setText(foundSongsList.getPlaylistName());
 
         // gets data (song's name) from this search bar
-        String searchBarData = searchBar.getText();
+        String searchBarData = searchBar.getText().toLowerCase();
         System.out.println(searchBarData);
 
         // add songs which was found to foundSongList
-        foundSongsList.setSongList(playingPlaylist.findSongs(searchBarData));
+        if (searchBarData != null)
+            foundSongsList.setSongList(playingPlaylist.findSongs(searchBarData));
+
         System.out.println(foundSongsList.getSongList());
 
         // then update list view

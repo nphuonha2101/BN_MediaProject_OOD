@@ -60,20 +60,15 @@ public class Playlist implements PlaylistSubject {
 
     /**
      * <p>Find list of songs which has name start with {@param searchSongName}.</p>
-     * <p>Because the built-in method startsWith(String) don't allow to find with ignore case
-     * then uses subString songName in list and compares with {@param searchSongName}.</p>
      *
-     * @param searchSongName
+     * @param searchSongName is a song name that you want to search
      * @return {@link ArrayList} of songs with have name start with searchSongName
      */
     public ArrayList<Song> findSongs(String searchSongName) {
         ArrayList<Song> result = new ArrayList<>();
 
-        int songNameLength = searchSongName.length();
         for (Song song : this.getSongList()) {
-            String substringSongName = song.getSongName().substring(0, songNameLength);
-
-            if (substringSongName.equalsIgnoreCase(searchSongName))
+            if (song.getSongName().toLowerCase().startsWith(searchSongName))
                 result.add(song);
         }
 
@@ -85,7 +80,6 @@ public class Playlist implements PlaylistSubject {
 
             setAlertDialogTitleAndMessage(alertTitle, alertMessage);
         }
-
         return result;
     }
 
@@ -210,8 +204,10 @@ public class Playlist implements PlaylistSubject {
     public void setAlertDialogTitleAndMessage(String alertTitle, String alertMessage) {
         this.alertTitle = alertTitle;
         this.alertMessage = alertMessage;
-
         notifyPlaylistObservers();
+        // set message and title to null to avoid show old message show when observers updated
+        this.alertTitle = null;
+        this.alertMessage = null;
     }
 
 }
