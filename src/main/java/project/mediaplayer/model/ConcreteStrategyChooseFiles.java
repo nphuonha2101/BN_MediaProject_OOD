@@ -9,7 +9,7 @@ import java.io.File;
  * This can choose one or multiples music files.
  * This strategy using {@link FileChooser} and add music files from it.
  */
-public class ConcreteStrategyChooseFileManagement implements FileManagementStrategy {
+public class ConcreteStrategyChooseFiles implements FileManagementStrategy {
     @Override
     public void chooseFileStrategy(FileManagement fileManagement) {
         // clear old file list if it exists

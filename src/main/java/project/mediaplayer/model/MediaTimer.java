@@ -83,7 +83,7 @@ public class MediaTimer implements MediaTimerSubject {
         };
 
         // each 1000ms (1s), run code in run() method (TimerTask) to calculate value to update progress bar
-        timer.scheduleAtFixedRate(task, 0, 1000);
+        timer.scheduleAtFixedRate(task, 0, 50);
 
     }
 

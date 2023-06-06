@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a5163a8-c47b-40ce-86de-968bc74dba79" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyChooseFileFromDir.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyChooseFiles.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FilesStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/icons8-add-file-48.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/UI/MediaPlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/Files.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyChooseFileManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/ConcreteStrategyChooseFiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FileManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/FileManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/mediaplayer/model/MediaTimer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data/previousImportedSongsData.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/previousImportedSongsData.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/main-player-application.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/mediaplayer/UI/main-player-application.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,33 +81,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Java Workspace/OOD Labs&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.43045563&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "/Users/bangpham/Desktop/BN_MediaProject_OOD",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.43045563",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="project.mediaplayer.model" />
@@ -150,7 +146,7 @@
     </configuration>
     <configuration name="MediaPlayerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="project.mediaplayer.UI.MediaPlayerApplication" />
-      <module name="MediaProject_OOD" />
+      <module name="BN_MediaProject_OOD" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="project.mediaplayer.UI.*" />
@@ -607,6 +603,27 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="Branch">
@@ -639,27 +656,6 @@
                 </option>
               </RecentGroup>
             </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
           </value>
         </entry>
       </map>

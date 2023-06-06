@@ -44,7 +44,7 @@ public class FileManagement {
      * <p>This method only add music file with these extension (*.mp3, *.wav, *.aac) </p>
      */
     public void chooseFiles() {
-        this.setFilesStrategy(new ConcreteStrategyChooseFileManagement());
+        this.setFilesStrategy(new ConcreteStrategyChooseFiles());
         this.fileManagementStrategy.chooseFileStrategy(this);
     }
 
