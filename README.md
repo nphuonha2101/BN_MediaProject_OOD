@@ -77,7 +77,7 @@ Run project in IDE:
 
 This is our general class diagram
 
-![General diagram](imageGithub/diagram.png)
+![General diagram](imageGithub/diagram.jpg)
 
 ## Contributors
 
